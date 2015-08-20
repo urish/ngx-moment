@@ -1,5 +1,7 @@
 /* angular2-moment / v0.0.1 / (c) 2015 Uri Shaked / MIT Licence */
 
+/// <reference path="node_modules/angular2/angular2.d.ts" />
+
 import {Pipe, PipeFactory} from 'angular2/angular2';
 import * as moment from 'moment';
 
@@ -10,7 +12,7 @@ export class TimeAgoPipe implements Pipe {
   }
   
   supports(value:any): boolean {
-    return value instanceof Date;
+    return value instanceof Date || moment.isMoment(value);
   }
   
   transform(value: Date | moment.Moment, args?: List<any>): any {
@@ -48,7 +50,7 @@ export class TimeAgoPipe implements Pipe {
 
 export class TimeAgoPipeFactory implements PipeFactory {
   supports(value:any): boolean {
-    return value instanceof Date;
+    return value instanceof Date || moment.isMoment(value);
   }
   create(cdRef): Pipe {
     return new TimeAgoPipe(cdRef);

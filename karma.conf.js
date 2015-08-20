@@ -23,7 +23,7 @@ module.exports = function (config) {
         loaders: [
           {
             test: /\.ts$/,
-            loader: 'typescript-simple?ignoreWarnings[]=2345',
+            loader: 'typescript-simple?ignoreWarnings[]=2315',
             exclude: [/node_modules/]
           }
         ]

@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import {TimeAgoPipe, TimeAgoPipeFactory} from './TimeAgoPipe';
 
 describe('Capitalize', () => {
@@ -8,7 +9,7 @@ describe('Capitalize', () => {
     var pipe;
 
     beforeEach(() => {
-      pipe = new TimeAgoPipe();
+      pipe = new TimeAgoPipe(null);
     });
 
     describe('#support', () => {
@@ -17,6 +18,10 @@ describe('Capitalize', () => {
         expect(pipe.supports(new Date())).toBe(true);
       });
 
+      it('should support moment instances', () => {
+        expect(pipe.supports(moment())).toBe(true);
+      });
+      
       it('should not support string', () => {
         expect(pipe.supports('foobar')).toBe(false);
       });
@@ -46,6 +51,10 @@ describe('Capitalize', () => {
         expect(factory.supports(new Date())).toBe(true);
       });
 
+      it('should support moment instances', () => {
+        expect(factory.supports(moment())).toBe(true);
+      });
+
       it('should not support string', () => {
         expect(factory.supports('foobar')).toBe(false);
       });
@@ -57,7 +66,7 @@ describe('Capitalize', () => {
 
     describe('#create', () => {
       it('should be instance of TimeAgoPipe', () => {
-        expect(factory.create() instanceof TimeAgoPipe).toBeTruthy();
+        expect(factory.create(null) instanceof TimeAgoPipe).toBeTruthy();
       });
     });
 
