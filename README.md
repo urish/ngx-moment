@@ -6,3 +6,7 @@ moment.js pipes for Angular2
 ## Usage
 
 `<time>{{someDate | amTimeAgo }}</time>`
+
+## Demo
+
+[See online demo on Plunker](http://plnkr.co/edit/ziBJ0mftSjnz0SrYPwbo?p=preview)
