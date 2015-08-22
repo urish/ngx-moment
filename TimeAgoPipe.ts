@@ -3,7 +3,10 @@
 /// <reference path="node_modules/angular2/angular2.d.ts" />
 
 import {Pipe, PipeFactory} from 'angular2/angular2';
-import * as moment from 'moment';
+import * as moment_ from 'moment';
+
+// under systemjs, moment is actually exported as the default export, so we account for that
+const moment = moment_['default'] || moment_;
 
 export class TimeAgoPipe implements Pipe {
   private _currentTimer: number;
