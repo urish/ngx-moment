@@ -25,6 +25,7 @@
     "moment": "^2.10.6"
   },
   "devDependencies": {
+    "es6-shim": "^0.33.1",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.0",
