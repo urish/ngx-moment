@@ -44,7 +44,7 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: true,
 	
-    # See http://stackoverflow.com/a/27873086/830623
+    // See http://stackoverflow.com/a/27873086/830623
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
