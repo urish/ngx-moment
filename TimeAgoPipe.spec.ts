@@ -1,9 +1,10 @@
+import 'reflect-metadata';
 import * as moment from 'moment';
-import {TimeAgoPipe, TimeAgoPipeFactory} from './TimeAgoPipe';
+import {TimeAgoPipe} from './TimeAgoPipe.ts';
 
-describe('Capitalize', () => {
+describe('TimeAgo', () => {
 
-  describe('CapitalizePipe', () => {
+  describe('TimeAgoPipe', () => {
     var subject;
     var result;
     var pipe;
@@ -37,38 +38,5 @@ describe('Capitalize', () => {
         expect(pipe.transform(new Date())).toBe("a few seconds ago");
       });
     });
-  });
-
-  describe('TimeAgoPipeFactory', () => {
-    var factory;
-
-    beforeEach(() => {
-      factory = new TimeAgoPipeFactory();
-    });
-
-    describe('#support', () => {
-      it('should support Date objects', () => {
-        expect(factory.supports(new Date())).toBe(true);
-      });
-
-      it('should support moment instances', () => {
-        expect(factory.supports(moment())).toBe(true);
-      });
-
-      it('should not support string', () => {
-        expect(factory.supports('foobar')).toBe(false);
-      });
-
-      it('should not support null', () => {
-        expect(factory.supports(null)).toBe(false);
-      });
-    });
-
-    describe('#create', () => {
-      it('should be instance of TimeAgoPipe', () => {
-        expect(factory.create(null) instanceof TimeAgoPipe).toBeTruthy();
-      });
-    });
-
   });
 });

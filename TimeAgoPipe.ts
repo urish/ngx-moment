@@ -2,16 +2,17 @@
 
 /// <reference path="node_modules/angular2/angular2.d.ts" />
 
-import {Pipe, PipeFactory} from 'angular2/angular2';
+import {Pipe, ChangeDetectorRef} from 'angular2/angular2';
 import * as moment_ from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
 const moment = moment_['default'] || moment_;
 
+@Pipe({name: 'amTimeAgo'})
 export class TimeAgoPipe implements Pipe {
   private _currentTimer: number;
   
-  constructor(private _cdRef) {
+  constructor(private _cdRef: ChangeDetectorRef) {
   }
   
   supports(value:any): boolean {
@@ -50,14 +51,3 @@ export class TimeAgoPipe implements Pipe {
     }
   }
 }
-
-export class TimeAgoPipeFactory implements PipeFactory {
-  supports(value:any): boolean {
-    return value instanceof Date || moment.isMoment(value);
-  }
-  create(cdRef): Pipe {
-    return new TimeAgoPipe(cdRef);
-  }
-}
-
-export var timeAgoPipe = [ new TimeAgoPipeFactory() ];
