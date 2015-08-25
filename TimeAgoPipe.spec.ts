@@ -1,4 +1,5 @@
 import 'es6-shim';
+import 'es6-symbol/implement';
 import 'reflect-metadata';
 import * as moment from 'moment';
 import {TimeAgoPipe} from './TimeAgoPipe.ts';
