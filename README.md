@@ -8,7 +8,7 @@ For the stable AngularJS 1.x version of this module, please see [angular-moment]
 
 ## Installation
 
-npm install --save angular2-moment
+`npm install --save angular2-moment`
 
 ## Usage
 
