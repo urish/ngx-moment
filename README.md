@@ -6,6 +6,10 @@ moment.js pipes for Angular2.
 
 For the stable AngularJS 1.x version of this module, please see [angular-moment](https://github.com/urish/angular-moment).
 
+## Installation
+
+npm install --save angular2-moment
+
 ## Usage
 
 `<time>{{someDate | amTimeAgo }}</time>`
