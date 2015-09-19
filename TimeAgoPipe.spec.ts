@@ -24,7 +24,7 @@ describe('TimeAgo', () => {
       it('should support moment instances', () => {
         expect(pipe.supports(moment())).toBe(true);
       });
-      
+
       it('should not support string', () => {
         expect(pipe.supports('foobar')).toBe(false);
       });
