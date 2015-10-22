@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/urish/angular2-moment#readme",
   "dependencies": {
-    "angular2": "^2.0.0-alpha.37",
+    "angular2": "^2.0.0-alpha.44",
     "moment": "^2.10.6"
   },
   "devDependencies": {

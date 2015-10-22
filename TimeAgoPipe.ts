@@ -1,4 +1,4 @@
-/* angular2-moment / v0.0.1 / (c) 2015 Uri Shaked / MIT Licence */
+/* angular2-moment / v0.0.3 / (c) 2015 Uri Shaked / MIT Licence */
 
 /// <reference path="node_modules/angular2/bundles/typings/angular2/angular2.d.ts" />
 
@@ -8,7 +8,7 @@ import * as moment_ from 'moment';
 // under systemjs, moment is actually exported as the default export, so we account for that
 const moment = moment_['default'] || moment_;
 
-@Pipe({name: 'amTimeAgo'})
+@Pipe({name: 'amTimeAgo', pure: false})
 export class TimeAgoPipe implements Pipe {
   private _currentTimer:number;
 
