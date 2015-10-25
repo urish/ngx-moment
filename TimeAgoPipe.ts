@@ -1,4 +1,4 @@
-/* angular2-moment / v0.0.3 / (c) 2015 Uri Shaked / MIT Licence */
+/* angular2-moment / v0.0.4 / (c) 2015 Uri Shaked / MIT Licence */
 
 /// <reference path="node_modules/angular2/bundles/typings/angular2/angular2.d.ts" />
 /// <reference path="typings/moment/moment.d.ts" />
