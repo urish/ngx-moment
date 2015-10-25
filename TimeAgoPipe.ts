@@ -1,15 +1,16 @@
 /* angular2-moment / v0.0.3 / (c) 2015 Uri Shaked / MIT Licence */
 
 /// <reference path="node_modules/angular2/bundles/typings/angular2/angular2.d.ts" />
+/// <reference path="typings/moment/moment.d.ts" />
 
-import {Pipe, ChangeDetectorRef} from 'angular2/angular2';
+import {Pipe, ChangeDetectorRef, PipeTransform} from 'angular2/angular2';
 import * as moment_ from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
-const moment = moment_['default'] || moment_;
+const moment:moment.MomentStatic = (<any>moment_)['default'] || moment_;
 
 @Pipe({name: 'amTimeAgo', pure: false})
-export class TimeAgoPipe implements Pipe {
+export class TimeAgoPipe implements PipeTransform {
   private _currentTimer:number;
 
   constructor(private _cdRef:ChangeDetectorRef) {
@@ -19,7 +20,7 @@ export class TimeAgoPipe implements Pipe {
     return value instanceof Date || moment.isMoment(value);
   }
 
-  transform(value:Date | moment.Moment, args?:List<any>):any {
+  transform(value:Date | moment.Moment, args?:any[]):any {
     let momentInstance = moment(value);
     this._removeTimer();
     let timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;

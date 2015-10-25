@@ -2,9 +2,18 @@
   "name": "angular2-moment",
   "version": "0.0.3",
   "description": "Moment.JS pipes for Angular2 (timeago and more)",
-  "main": "TimeAgoPipe.ts",
+  "main": "TimeAgoPipe.js",
+  "typings": "./TimeAgoPipe.d.ts",
+  "files": [
+    "TimeAgoPipe.js",
+    "TimeAgoPipe.js.map",
+    "TimeAgoPipe.d.ts",
+    "TimeAgoPipe.ts",
+    "CHANGELOG.md"
+  ],
   "scripts": {
-    "test": "karma start"
+    "test": "tsd install && tsc && karma start",
+    "prepublish": "tsd install && tsc"
   },
   "repository": {
     "type": "git",
@@ -31,11 +40,10 @@
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.1",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
-    "phantomjs": "^1.9.18",
     "reflect-metadata": "0.1.1",
+    "tsd": "^0.6.5",
     "typescript": "1.6.2",
     "typescript-simple-loader": "0.3.7",
     "webpack": "^1.11.0"

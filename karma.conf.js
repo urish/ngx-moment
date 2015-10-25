@@ -23,7 +23,7 @@ module.exports = function (config) {
         loaders: [
           {
             test: /\.ts$/,
-            loader: 'typescript-simple?ignoreWarnings[]=2315',
+            loader: 'typescript-simple',
             exclude: [/node_modules/]
           }
         ]
@@ -43,7 +43,7 @@ module.exports = function (config) {
     autoWatch: false,
     browsers: ['Chrome'],
     singleRun: true,
-	
+
     // See http://stackoverflow.com/a/27873086/830623
     customLaunchers: {
       Chrome_travis_ci: {
@@ -52,7 +52,7 @@ module.exports = function (config) {
       }
     }
   };
-  
+
   if (process.env.TRAVIS){
     _config.browsers = ['Chrome_travis_ci'];
   }

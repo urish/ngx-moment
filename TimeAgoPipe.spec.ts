@@ -7,9 +7,7 @@ import {TimeAgoPipe} from './TimeAgoPipe.ts';
 describe('TimeAgo', () => {
 
   describe('TimeAgoPipe', () => {
-    var subject;
-    var result;
-    var pipe;
+    var pipe:TimeAgoPipe;
 
     beforeEach(() => {
       pipe = new TimeAgoPipe(null);
@@ -37,7 +35,7 @@ describe('TimeAgo', () => {
 
     describe('#transform', () => {
       it('should transform the current date to "a few seconds ago"', () => {
-        expect(pipe.transform(new Date())).toBe("a few seconds ago");
+        expect(pipe.transform(new Date())).toBe('a few seconds ago');
       });
     });
   });
