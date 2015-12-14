@@ -23,7 +23,7 @@ module.exports = function (config) {
         loaders: [
           {
             test: /\.ts$/,
-            loader: 'typescript-simple',
+            loader: 'ts',
             exclude: [/node_modules/]
           }
         ]
