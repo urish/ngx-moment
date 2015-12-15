@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.0 - 2015-12-15
+- Align with angular 2.0.0-beta.0
+
 ## 0.0.5 - 2015-11-12
 - Align with angular-2.0.0-alpha.46
 
