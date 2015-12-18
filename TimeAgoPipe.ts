@@ -1,7 +1,5 @@
 /* angular2-moment / v0.1.0 / (c) 2015 Uri Shaked / MIT Licence */
 
-/// <reference path="typings/moment/moment.d.ts" />
-
 import {Pipe, ChangeDetectorRef, PipeTransform} from 'angular2/core';
 import * as moment_ from 'moment';
 

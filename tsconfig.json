@@ -9,6 +9,7 @@
     "declaration": true
   },
   "files": [
+    "typings/moment/moment.d.ts",
     "TimeAgoPipe.ts"
   ],
   "exclude": [

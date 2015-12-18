@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.1 - 2015-12-18
+- Fix 'Cannot use in app due to triple-slash references' typescript error ([#2](https://github.com/urish/angular2-moment/issues/2))
+
 ## 0.1.0 - 2015-12-15
 - Align with angular 2.0.0-beta.0
 
