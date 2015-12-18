@@ -19,7 +19,7 @@ For the stable AngularJS 1.x version of this module, please see [angular-moment]
 ## Complete Example
 
 ``` typescript
-import {Component} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 import {TimeAgoPipe} from 'angular2-moment';
 
 @Component({
