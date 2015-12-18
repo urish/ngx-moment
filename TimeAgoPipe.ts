@@ -1,4 +1,4 @@
-/* angular2-moment / v0.1.0 / (c) 2015 Uri Shaked / MIT Licence */
+/* angular2-moment / v0.1.1 / (c) 2015 Uri Shaked / MIT Licence */
 
 import {Pipe, ChangeDetectorRef, PipeTransform} from 'angular2/core';
 import * as moment_ from 'moment';
