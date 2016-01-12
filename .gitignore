@@ -4,3 +4,6 @@ typings
 TimeAgoPipe.js
 TimeAgoPipe.js.map
 TimeAgoPipe.d.ts
+CalendarPipe.js
+CalendarPipe.js.map
+CalendarPipe.d.ts
