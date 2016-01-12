@@ -20,13 +20,13 @@ For the stable AngularJS 1.x version of this module, please see [angular-moment]
 
 ``` typescript
 import {Component} from 'angular2/core';
-import {TimeAgoPipe} from 'angular2-moment';
+import {TimeAgoPipe, CalendarPipe} from 'angular2-moment';
 
 @Component({
   selector: 'app',
-  pipes: [TimeAgoPipe],
+  pipes: [TimeAgoPipe, CalendarPipe],
   template: `
-    Last updated: <b>{{myDate | amTimeAgo}}</b>
+    Last updated: <b>{{myDate | amTimeAgo}}</b> (<b>{{myDate | amCalendar}}</b>)
   `
 })
 export class App {
