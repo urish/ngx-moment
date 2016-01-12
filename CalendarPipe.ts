@@ -1,0 +1,80 @@
+/* angular2-moment / v0.1.1 / (c) 2015 Uri Shaked / MIT Licence */
+
+import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter} from 'angular2/core';
+import * as moment_ from 'moment';
+
+// under systemjs, moment is actually exported as the default export, so we account for that
+const moment:moment.MomentStatic = (<any>moment_)['default'] || moment_;
+
+@Pipe({name: 'amCalendar', pure: false})
+export class CalendarPipe implements PipeTransform {
+
+  /**
+   * @private Internal reference counter, so we can clean up when no instances are in use
+   * @type {number}
+   */
+  private static _refs: number = 0;
+
+  private static _timer: number;
+  private static _midnight: EventEmitter<Date>;
+
+  constructor(private _cdRef:ChangeDetectorRef) {
+    // using a single static timer for all instances of this pipe for performance reasons
+    CalendarPipe._initTimer();
+
+    CalendarPipe._refs++;
+
+    // values such as Today will need to be replaced with Yesterday after midnight,
+    // so make sure we subscribe to an EventEmitter that we set up to emit at midnight
+    CalendarPipe._midnight.subscribe(() => this._cdRef.markForCheck());
+  }
+
+  supports(value:any):boolean {
+    return value instanceof Date || moment.isMoment(value);
+  }
+
+  transform(value:Date | moment.Moment, args?:any[]):any {
+    return moment(value).calendar();
+  }
+
+  onDestroy():void {
+    if (CalendarPipe._refs > 0) {
+      CalendarPipe._refs--;
+    }
+
+    if (CalendarPipe._refs === 0) {
+      CalendarPipe._removeTimer();
+    }
+  }
+
+  private static _initTimer() {
+    // initialize the timer
+    if (!CalendarPipe._midnight) {
+      CalendarPipe._midnight = new EventEmitter();
+      let timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
+      CalendarPipe._timer = window.setTimeout(() => {
+        // emit the current date
+        CalendarPipe._midnight.emit(new Date());
+
+        // refresh the timer
+        CalendarPipe._removeTimer();
+        CalendarPipe._initTimer();
+      }, timeToUpdate);
+    }
+  }
+
+  private static _removeTimer() {
+    if (CalendarPipe._timer) {
+      window.clearTimeout(CalendarPipe._timer);
+      CalendarPipe._timer = null;
+      CalendarPipe._midnight = null;
+    }
+  }
+
+  private static _getMillisecondsUntilUpdate() {
+    var now = moment();
+    var tomorrow = moment().startOf('day').add(1, 'days');
+    var timeToMidnight = tomorrow.valueOf() - now.valueOf();
+    return timeToMidnight + 1000; // 1 second after midnight
+  }
+}
