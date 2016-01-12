@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.0 - 2015-01-12
+- add `amCalendar` pipe ([#6](https://github.com/urish/angular2-moment/pull/6), contributed by [andreialecu](https://github.com/andreialecu))
+
 ## 0.1.1 - 2015-12-18
 - Fix 'Cannot use in app due to triple-slash references' typescript error ([#2](https://github.com/urish/angular2-moment/issues/2))
 
