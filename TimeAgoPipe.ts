@@ -1,13 +1,13 @@
 /* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform} from 'angular2/core';
+import {Pipe, ChangeDetectorRef, PipeTransform, OnDestroy} from 'angular2/core';
 import * as moment_ from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
 const moment:moment.MomentStatic = (<any>moment_)['default'] || moment_;
 
 @Pipe({name: 'amTimeAgo', pure: false})
-export class TimeAgoPipe implements PipeTransform {
+export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private _currentTimer: number;
 
   constructor(private _cdRef:ChangeDetectorRef) {
@@ -25,7 +25,7 @@ export class TimeAgoPipe implements PipeTransform {
     return moment(value).from(moment());
   }
 
-  onDestroy():void {
+  ngOnDestroy():void {
     this._removeTimer();
   }
 

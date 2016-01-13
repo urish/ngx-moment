@@ -1,13 +1,13 @@
 /* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter} from 'angular2/core';
+import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy} from 'angular2/core';
 import * as moment_ from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
 const moment:moment.MomentStatic = (<any>moment_)['default'] || moment_;
 
 @Pipe({name: 'amCalendar', pure: false})
-export class CalendarPipe implements PipeTransform {
+export class CalendarPipe implements PipeTransform, OnDestroy {
 
   /**
    * @private Internal reference counter, so we can clean up when no instances are in use
@@ -37,7 +37,7 @@ export class CalendarPipe implements PipeTransform {
     return moment(value).calendar();
   }
 
-  onDestroy():void {
+  ngOnDestroy():void {
     if (CalendarPipe._refs > 0) {
       CalendarPipe._refs--;
     }
