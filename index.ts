@@ -1,2 +1,2 @@
-export * from './TimeAgoPipe';
-export * from './CalendarPipe';
+export * from './TimeAgoPipe.ts';
+export * from './CalendarPipe.ts';
