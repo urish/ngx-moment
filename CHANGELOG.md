@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.1 - 2015-01-16
+- bugfix: wrong method name for cleanup, caused resource leak ([#8](https://github.com/urish/angular2-moment/pull/8), contributed by [andreialecu](https://github.com/andreialecu))
+
 ## 0.2.0 - 2015-01-12
 - add `amCalendar` pipe ([#6](https://github.com/urish/angular2-moment/pull/6), contributed by [andreialecu](https://github.com/andreialecu))
 
