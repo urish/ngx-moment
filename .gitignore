@@ -7,6 +7,9 @@ TimeAgoPipe.d.ts
 CalendarPipe.js
 CalendarPipe.js.map
 CalendarPipe.d.ts
+DateFormatPipe.js
+DateFormatPipe.js.map
+DateFormatPipe.d.ts
 index.js
 index.js.map
 index.d.ts

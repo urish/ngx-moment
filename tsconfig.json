@@ -12,6 +12,7 @@
     "typings/moment/moment.d.ts",
     "TimeAgoPipe.ts",
     "CalendarPipe.ts",
+    "DateFormatPipe.ts",
     "index.ts"
   ],
   "exclude": [
