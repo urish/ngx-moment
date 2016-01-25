@@ -1,43 +1,93 @@
 # angular2-moment
 
-moment.js pipes for Angular 2.0 
+moment.js pipes for Angular 2.0
 
 [![Build Status](https://travis-ci.org/urish/angular2-moment.png?branch=master)](https://travis-ci.org/urish/angular2-moment)
 
-This module works with the latest beta release of Angular 2.0. 
+This module works with the latest beta release of Angular 2.0.
 
 For the stable AngularJS 1.x version of this module, please see [angular-moment](https://github.com/urish/angular-moment).
 
-## Installation
+Installation
+------------
 
 `npm install --save angular2-moment`
 
-## Usage
+Usage
+-----
 
-`<time>{{someDate | amTimeAgo }}</time>`
-
-## Complete Example
+## amTimeAgo pipe
 
 ``` typescript
-import {Component} from 'angular2/core';
-import {TimeAgoPipe, CalendarPipe} from 'angular2-moment';
+import {TimeAgoPipe} from 'angular2-moment';
 
 @Component({
   selector: 'app',
-  pipes: [TimeAgoPipe, CalendarPipe],
+  pipes: [TimeAgoPipe],
   template: `
-    Last updated: <b>{{myDate | amTimeAgo}}</b> (<b>{{myDate | amCalendar}}</b>)
+    Last updated: <time>{{myDate | amTimeAgo}}</time>
+  `
+})
+```
+
+Prints `Last updated: a few seconds ago`
+
+## amCalendar pipe
+
+``` typescript
+import {CalendarPipe} from 'angular2-moment';
+
+@Component({
+  selector: 'app',
+  pipes: [CalendarPipe],
+  template: `
+    Last updated: <time>{{myDate | amCalendar}}</time>
+  `
+})
+```
+
+Prints `Last updated: Today at 14:00`
+
+## amDateFormat pipe
+
+``` typescript
+import {DateFormatPipe} from 'angular2-moment';
+
+@Component({
+  selector: 'app',
+  pipes: [DateFormatPipe],
+  template: `
+    Last updated: <time>{{myDate | amDateFormat:'LL'}}</time>
+  `
+})
+```
+
+Prints `Last updated: January 24, 2016`
+
+Complete Example
+----------------
+
+``` typescript
+import {Component} from 'angular2/core';
+import {TimeAgoPipe, CalendarPipe, DateFormatPipe} from 'angular2-moment';
+
+@Component({
+  selector: 'app',
+  pipes: [TimeAgoPipe, CalendarPipe, DateFormatPipe],
+  template: `
+    Last updated: <b>{{myDate | amTimeAgo}}</b>, <b>{{myDate | amCalendar}}</b>, <b>{{myDate | amDateFormat:'LL'}}</b>
   `
 })
 export class App {
   myDate: Date;
-  
+
   constructor() {
     this.myDate = new Date();
   }
 }
 ```
 
-## Demo
+Demo
+----
 
 [See online demo on Plunker](http://plnkr.co/edit/ziBJ0mftSjnz0SrYPwbo?p=preview)
