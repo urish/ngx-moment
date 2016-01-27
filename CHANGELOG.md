@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.3.0 - 2015-01-27
-- add `amDateFormat` pipe ([#6](https://github.com/urish/angular2-moment/pull/6), contributed by [andreialecu](https://github.com/andreialecu))
+- add `amDateFormat` pipe ([#9](https://github.com/urish/angular2-moment/pull/9), contributed by [andreialecu](https://github.com/andreialecu))
 - refactor: remove the `supports()` from all the pipes (it is no longer used as of angular2-beta)
 
 ## 0.2.1 - 2015-01-16
