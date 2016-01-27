@@ -8,10 +8,6 @@ const moment:moment.MomentStatic = (<any>moment_)['default'] || moment_;
 
 @Pipe({name: 'amDateFormat', pure: false})
 export class DateFormatPipe implements PipeTransform {
-  supports(value:any):boolean {
-    return value instanceof Date || moment.isMoment(value);
-  }
-
   transform(value:Date | moment.Moment, args?:any[]):any {
     return moment(value).format(args[0]);
   }

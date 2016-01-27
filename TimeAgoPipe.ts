@@ -13,10 +13,6 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   constructor(private _cdRef:ChangeDetectorRef) {
   }
 
-  supports(value:any):boolean {
-    return value instanceof Date || moment.isMoment(value);
-  }
-
   transform(value:Date | moment.Moment, args?:any[]):any {
     let momentInstance = moment(value);
     this._removeTimer();

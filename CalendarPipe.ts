@@ -29,10 +29,6 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     CalendarPipe._midnight.subscribe(() => this._cdRef.markForCheck());
   }
 
-  supports(value:any):boolean {
-    return value instanceof Date || moment.isMoment(value);
-  }
-
   transform(value:Date | moment.Moment, args?:any[]):any {
     return moment(value).calendar();
   }
