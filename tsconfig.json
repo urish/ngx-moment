@@ -1,8 +1,9 @@
 {
+  "version": "1.7.5",
   "compilerOptions": {
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "ES5",
+    "target": "es5",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -10,12 +11,10 @@
   },
   "files": [
     "typings/moment/moment.d.ts",
-    "TimeAgoPipe.ts",
+    "node_modules/angular2/typings/jasmine/jasmine.d.ts",
     "CalendarPipe.ts",
     "DateFormatPipe.ts",
+    "TimeAgoPipe.ts",
     "index.ts"
-  ],
-  "exclude": [
-    "node_modules"
   ]
 }
