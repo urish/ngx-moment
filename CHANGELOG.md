@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 - 2015-02-16
+- Switch from `tsd` to `typings`, stop publishing the `moment.js` typings to npm. 
+- Additional unit-tests
+
+Note: You may need to manually install moment.js typings, by running `typings install --save moment` in your project directory.
+
 ## 0.3.0 - 2015-01-27
 - add `amDateFormat` pipe ([#9](https://github.com/urish/angular2-moment/pull/9), contributed by [andreialecu](https://github.com/andreialecu))
 - refactor: remove the `supports()` from all the pipes (it is no longer used as of angular2-beta)
