@@ -4,6 +4,7 @@ import {Pipe, ChangeDetectorRef, PipeTransform, OnDestroy} from 'angular2/core';
 import * as moment from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
+const momentConstructor: (value?: any) => moment.Moment = moment || (<any>moment).default;
 
 @Pipe({ name: 'amTimeAgo', pure: false })
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
@@ -13,11 +14,11 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   }
 
   transform(value: Date | moment.Moment, args?: any[]): any {
-    let momentInstance = moment(value);
+    const momentInstance = momentConstructor(value);
     this._removeTimer();
-    let timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
+    const timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
     this._currentTimer = window.setTimeout(() => this._cdRef.markForCheck(), timeToUpdate);
-    return moment(value).from(moment());
+    return momentConstructor(value).from(momentConstructor());
   }
 
   ngOnDestroy(): void {
@@ -32,7 +33,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   }
 
   _getSecondsUntilUpdate(momentInstance: moment.Moment) {
-    var howOld = Math.abs(moment().diff(momentInstance, 'minute'));
+    const howOld = Math.abs(momentConstructor().diff(momentInstance, 'minute'));
     if (howOld < 1) {
       return 1;
     } else if (howOld < 60) {

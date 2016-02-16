@@ -3,6 +3,9 @@
 import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy} from 'angular2/core';
 import * as moment from 'moment';
 
+// under systemjs, moment is actually exported as the default export, so we account for that
+const momentConstructor: (value?: any) => moment.Moment = moment || (<any>moment).default;
+
 @Pipe({ name: 'amCalendar', pure: false })
 export class CalendarPipe implements PipeTransform, OnDestroy {
 
@@ -27,7 +30,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   transform(value: Date | moment.Moment, args?: any[]): any {
-    return moment(value).calendar();
+    return momentConstructor(value).calendar();
   }
 
   ngOnDestroy(): void {
@@ -65,8 +68,8 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   private static _getMillisecondsUntilUpdate() {
-    var now = moment();
-    var tomorrow = moment().startOf('day').add(1, 'days');
+    var now = momentConstructor();
+    var tomorrow = momentConstructor().startOf('day').add(1, 'days');
     var timeToMidnight = tomorrow.valueOf() - now.valueOf();
     return timeToMidnight + 1000; // 1 second after midnight
   }
