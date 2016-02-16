@@ -13,3 +13,6 @@ DateFormatPipe.d.ts
 index.js
 index.js.map
 index.d.ts
+*.spec.js
+*.spec.js.map
+*.spec.d.ts

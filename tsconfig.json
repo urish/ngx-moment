@@ -10,11 +10,13 @@
     "declaration": true
   },
   "files": [
-    "typings/moment/moment.d.ts",
-    "node_modules/angular2/typings/jasmine/jasmine.d.ts",
+    "typings/main.d.ts",
     "CalendarPipe.ts",
+    "CalendarPipe.spec.ts",
     "DateFormatPipe.ts",
+    "DateFormatPipe.spec.ts",
     "TimeAgoPipe.ts",
+    "TimeAgoPipe.spec.ts",
     "index.ts"
   ]
 }
