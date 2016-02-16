@@ -4,7 +4,7 @@ import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy} from 'a
 import * as moment from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
-const momentConstructor: (value?: any) => moment.Moment = moment || (<any>moment).default;
+const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
 
 @Pipe({ name: 'amCalendar', pure: false })
 export class CalendarPipe implements PipeTransform, OnDestroy {
