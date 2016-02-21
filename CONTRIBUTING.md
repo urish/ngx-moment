@@ -25,6 +25,10 @@ and install all needed dependencies via **npm**:
 
 `npm install`
 
+Finally, install the required typescript definitions:
+
+`npm run install_typings`
+
 Well done! angular2-moment is now installed and ready to be built.
 
 ## Building
@@ -35,7 +39,7 @@ the development process. The following npm scripts are provided:
 #### npm test
 
 `npm test` compiles the typescript code into javascript, and then runs the unit
-tests, which are located in `TimeAgoPipe.spec.ts`. The task uses the **karma** test 
+tests, which are located in `*.spec.ts`. The task uses the **karma** test 
 runner to executes the tests with the **jasmine testing framework**. 
 
 #### npm run prepublish

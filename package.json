@@ -24,7 +24,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "postinstall": "typings install",
+    "install_typings": "typings install",
     "test": "tslint *.ts && typings install && tsc && karma start",
     "prepublish": "typings install && tsc"
   },

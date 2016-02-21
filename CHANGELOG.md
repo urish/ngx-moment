@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.1 - 2015-02-21
+- Don't run `typings install` on postinstall (fixes [#13](https://github.com/urish/angular2-moment/issues/13))
+
 ## 0.4.0 - 2015-02-16
 - Switch from `tsd` to `typings`, stop publishing the `moment.js` typings to npm. 
 - Additional unit-tests
