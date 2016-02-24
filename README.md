@@ -68,6 +68,22 @@ import {DateFormatPipe} from 'angular2-moment';
 
 Prints `Last updated: January 24, 2016`
 
+## amFromUnix pipe
+
+``` typescript
+import {DateFormatPipe, FromUnixPipe} from 'angular2-moment';
+
+@Component({
+  selector: 'app',
+  pipes: [DateFormatPipe, FromUnixPipe],
+  template: `
+    Last updated: <time>{{ (1456263980 | amFromUnix) | amDateFormat:'hh:mmA'}}</time>
+  `
+})
+```
+
+Prints `Last updated: 01:46PM`
+
 Complete Example
 ----------------
 
