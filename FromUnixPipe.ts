@@ -1,0 +1,14 @@
+/* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
+
+import {Pipe, ChangeDetectorRef, PipeTransform} from 'angular2/core';
+import * as moment from 'moment';
+
+@Pipe({ name: 'amFromUnix', pure: false })
+export class FromUnixPipe implements PipeTransform {
+  transform(value: any, args?: string[]): any {
+    if (typeof value === 'string') {
+  		value = +value;
+  	}
+    return moment.unix(value);
+  }
+}
