@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.2 - 2015-02-24
+- add `amFromUnix` pipe ([#16](https://github.com/urish/angular2-moment/pull/16), contributed by [lanocturne](https://github.com/lanocturne))
+
 ## 0.4.1 - 2015-02-21
 - Don't run `typings install` on postinstall (fixes [#13](https://github.com/urish/angular2-moment/issues/13))
 
