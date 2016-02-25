@@ -17,12 +17,5 @@ describe('FromUnixPipe', () => {
       const result = pipe.transform('1456263980');
       expect(result).toEqual(moment.unix(1456263980));
     });
-
-    it('should format a unix timestamp', () => {
-	  const unixPipe = new FromUnixPipe(),
-            datePipe = new DateFormatPipe();
-	  const result = datePipe.transform(unixPipe.transform(1456263980), ['hh:mmA']);
-      expect(result.length).toEqual(7);
-    });
   });
 });

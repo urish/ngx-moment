@@ -21,6 +21,8 @@
     "TimeAgoPipe.js.map",
     "TimeAgoPipe.d.ts",
     "TimeAgoPipe.ts",
+    "FromUnixPipe.js",
+    "FromUnixPipe.js.map",
     "FromUnixPipe.d.ts",
     "FromUnixPipe.ts",
     "CHANGELOG.md"

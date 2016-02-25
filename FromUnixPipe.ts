@@ -3,12 +3,12 @@
 import {Pipe, ChangeDetectorRef, PipeTransform} from 'angular2/core';
 import * as moment from 'moment';
 
-@Pipe({ name: 'amFromUnix', pure: false })
+@Pipe({ name: 'amFromUnix' })
 export class FromUnixPipe implements PipeTransform {
   transform(value: any, args?: string[]): any {
     if (typeof value === 'string') {
-  		value = +value;
-  	}
+      value = +value;
+    }
     return moment.unix(value);
   }
 }

@@ -15,6 +15,8 @@
     "CalendarPipe.spec.ts",
     "DateFormatPipe.ts",
     "DateFormatPipe.spec.ts",
+    "FromUnixPipe.ts",
+    "FromUnixPipe.spec.ts",
     "TimeAgoPipe.ts",
     "TimeAgoPipe.spec.ts",
     "index.ts"
