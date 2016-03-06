@@ -9,6 +9,7 @@
     "index.js.map",
     "index.d.ts",
     "index.ts",
+    "typings.json",
     "CalendarPipe.js",
     "CalendarPipe.js.map",
     "CalendarPipe.d.ts",
