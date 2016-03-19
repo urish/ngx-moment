@@ -13,7 +13,7 @@ Installation
 
 `npm install --save angular2-moment`
 
-If you use typescript, and [https://github.com/typings/typings](typings), you may also need to install typings for moment.js:
+If you use typescript, and [typings](https://github.com/typings/typings), you may also need to install typings for moment.js:
 
 `typings install --save moment`
 
