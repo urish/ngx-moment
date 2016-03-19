@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.3",
+    "es6-shim": "^0.35.0",
     "jasmine-core": "2.4.1",
     "karma": "0.13.21",
     "karma-chrome-launcher": "0.2.2",
@@ -67,6 +67,6 @@
     "typescript": "1.7.5",
     "typings": "0.6.8",
     "webpack": "1.12.13",
-    "zone.js": "^0.5.10"
+    "zone.js": "^0.6.4"
   }
 }
