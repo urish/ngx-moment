@@ -41,21 +41,9 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['Chrome'],
-    singleRun: true,
-
-    // See http://stackoverflow.com/a/27873086/830623
-    customLaunchers: {
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    }
+    browsers: ['PhantomJS'],
+    singleRun: true
   };
-
-  if (process.env.TRAVIS){
-    _config.browsers = ['Chrome_travis_ci'];
-  }
 
   config.set(_config);
 };
