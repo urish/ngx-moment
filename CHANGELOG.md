@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0 - TBD
+- Move `angular2` from npm `dependencies` to `peerDependencies` (see [#24](https://github.com/urish/angular2-moment/pull/24))
+
 ## 0.4.3 - 2015-03-06
 - include `amFromUnix` pipe in the package's exports
 - publish our `typings.json` to npm 
