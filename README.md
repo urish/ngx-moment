@@ -84,6 +84,22 @@ import {DateFormatPipe, FromUnixPipe} from 'angular2-moment';
 
 Prints `Last updated: 01:46PM`
 
+## amDuration pipe
+
+``` typescript
+import {DurationPipe} from 'angular2-moment';
+
+@Component({
+  selector: 'app',
+  pipes: [DurationPipe],
+  template: `
+    Uptime: <time>{{ 365 | amDuration:'seconds' }}</time>
+  `
+})
+```
+
+Prints `Uptime: 6 minutes`
+
 Complete Example
 ----------------
 
