@@ -17,6 +17,8 @@
     "DateFormatPipe.spec.ts",
     "FromUnixPipe.ts",
     "FromUnixPipe.spec.ts",
+    "DurationPipe.ts",
+    "DurationPipe.spec.ts",
     "TimeAgoPipe.ts",
     "TimeAgoPipe.spec.ts",
     "index.ts"

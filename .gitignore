@@ -13,6 +13,9 @@ DateFormatPipe.d.ts
 FromUnixPipe.js
 FromUnixPipe.js.map
 FromUnixPipe.d.ts
+DurationPipe.js
+DurationPipe.js.map
+DurationPipe.d.ts
 index.js
 index.js.map
 index.d.ts
