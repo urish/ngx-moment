@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.5.0 - TBD
+## 0.5.0 - 2015-04-08
 - Move `angular2` from npm `dependencies` to `peerDependencies` (see [#24](https://github.com/urish/angular2-moment/pull/24))
 - Add `amDuration` pipe ([#29](https://github.com/urish/angular2-moment/pull/29), contributed by [xenolinguist](https://github.com/xenolinguist))
 
