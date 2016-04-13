@@ -46,7 +46,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   private static _initTimer() {
     // initialize the timer
     if (!CalendarPipe._midnight) {
-      CalendarPipe._midnight = new EventEmitter();
+      CalendarPipe._midnight = new EventEmitter<Date>();
       let timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
       CalendarPipe._timer = window.setTimeout(() => {
         // emit the current date
