@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.0 - 2015-04-28
+- Align with angular 2.0.0-beta.16 ([#32](https://github.com/urish/angular2-moment/pull/32), contributed by [fknop](https://github.com/fknop))
+
 ## 0.5.0 - 2015-04-08
 - Move `angular2` from npm `dependencies` to `peerDependencies` (see [#24](https://github.com/urish/angular2-moment/pull/24))
 - Add `amDuration` pipe ([#29](https://github.com/urish/angular2-moment/pull/29), contributed by [xenolinguist](https://github.com/xenolinguist))
