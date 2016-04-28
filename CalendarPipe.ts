@@ -29,7 +29,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     CalendarPipe._midnight.subscribe(() => this._cdRef.markForCheck());
   }
 
-  transform(value: Date | moment.Moment, args?: any[]): any {
+  transform(value: Date | moment.Moment, ...args: any[]): any {
     return momentConstructor(value).calendar();
   }
 
