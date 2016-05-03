@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.0 - 2016-05-03
+- Align with the angular 2.0.0-rc.0 and the new angular packaging system 
+
 ## 0.6.0 - 2016-04-28
 - Align with angular 2.0.0-beta.16 ([#32](https://github.com/urish/angular2-moment/pull/32), contributed by [fknop](https://github.com/fknop))
 

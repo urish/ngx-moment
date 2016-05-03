@@ -4,7 +4,7 @@ moment.js pipes for Angular 2.0
 
 [![Build Status](https://travis-ci.org/urish/angular2-moment.png?branch=master)](https://travis-ci.org/urish/angular2-moment)
 
-This module works with the latest beta release of Angular 2.0.
+This module works with the latest release candidate of Angular 2.0.
 
 For the stable AngularJS 1.x version of this module, please see [angular-moment](https://github.com/urish/angular-moment).
 
