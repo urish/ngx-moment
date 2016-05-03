@@ -1,6 +1,6 @@
 /* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform, OnDestroy} from 'angular2/core';
+import {Pipe, ChangeDetectorRef, PipeTransform, OnDestroy} from '@angular/core';
 import * as moment from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
