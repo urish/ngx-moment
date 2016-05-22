@@ -13,7 +13,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   constructor(private _cdRef: ChangeDetectorRef) {
   }
 
-  transform(value: Date | moment.Moment, ...args: any[]): any {
+  transform(value: Date | moment.Moment, ...args: any[]): string {
     const momentInstance = momentConstructor(value);
     this._removeTimer();
     const timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
