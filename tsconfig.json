@@ -1,5 +1,5 @@
 {
-  "version": "1.7.5",
+  "version": "1.8.10",
   "compilerOptions": {
     "noImplicitAny": true,
     "module": "commonjs",
@@ -10,17 +10,17 @@
     "declaration": true
   },
   "files": [
-    "typings/main.d.ts",
-    "CalendarPipe.ts",
-    "CalendarPipe.spec.ts",
-    "DateFormatPipe.ts",
-    "DateFormatPipe.spec.ts",
-    "FromUnixPipe.ts",
-    "FromUnixPipe.spec.ts",
-    "DurationPipe.ts",
-    "DurationPipe.spec.ts",
-    "TimeAgoPipe.ts",
-    "TimeAgoPipe.spec.ts",
-    "index.ts"
+    "typings/index.d.ts",
+    "src/CalendarPipe.ts",
+    "src/CalendarPipe.spec.ts",
+    "src/DateFormatPipe.ts",
+    "src/DateFormatPipe.spec.ts",
+    "src/FromUnixPipe.ts",
+    "src/FromUnixPipe.spec.ts",
+    "src/DurationPipe.ts",
+    "src/DurationPipe.spec.ts",
+    "src/TimeAgoPipe.ts",
+    "src/TimeAgoPipe.spec.ts",
+    "src/index.ts"
   ]
 }
