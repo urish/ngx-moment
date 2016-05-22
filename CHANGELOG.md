@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.0 - 2015-05-22
+- Publish typescript sources under `src` folder, should fix Ionic 2 issues such as [#28](https://github.com/urish/angular2-moment/issues/28) and [#33](https://github.com/urish/angular2-moment/issues/33).
+
 ## 0.7.0 - 2016-05-03
 - Align with the angular 2.0.0-rc.0 and the new angular packaging system 
 
