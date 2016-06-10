@@ -2,6 +2,7 @@ import 'es6-shim';
 import 'reflect-metadata';
 import * as moment from 'moment';
 import {TimeAgoPipe} from './TimeAgoPipe';
+import {WrappedValue} from '@angular/core';
 
 describe('TimeAgoPipe', () => {
   describe('#transform', () => {
@@ -10,28 +11,17 @@ describe('TimeAgoPipe', () => {
     });
 
     it('should transform the current date to "a few seconds ago"', () => {
-      const pipe = new TimeAgoPipe(null);
-      expect(pipe.transform(new Date())).toBe('a few seconds ago');
+      const pipe = new TimeAgoPipe();
+      expect(pipe.transform(new Date())).toEqual(WrappedValue.wrap('a few seconds ago'));
     });
 
     it('should automatically update the text as time passes', () => {
-      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
-      const pipe = new TimeAgoPipe(changeDetectorMock);
-      jasmine.clock().install();
-      expect(pipe.transform(new Date())).toBe('a few seconds ago');
-      expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
-      jasmine.clock().tick(60000);
-      expect(changeDetectorMock.markForCheck).toHaveBeenCalled();
-    });
-
-    it('should remove all timer when destroyed', () => {
-      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
-      const pipe = new TimeAgoPipe(changeDetectorMock);
-      jasmine.clock().install();
-      expect(pipe.transform(new Date())).toBe('a few seconds ago');
-      pipe.ngOnDestroy();
-      jasmine.clock().tick(60000);
-      expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
+      const pipe = new TimeAgoPipe(),
+        date = new Date();
+      // First value trigger changes detection and returns a wrapped value
+      expect(pipe.transform(date)).toEqual(WrappedValue.wrap('a few seconds ago'));
+      // Second call will return the cached value, not wrapped
+      expect(pipe.transform(date)).toBe('a few seconds ago');
     });
   });
 });
