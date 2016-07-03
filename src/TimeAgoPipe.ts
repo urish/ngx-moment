@@ -13,12 +13,12 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   constructor(private _cdRef: ChangeDetectorRef) {
   }
 
-  transform(value: Date | moment.Moment, ...args: any[]): string {
+  transform(value: Date | moment.Moment, omitSuffix?: boolean): string {
     const momentInstance = momentConstructor(value);
     this._removeTimer();
     const timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
     this._currentTimer = window.setTimeout(() => this._cdRef.markForCheck(), timeToUpdate);
-    return momentConstructor(value).from(momentConstructor());
+    return momentConstructor(value).from(momentConstructor(), omitSuffix);
   }
 
   ngOnDestroy(): void {
