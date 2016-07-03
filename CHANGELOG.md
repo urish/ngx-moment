@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.1 - 2015-07-03
+- Add `omitSuffix` parameter to `TimeAgoPipe` ([#47](https://github.com/urish/angular2-moment/pull/47), contributed by [bzums](https://github.com/bzums))
+
 ## 0.8.0 - 2015-05-22
 - Publish typescript sources under `src` folder, should fix Ionic 2 issues such as [#28](https://github.com/urish/angular2-moment/issues/28) and [#33](https://github.com/urish/angular2-moment/issues/33).
 
