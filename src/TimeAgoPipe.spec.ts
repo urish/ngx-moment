@@ -1,6 +1,5 @@
 import 'es6-shim';
 import 'reflect-metadata';
-import * as moment from 'moment';
 import {TimeAgoPipe} from './TimeAgoPipe';
 
 describe('TimeAgoPipe', () => {
@@ -12,6 +11,11 @@ describe('TimeAgoPipe', () => {
     it('should transform the current date to "a few seconds ago"', () => {
       const pipe = new TimeAgoPipe(null);
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
+    });
+
+    it('should omit the suffix if second parameter is truthy', () => {
+      const pipe = new TimeAgoPipe(null);
+      expect(pipe.transform(new Date(new Date().getTime() + 60000), true)).toBe('a minute');
     });
 
     it('should automatically update the text as time passes', () => {

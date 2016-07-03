@@ -21,6 +21,7 @@ Usage
 -----
 
 ## amTimeAgo pipe
+Takes an optional `omitSuffix` argument that defaults to `false`.
 
 ``` typescript
 import {TimeAgoPipe} from 'angular2-moment';
@@ -35,6 +36,20 @@ import {TimeAgoPipe} from 'angular2-moment';
 ```
 
 Prints `Last updated: a few seconds ago`
+
+``` typescript
+import {TimeAgoPipe} from 'angular2-moment';
+
+@Component({
+  selector: 'app',
+  pipes: [TimeAgoPipe],
+  template: `
+    Last updated: <time>{{myDate | amTimeAgo:true}}</time>
+  `
+})
+```
+
+Prints `Last updated: a few seconds`
 
 ## amCalendar pipe
 
