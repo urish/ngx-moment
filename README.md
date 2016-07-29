@@ -115,6 +115,21 @@ import {DurationPipe} from 'angular2-moment';
 
 Prints `Uptime: 6 minutes`
 
+## amDifference pipe
+
+``` typescript
+import {DifferencePipe} from 'angular2-moment';
+
+@Component({
+  selector: 'app',
+  pipes: [DifferencePipe],
+  template: `
+    Expiration: <time>{{nextDay | amDifference: today :'days' : true}}</time> days
+  `
+})
+```
+Prints `Expiration: 1 day`
+
 Complete Example
 ----------------
 
