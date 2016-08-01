@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.2 - 2015-08-01
+- Add `amDifference` pipe ([#54](https://github.com/urish/angular2-moment/pull/54), contributed by [josx](https://github.com/josx))
+
 ## 0.8.1 - 2015-07-03
 - Add `omitSuffix` parameter to `TimeAgoPipe` ([#47](https://github.com/urish/angular2-moment/pull/47), contributed by [bzums](https://github.com/bzums))
 
