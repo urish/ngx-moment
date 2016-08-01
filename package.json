@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "install_typings": "typings install",
-    "test": "tslint *.ts && typings install && tsc && karma start",
+    "test": "tslint src/*.ts && typings install && tsc && karma start",
     "prepublish": "typings install && tsc --outDir ."
   },
   "repository": {
