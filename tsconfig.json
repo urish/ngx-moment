@@ -15,6 +15,8 @@
     "src/CalendarPipe.spec.ts",
     "src/DateFormatPipe.ts",
     "src/DateFormatPipe.spec.ts",
+    "src/DifferencePipe.ts",
+    "src/DifferencePipe.spec.ts",
     "src/FromUnixPipe.ts",
     "src/FromUnixPipe.spec.ts",
     "src/DurationPipe.ts",
