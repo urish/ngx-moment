@@ -20,28 +20,26 @@ If you use typescript, and [typings](https://github.com/typings/typings), you ma
 Usage
 -----
 
-## Angular RC5 and later
+## Angular RC 5 and later
 
-import the `MomentModule` into your app module
+Import `MomentModule` into your app's modules:
 
 ``` typescript
 import {MomentModule} from 'angular2-moment';
 
 @NgModule({
-    imports: [
-        MomentModule
-    ]
+  imports: [
+    MomentModule
+  ]
 })
 ```
 
-use each pipe in your templates *without* referencing it in the Component metadata
+This makes all the `angular2-moment` pipes available for use in your app components.
 
-see below for list of Pipes available and their outputs
+## Angular RC 4 and earlier
 
-## angular RC4 and earlier
-
-import each pipe into the component definition as shown below
-
+Use an older version of the library, such as 0.8.2. You can find the documentation 
+[here](https://github.com/urish/angular2-moment/blob/3d67595ed8857347518258817e187bc0043fe9a4/README.md).
 
 Available pipes
 ---------------
@@ -50,11 +48,8 @@ Available pipes
 Takes an optional `omitSuffix` argument that defaults to `false`.
 
 ``` typescript
-import {TimeAgoPipe} from 'angular2-moment';
-
 @Component({
   selector: 'app',
-  pipes: [TimeAgoPipe],
   template: `
     Last updated: <time>{{myDate | amTimeAgo}}</time>
   `
@@ -64,11 +59,8 @@ import {TimeAgoPipe} from 'angular2-moment';
 Prints `Last updated: a few seconds ago`
 
 ``` typescript
-import {TimeAgoPipe} from 'angular2-moment';
-
 @Component({
   selector: 'app',
-  pipes: [TimeAgoPipe],
   template: `
     Last updated: <time>{{myDate | amTimeAgo:true}}</time>
   `
@@ -80,11 +72,8 @@ Prints `Last updated: a few seconds`
 ## amCalendar pipe
 
 ``` typescript
-import {CalendarPipe} from 'angular2-moment';
-
 @Component({
   selector: 'app',
-  pipes: [CalendarPipe],
   template: `
     Last updated: <time>{{myDate | amCalendar}}</time>
   `
@@ -96,11 +85,8 @@ Prints `Last updated: Today at 14:00`
 ## amDateFormat pipe
 
 ``` typescript
-import {DateFormatPipe} from 'angular2-moment';
-
 @Component({
   selector: 'app',
-  pipes: [DateFormatPipe],
   template: `
     Last updated: <time>{{myDate | amDateFormat:'LL'}}</time>
   `
@@ -112,11 +98,8 @@ Prints `Last updated: January 24, 2016`
 ## amFromUnix pipe
 
 ``` typescript
-import {DateFormatPipe, FromUnixPipe} from 'angular2-moment';
-
 @Component({
   selector: 'app',
-  pipes: [DateFormatPipe, FromUnixPipe],
   template: `
     Last updated: <time>{{ (1456263980 | amFromUnix) | amDateFormat:'hh:mmA'}}</time>
   `
@@ -128,11 +111,8 @@ Prints `Last updated: 01:46PM`
 ## amDuration pipe
 
 ``` typescript
-import {DurationPipe} from 'angular2-moment';
-
 @Component({
   selector: 'app',
-  pipes: [DurationPipe],
   template: `
     Uptime: <time>{{ 365 | amDuration:'seconds' }}</time>
   `
@@ -144,11 +124,8 @@ Prints `Uptime: 6 minutes`
 ## amDifference pipe
 
 ``` typescript
-import {DifferencePipe} from 'angular2-moment';
-
 @Component({
   selector: 'app',
-  pipes: [DifferencePipe],
   template: `
     Expiration: <time>{{nextDay | amDifference: today :'days' : true}}</time> days
   `
@@ -160,23 +137,36 @@ Complete Example
 ----------------
 
 ``` typescript
-import {Component} from 'angular2/core';
-import {TimeAgoPipe, CalendarPipe, DateFormatPipe} from 'angular2-moment';
+import {NgModule, Component} from 'angular2/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {MomentModule} from 'angular2-moment';
 
 @Component({
   selector: 'app',
-  pipes: [TimeAgoPipe, CalendarPipe, DateFormatPipe],
   template: `
     Last updated: <b>{{myDate | amTimeAgo}}</b>, <b>{{myDate | amCalendar}}</b>, <b>{{myDate | amDateFormat:'LL'}}</b>
   `
 })
-export class App {
+export class AppComponent {
   myDate: Date;
 
   constructor() {
     this.myDate = new Date();
   }
 }
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    MomentModule
+  ],
+  declarations: [ AppComponent ]
+  bootstrap: [ AppComponent ]
+})
+class AppModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
 Demo
