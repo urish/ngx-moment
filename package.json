@@ -60,7 +60,7 @@
   },
   "homepage": "https://github.com/urish/angular2-moment#readme",
   "peerDependencies": {
-    "@angular/core": "^2.0.0-rc.0"
+    "@angular/core": "^2.0.0-rc.5"
   },
   "dependencies": {
     "moment": "^2.11.2"
