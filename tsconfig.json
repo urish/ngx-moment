@@ -23,6 +23,7 @@
     "src/DurationPipe.spec.ts",
     "src/TimeAgoPipe.ts",
     "src/TimeAgoPipe.spec.ts",
+    "src/module.ts",
     "src/index.ts"
   ]
 }

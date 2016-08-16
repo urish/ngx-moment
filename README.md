@@ -20,6 +20,32 @@ If you use typescript, and [typings](https://github.com/typings/typings), you ma
 Usage
 -----
 
+## Angular RC5 and later
+
+import the `MomentModule` into your app module
+
+``` typescript
+import {MomentModule} from 'angular2-moment';
+
+@NgModule({
+    imports: [
+        MomentModule
+    ]
+})
+```
+
+use each pipe in your templates *without* referencing it in the Component metadata
+
+see below for list of Pipes available and their outputs
+
+## angular RC4 and earlier
+
+import each pipe into the component definition as shown below
+
+
+Available pipes
+---------------
+
 ## amTimeAgo pipe
 Takes an optional `omitSuffix` argument that defaults to `false`.
 

@@ -9,6 +9,10 @@
     "index.js.map",
     "index.d.ts",
     "src/index.ts",
+    "module.js",
+    "module.js.map",
+    "module.d.ts",
+    "src/module.ts",
     "typings.json",
     "CalendarPipe.js",
     "CalendarPipe.js.map",
@@ -62,7 +66,7 @@
     "moment": "^2.11.2"
   },
   "devDependencies": {
-    "@angular/core": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.5",
     "es6-shim": "0.35.1",
     "jasmine-core": "2.4.1",
     "karma": "1.1.0",

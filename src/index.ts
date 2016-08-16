@@ -1,3 +1,4 @@
+export * from './module';
 export * from './CalendarPipe';
 export * from './DateFormatPipe';
 export * from './DurationPipe';
