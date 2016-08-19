@@ -30,7 +30,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   transform(value: Date | moment.Moment, ...args: any[]): any {
-    return momentConstructor(value).calendar();
+    return momentConstructor(value).calendar(null, args[0]);
   }
 
   ngOnDestroy(): void {
