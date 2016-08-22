@@ -38,7 +38,7 @@ This makes all the `angular2-moment` pipes available for use in your app compone
 
 ## Angular RC 4 and earlier
 
-Use an older version of the library, such as 0.8.2. You can find the documentation 
+Use an older version of the library, such as 0.8.2. You can find the documentation
 [here](https://github.com/urish/angular2-moment/blob/3d67595ed8857347518258817e187bc0043fe9a4/README.md).
 
 Available pipes
@@ -81,6 +81,28 @@ Prints `Last updated: a few seconds`
 ```
 
 Prints `Last updated: Today at 14:00`
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: <time>{{myDate | amCalendar:nextDay }}</time>
+  `
+})
+```
+
+Prints `Last updated: Yesterday at 14:00`
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: <time>{{myDate | amCalendar:null:{sameDay:'[Same Day at] h:mm A'} }}</time>
+  `
+})
+```
+
+Prints `Last updated: Same Day at 2:00 PM`
 
 ## amDateFormat pipe
 
