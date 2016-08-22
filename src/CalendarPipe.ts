@@ -29,8 +29,10 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     CalendarPipe._midnight.subscribe(() => this._cdRef.markForCheck());
   }
 
-  transform(value: Date | moment.Moment, referenceTime?: Date | moment.Moment, formats?: Object): any {
-    return momentConstructor(value).calendar(momentConstructor(referenceTime), formats);
+  transform(value: Date | moment.Moment, referenceTime?: any, formats?: Object): any {
+    // normalize referenceTime value
+    referenceTime = (referenceTime !== null) ? momentConstructor(referenceTime) : null;
+    return momentConstructor(value).calendar(referenceTime, formats);
   }
 
   ngOnDestroy(): void {
