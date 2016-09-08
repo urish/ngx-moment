@@ -20,6 +20,20 @@ If you use typescript, and [typings](https://github.com/typings/typings), you ma
 Usage
 -----
 
+## Angular RC 6 and later
+
+Starting with RC 6, the `<time>` tag is no longer needed to use the moment pipes.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{myDate | amTimeAgo}}
+  `
+})
+```
+
+
 ## Angular RC 5 and later
 
 Import `MomentModule` into your app's modules:
