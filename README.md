@@ -10,6 +10,28 @@ For the stable AngularJS 1.x version of this module, please see [angular-moment]
 
 Installation
 ------------
+First you need to install moment:
+
+`npm install moment --save`
+
+Don´t forget to update your systemjs.config.js:
+
+```
+packages: {
+            app: {
+                main: './main.js',
+                defaultExtension: 'js'
+            },
+            'moment': {
+                main: './moment.js',
+                defaultExtension: 'js'
+            },
+            'angular2-moment': {
+                main: './index.js',
+                defaultExtension: 'js'
+            }
+        }
+```
 
 `npm install --save angular2-moment`
 
