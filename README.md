@@ -10,6 +10,15 @@ For the stable AngularJS 1.x version of this module, please see [angular-moment]
 
 Installation
 ------------
+
+`npm install --save angular2-moment`
+
+If you use typescript, and [typings](https://github.com/typings/typings), you may also need to install typings for moment.js:
+
+`typings install --save moment`
+
+### For System.js users:
+
 First you need to install moment:
 
 `npm install moment --save`
@@ -32,12 +41,6 @@ packages: {
             }
         }
 ```
-
-`npm install --save angular2-moment`
-
-If you use typescript, and [typings](https://github.com/typings/typings), you may also need to install typings for moment.js:
-
-`typings install --save moment`
 
 Usage
 -----
