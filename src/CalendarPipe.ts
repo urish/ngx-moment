@@ -1,7 +1,8 @@
 /* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy} from '@angular/core';
+import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy, NgZone} from '@angular/core';
 import * as moment from 'moment';
+import {Subscription} from 'rxjs';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
 const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
@@ -18,7 +19,9 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   private static _timer: number;
   private static _midnight: EventEmitter<Date>;
 
-  constructor(private _cdRef: ChangeDetectorRef) {
+  private _midnightSub: Subscription;
+
+  constructor(private _cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
     // using a single static timer for all instances of this pipe for performance reasons
     CalendarPipe._initTimer();
 
@@ -26,7 +29,8 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
 
     // values such as Today will need to be replaced with Yesterday after midnight,
     // so make sure we subscribe to an EventEmitter that we set up to emit at midnight
-    CalendarPipe._midnight.subscribe(() => this._cdRef.markForCheck());
+    this._ngZone.runOutsideAngular(() =>
+      this._midnightSub = CalendarPipe._midnight.subscribe(() => this._cdRef.markForCheck()));
   }
 
   transform(value: Date | moment.Moment, ...args: any[]): any {
@@ -41,6 +45,8 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     if (CalendarPipe._refs === 0) {
       CalendarPipe._removeTimer();
     }
+
+    this._midnightSub.unsubscribe();
   }
 
   private static _initTimer() {
