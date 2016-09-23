@@ -9,6 +9,8 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 @Pipe({ name: 'amTimeAgo', pure: false })
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private _currentTimer: number;
+  private _lastValue: Date | moment.Moment;
+  private _lastTimeAgo: string;
 
   constructor(private _cdRef: ChangeDetectorRef) {
   }
@@ -16,9 +18,21 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   transform(value: Date | moment.Moment, omitSuffix?: boolean): string {
     const momentInstance = momentConstructor(value);
     this._removeTimer();
+
     const timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
-    this._currentTimer = window.setTimeout(() => this._cdRef.markForCheck(), timeToUpdate);
-    return momentConstructor(value).from(momentConstructor(), omitSuffix);
+    this._currentTimer = window.setTimeout(() => {
+      this._lastValue = null;
+      this._cdRef.markForCheck();
+    }, timeToUpdate);
+
+    // We keep track of the last value in order to avoid `Expression has changed after it was checked`
+    // See https://github.com/urish/angular2-moment/issues/48 for details.
+    if (this._lastValue !== value) {
+      this._lastValue = value;
+      this._lastTimeAgo = momentInstance.from(momentConstructor(), omitSuffix);
+    }
+
+    return this._lastTimeAgo;
   }
 
   ngOnDestroy(): void {
