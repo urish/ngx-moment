@@ -1,14 +1,14 @@
 import * as moment from 'moment';
-import { MAddPipe } from './MAddPipe';
+import { AddPipe } from './MAddPipe';
 
-describe('MAddPipe', () => {
-  var pipe: MAddPipe;
+describe('AddPipe', () => {
+  var pipe: AddPipe;
 
-  beforeEach(() => pipe = new MAddPipe());
+  beforeEach(() => pipe = new AddPipe());
 
   describe('#transform', () => {
     it('should throw when provided no arguments', () => {
-      expect(() => pipe.transform(128)).toThrow(new Error('MAddPipe: missing required arguments'));
+      expect(() => pipe.transform(128)).toThrow(new Error('AddPipe: missing required arguments'));
     });
 
     it('should add two hours', () => {
