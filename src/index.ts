@@ -6,4 +6,4 @@ export * from './FromUnixPipe';
 export * from './TimeAgoPipe';
 export * from './DifferencePipe';
 export * from './SubtractPipe';
-export * from './MAddPipe';
+export * from './AddPipe';

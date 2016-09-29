@@ -25,8 +25,8 @@
     "src/TimeAgoPipe.spec.ts",
     "src/SubtractPipe.ts",
     "src/SubtractPipe.spec.ts",
-    "src/MAddPipe.ts",
-    "src/MAddPipe.spec.ts",
+    "src/AddPipe.ts",
+    "src/AddPipe.spec.ts",
     "src/module.ts",
     "src/index.ts"
   ]

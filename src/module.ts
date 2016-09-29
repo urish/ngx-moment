@@ -6,7 +6,7 @@ import { FromUnixPipe } from './FromUnixPipe';
 import { TimeAgoPipe } from './TimeAgoPipe';
 import { DifferencePipe } from './DifferencePipe';
 import { SubtractPipe } from './SubtractPipe';
-import { AddPipe } from './MAddPipe';
+import { AddPipe } from './AddPipe';
 
 const ANGULAR_MOMENT_PIPES = [CalendarPipe, DateFormatPipe, DurationPipe, FromUnixPipe, TimeAgoPipe, DifferencePipe,
                               SubtractPipe, AddPipe];
