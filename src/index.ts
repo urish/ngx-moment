@@ -5,3 +5,4 @@ export * from './DurationPipe';
 export * from './FromUnixPipe';
 export * from './TimeAgoPipe';
 export * from './DifferencePipe';
+export * from './SubtractPipe';
