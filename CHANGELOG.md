@@ -1,19 +1,19 @@
 # Changelog
 
-## 1.0.0-beta.2 - 2015-10-01
+## 1.0.0-beta.2 - 2016-10-01
 - Switch to Typescript 2.0
 - Angular 2 AoT (Ahead of Time) template compilation support ([#68](https://github.com/urish/angular2-moment/issues/68))
 
-## 1.0.0-beta.1 - 2015-08-16
+## 1.0.0-beta.1 - 2016-08-16
 - Support angular-2.0.0-rc.5 NgModules, see [README](README.md) for details. 
 
-## 0.8.2 - 2015-08-01
+## 0.8.2 - 2016-08-01
 - Add `amDifference` pipe ([#54](https://github.com/urish/angular2-moment/pull/54), contributed by [josx](https://github.com/josx))
 
-## 0.8.1 - 2015-07-03
+## 0.8.1 - 2016-07-03
 - Add `omitSuffix` parameter to `TimeAgoPipe` ([#47](https://github.com/urish/angular2-moment/pull/47), contributed by [bzums](https://github.com/bzums))
 
-## 0.8.0 - 2015-05-22
+## 0.8.0 - 2016-05-22
 - Publish typescript sources under `src` folder, should fix Ionic 2 issues such as [#28](https://github.com/urish/angular2-moment/issues/28) and [#33](https://github.com/urish/angular2-moment/issues/33).
 
 ## 0.7.0 - 2016-05-03
