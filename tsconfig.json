@@ -1,16 +1,16 @@
 {
-  "version": "1.8.10",
+  "version": "2.0.3",
   "compilerOptions": {
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
+    "lib": ["es2015", "dom"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
     "declaration": true
   },
   "files": [
-    "typings/index.d.ts",
     "src/CalendarPipe.ts",
     "src/CalendarPipe.spec.ts",
     "src/DateFormatPipe.ts",
