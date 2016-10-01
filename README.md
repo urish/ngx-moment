@@ -45,20 +45,6 @@ packages: {
 Usage
 -----
 
-## Angular RC 6 and later
-
-Starting with RC 6, the `<time>` tag is no longer needed to use the moment pipes.
-
-``` typescript
-@Component({
-  selector: 'app',
-  template: `
-    Last updated: {{myDate | amTimeAgo}}
-  `
-})
-```
-
-
 ## Angular RC 5 and later
 
 Import `MomentModule` into your app's modules:
@@ -90,7 +76,7 @@ Takes an optional `omitSuffix` argument that defaults to `false`.
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amTimeAgo}}</time>
+    Last updated: {{myDate | amTimeAgo}}
   `
 })
 ```
@@ -101,7 +87,7 @@ Prints `Last updated: a few seconds ago`
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amTimeAgo:true}}</time>
+    Last updated: {{myDate | amTimeAgo:true}}
   `
 })
 ```
@@ -114,7 +100,7 @@ Prints `Last updated: a few seconds`
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amCalendar}}</time>
+    Last updated: {{myDate | amCalendar}}
   `
 })
 ```
@@ -127,7 +113,7 @@ Prints `Last updated: Today at 14:00`
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amDateFormat:'LL'}}</time>
+    Last updated: {{myDate | amDateFormat:'LL'}}
   `
 })
 ```
@@ -140,7 +126,7 @@ Prints `Last updated: January 24, 2016`
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{ (1456263980 | amFromUnix) | amDateFormat:'hh:mmA'}}</time>
+    Last updated: {{ (1456263980 | amFromUnix) | amDateFormat:'hh:mmA'}}
   `
 })
 ```
@@ -153,7 +139,7 @@ Prints `Last updated: 01:46PM`
 @Component({
   selector: 'app',
   template: `
-    Uptime: <time>{{ 365 | amDuration:'seconds' }}</time>
+    Uptime: {{ 365 | amDuration:'seconds' }}
   `
 })
 ```
@@ -166,7 +152,7 @@ Prints `Uptime: 6 minutes`
 @Component({
   selector: 'app',
   template: `
-    Expiration: <time>{{nextDay | amDifference: today :'days' : true}}</time> days
+    Expiration: {{nextDay | amDifference: today :'days' : true}} days
   `
 })
 ```
