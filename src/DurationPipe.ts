@@ -7,6 +7,6 @@ export class DurationPipe implements PipeTransform {
     if (typeof args === 'undefined' || args.length !== 1) {
       throw new Error('DurationPipe: missing required time unit argument');
     }
-    return moment.duration(value, args[0]).humanize();
+    return moment.duration(value, args[0] as moment.UnitOfTime).humanize();
   }
 }

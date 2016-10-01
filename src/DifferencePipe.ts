@@ -10,7 +10,7 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 export class DifferencePipe implements PipeTransform {
   transform(value: Date | moment.Moment,
             otherValue: Date | moment.Moment,
-            unit?: string,
+            unit?: moment.UnitOfTime,
             precision?: boolean): number {
 
     let date = momentConstructor(value);
