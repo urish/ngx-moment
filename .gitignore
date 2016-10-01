@@ -28,3 +28,7 @@ module.d.ts
 *.spec.js
 *.spec.js.map
 *.spec.d.ts
+
+# ngc generated files
+/compiled
+*.metadata.json

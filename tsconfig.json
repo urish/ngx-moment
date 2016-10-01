@@ -4,7 +4,10 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es2015", "dom"],
+    "lib": [
+      "es2015",
+      "dom"
+    ],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -25,5 +28,8 @@
     "src/TimeAgoPipe.spec.ts",
     "src/module.ts",
     "src/index.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  }
 }
