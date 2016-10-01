@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0-beta.2 - 2015-10-01
+- Switch to Typescript 2.0
+- Angular 2 AoT (Ahead of Time) template compilation support ([#68](https://github.com/urish/angular2-moment/issues/68))
+
 ## 1.0.0-beta.1 - 2015-08-16
 - Support angular-2.0.0-rc.5 NgModules, see [README](README.md) for details. 
 
