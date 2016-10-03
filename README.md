@@ -48,7 +48,7 @@ Usage
 Import `MomentModule` into your app's modules:
 
 ``` typescript
-import {MomentModule} from 'angular2-moment';
+import {MomentModule} from 'angular2-moment/module';
 
 @NgModule({
   imports: [
