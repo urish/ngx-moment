@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0-beta.3 - 2016-10-04
+- Fix exports for Rollup / Ionic 2 users ([#86](https://github.com/urish/angular2-moment/pull/86), contributed by [TheMadBug](https://github.com/TheMadBug))
+- Protractor fix: run long standing timeouts outside of angular zones ([#74](https://github.com/urish/angular2-moment/pull/74), contributed by [tiagoroldao](https://github.com/tiagoroldao))
+
 ## 1.0.0-beta.2 - 2016-10-01
 - Switch to Typescript 2.0
 - Angular 2 AoT (Ahead of Time) template compilation support ([#68](https://github.com/urish/angular2-moment/issues/68))
