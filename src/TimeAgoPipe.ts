@@ -17,8 +17,11 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     const momentInstance = momentConstructor(value);
     this._removeTimer();
     const timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
-    this._currentTimer = this._ngZone.runOutsideAngular(() =>
-      window.setTimeout(() => this._cdRef.markForCheck(), timeToUpdate));
+    this._currentTimer = this._ngZone.runOutsideAngular(() => {
+      if (typeof window !== 'undefined') {
+        window.setTimeout(() => this._cdRef.markForCheck(), timeToUpdate);
+      }
+    });
     return momentConstructor(value).from(momentConstructor(), omitSuffix);
   }
 
