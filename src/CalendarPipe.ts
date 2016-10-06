@@ -30,7 +30,9 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     // values such as Today will need to be replaced with Yesterday after midnight,
     // so make sure we subscribe to an EventEmitter that we set up to emit at midnight
     this._ngZone.runOutsideAngular(() =>
-      this._midnightSub = CalendarPipe._midnight.subscribe(() => this._cdRef.markForCheck()));
+      this._midnightSub = CalendarPipe._midnight.subscribe(() => {
+        this._ngZone.run(() => this._cdRef.markForCheck());
+      }));
   }
 
   transform(value: Date | moment.Moment, ...args: any[]): any {

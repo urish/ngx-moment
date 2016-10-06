@@ -1,6 +1,6 @@
 /* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform, OnDestroy, NgZone} from '@angular/core';
+import { Pipe, ChangeDetectorRef, PipeTransform, OnDestroy, NgZone } from '@angular/core';
 import * as moment from 'moment';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
@@ -19,7 +19,9 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     const timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
     this._currentTimer = this._ngZone.runOutsideAngular(() => {
       if (typeof window !== 'undefined') {
-        return window.setTimeout(() => this._cdRef.markForCheck(), timeToUpdate);
+        return window.setTimeout(() => {
+          this._ngZone.run(() => this._cdRef.markForCheck());
+        }, timeToUpdate);
       }
     });
     return momentConstructor(value).from(momentConstructor(), omitSuffix);

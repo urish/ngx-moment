@@ -8,6 +8,9 @@ class NgZoneMock {
   runOutsideAngular (fn: Function) {
     return fn();
   }
+  run(fn: Function) {
+    return fn();
+  }
 };
 
 describe('CalendarPipe', () => {
