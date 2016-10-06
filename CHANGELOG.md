@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0-beta.4 - TBD
+- Add support for server side pre-rendering ([#89](https://github.com/urish/angular2-moment/pull/89), contributed by [https://github.com/jmezach](https://github.com/jmezach))
+
 ## 1.0.0-beta.3 - 2016-10-04
 - Fix exports for Rollup / Ionic 2 users ([#86](https://github.com/urish/angular2-moment/pull/86), contributed by [TheMadBug](https://github.com/TheMadBug))
 - Protractor fix: run long standing timeouts outside of angular zones ([#74](https://github.com/urish/angular2-moment/pull/74), contributed by [tiagoroldao](https://github.com/tiagoroldao))
