@@ -3,7 +3,7 @@
 ## 1.0.0-beta.4 - 2016-10-06
 - Add support for server side pre-rendering ([#89](https://github.com/urish/angular2-moment/pull/89), contributed by [https://github.com/jmezach](https://github.com/jmezach))
 - Fix a bug caused TimeAgo and Calendar pipes not to update automatically ([#94](https://github.com/urish/angular2-moment/pull/94))
-- Add `@types/moment` to package dependencies
+- Add `@types/moment` to package dependencies (see [#91](https://github.com/urish/angular2-moment/issues/91))
 
 ## 1.0.0-beta.3 - 2016-10-04
 - Fix exports for Rollup / Ionic 2 users ([#86](https://github.com/urish/angular2-moment/pull/86), contributed by [TheMadBug](https://github.com/TheMadBug))
