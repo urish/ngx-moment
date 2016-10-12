@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0-beta.5 - TBD
+- Require `moment` >= 2.13.0, and remove `@types/moment` from our dependencies (as it is already included in `moment`). 
+
 ## 1.0.0-beta.4 - 2016-10-06
 - Add support for server side pre-rendering ([#89](https://github.com/urish/angular2-moment/pull/89), contributed by [https://github.com/jmezach](https://github.com/jmezach))
 - Fix a bug caused TimeAgo and Calendar pipes not to update automatically ([#94](https://github.com/urish/angular2-moment/pull/94))
