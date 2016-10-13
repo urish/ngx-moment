@@ -1,7 +1,7 @@
 import 'es6-shim';
 import 'reflect-metadata';
 import {NgZone} from '@angular/core';
-import {TimeAgoPipe} from './TimeAgoPipe';
+import {TimeAgoPipe} from './time-ago.pipe';
 
 class NgZoneMock {
   runOutsideAngular (fn: Function) {

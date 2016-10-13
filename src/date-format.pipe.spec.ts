@@ -1,7 +1,7 @@
 import 'es6-shim';
 import 'reflect-metadata';
 import * as moment from 'moment';
-import {DateFormatPipe} from './DateFormatPipe';
+import {DateFormatPipe} from './date-format.pipe';
 
 describe('DateFormatPipe', () => {
   describe('#transform', () => {

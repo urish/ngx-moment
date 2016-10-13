@@ -1,4 +1,4 @@
-import {DurationPipe} from './DurationPipe';
+import {DurationPipe} from './duration.pipe';
 
 describe('DurationPipe', () => {
   var pipe: DurationPipe;
