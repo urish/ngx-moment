@@ -1,6 +1,6 @@
 {
   "name": "angular2-moment",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "description": "Moment.JS pipes for Angular2 (timeago and more)",
   "main": "index.js",
   "typings": "./index.d.ts",
