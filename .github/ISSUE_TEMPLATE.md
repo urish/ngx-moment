@@ -18,7 +18,7 @@ Please answer the following questions:
 * Angular version? 
 * TypeScript version?
 * `moment` version?
-* Are you using `moment-locale`? 
+* Are you using `moment-timezone`? 
 * Are you using the angular-cli? 
 * Using Rollup/Webpack/System.js/Ionic/similar? 
 
