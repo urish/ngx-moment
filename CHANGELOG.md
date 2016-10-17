@@ -27,6 +27,7 @@ All changes:
 ## 1.0.0-beta.2 - 2016-10-01
 - Switch to Typescript 2.0
 - Angular 2 AoT (Ahead of Time) template compilation support ([#68](https://github.com/urish/angular2-moment/issues/68))
+- Removed impure flags from pure Pipes: `amDateFormat` and `amDifference` ([#75](https://github.com/urish/angular2-moment/pull/75), contributed by [tiagoroldao](https://github.com/tiagoroldao))
 
 ## 1.0.0-beta.1 - 2016-08-16
 - Support angular-2.0.0-rc.5 NgModules, see [README](README.md) for details. 
