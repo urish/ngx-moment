@@ -8,7 +8,8 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 
 @Pipe({ name: 'amDateFormat' })
 export class DateFormatPipe implements PipeTransform {
-  transform(value: Date | moment.Moment, ...args: any[]): string {
+  transform(value: Date | moment.Moment | string | number, ...args: any[]): string {
+    if (!value) return '';
     return momentConstructor(value).format(args[0]);
   }
 }
