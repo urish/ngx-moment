@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-beta.6 - 2016-10-24
+*** Breaking change: typescript sources are no longer published in the npm package
+
+- Inline sources in the source map file, should fix [#96](https://github.com/urish/angular2-moment/issues/96).
+- Handle undefined dates in `amDateFormat` pipe ([#105](https://github.com/urish/angular2-moment/pull/105/files), contributed by [amcdnl](https://github.com/amcdnl))
+
 ## 1.0.0-beta.5 - 2016-10-13
 
 *** Breaking change: source files renamed, which could affect your imports:
