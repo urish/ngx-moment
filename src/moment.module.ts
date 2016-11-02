@@ -1,4 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+
+import * as moment from 'moment';
+import 'moment/min/locales';
 
 import { CalendarPipe } from './calendar.pipe';
 import { DateFormatPipe } from './date-format.pipe';
@@ -13,4 +16,11 @@ const ANGULAR_MOMENT_PIPES = [CalendarPipe, DateFormatPipe, DifferencePipe, Dura
   declarations: ANGULAR_MOMENT_PIPES,
   exports: ANGULAR_MOMENT_PIPES
 })
-export class MomentModule { }
+export class MomentModule {
+  static forRoot(locale:string):ModuleWithProviders {
+    moment.locale(locale);
+    return {
+      ngModule:MomentModule
+    }
+  }
+}
