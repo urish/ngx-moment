@@ -8,19 +8,19 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 
 @Pipe({ name: 'amTimeAgo', pure: false })
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
-  private _currentTimer: number;
+  private currentTimer: number;
 
-  constructor(private _cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
+  constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
   }
 
   transform(value: Date | moment.Moment, omitSuffix?: boolean): string {
     const momentInstance = momentConstructor(value);
-    this._removeTimer();
-    const timeToUpdate = this._getSecondsUntilUpdate(momentInstance) * 1000;
-    this._currentTimer = this._ngZone.runOutsideAngular(() => {
+    this.removeTimer();
+    const timeToUpdate = this.getSecondsUntilUpdate(momentInstance) * 1000;
+    this.currentTimer = this.ngZone.runOutsideAngular(() => {
       if (typeof window !== 'undefined') {
         return window.setTimeout(() => {
-          this._ngZone.run(() => this._cdRef.markForCheck());
+          this.ngZone.run(() => this.cdRef.markForCheck());
         }, timeToUpdate);
       }
     });
@@ -28,17 +28,17 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._removeTimer();
+    this.removeTimer();
   }
 
-  _removeTimer() {
-    if (this._currentTimer) {
-      window.clearTimeout(this._currentTimer);
-      this._currentTimer = null;
+  private removeTimer() {
+    if (this.currentTimer) {
+      window.clearTimeout(this.currentTimer);
+      this.currentTimer = null;
     }
   }
 
-  _getSecondsUntilUpdate(momentInstance: moment.Moment) {
+  private getSecondsUntilUpdate(momentInstance: moment.Moment) {
     const howOld = Math.abs(momentConstructor().diff(momentInstance, 'minute'));
     if (howOld < 1) {
       return 1;

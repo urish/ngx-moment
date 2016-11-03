@@ -14,24 +14,24 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
    * @private Internal reference counter, so we can clean up when no instances are in use
    * @type {number}
    */
-  private static _refs: number = 0;
+  private static refs: number = 0;
 
-  private static _timer: number;
-  private static _midnight: EventEmitter<Date>;
+  private static timer: number;
+  private static midnight: EventEmitter<Date>;
 
-  private _midnightSub: Subscription;
+  private midnightSub: Subscription;
 
-  constructor(private _cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
+  constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
     // using a single static timer for all instances of this pipe for performance reasons
-    CalendarPipe._initTimer();
+    CalendarPipe.initTimer();
 
-    CalendarPipe._refs++;
+    CalendarPipe.refs++;
 
     // values such as Today will need to be replaced with Yesterday after midnight,
     // so make sure we subscribe to an EventEmitter that we set up to emit at midnight
-    this._ngZone.runOutsideAngular(() =>
-      this._midnightSub = CalendarPipe._midnight.subscribe(() => {
-        this._ngZone.run(() => this._cdRef.markForCheck());
+    this.ngZone.runOutsideAngular(() =>
+      this.midnightSub = CalendarPipe.midnight.subscribe(() => {
+        this.ngZone.run(() => this.cdRef.markForCheck());
       }));
   }
 
@@ -40,40 +40,40 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (CalendarPipe._refs > 0) {
-      CalendarPipe._refs--;
+    if (CalendarPipe.refs > 0) {
+      CalendarPipe.refs--;
     }
 
-    if (CalendarPipe._refs === 0) {
-      CalendarPipe._removeTimer();
+    if (CalendarPipe.refs === 0) {
+      CalendarPipe.removeTimer();
     }
 
-    this._midnightSub.unsubscribe();
+    this.midnightSub.unsubscribe();
   }
 
-  private static _initTimer() {
+  private static initTimer() {
     // initialize the timer
-    if (!CalendarPipe._midnight) {
-      CalendarPipe._midnight = new EventEmitter<Date>();
+    if (!CalendarPipe.midnight) {
+      CalendarPipe.midnight = new EventEmitter<Date>();
       if (typeof window !== 'undefined') {
         let timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
-        CalendarPipe._timer = window.setTimeout(() => {
+        CalendarPipe.timer = window.setTimeout(() => {
           // emit the current date
-          CalendarPipe._midnight.emit(new Date());
+          CalendarPipe.midnight.emit(new Date());
 
           // refresh the timer
-          CalendarPipe._removeTimer();
-          CalendarPipe._initTimer();
+          CalendarPipe.removeTimer();
+          CalendarPipe.initTimer();
         }, timeToUpdate);
       }
     }
   }
 
-  private static _removeTimer() {
-    if (CalendarPipe._timer) {
-      window.clearTimeout(CalendarPipe._timer);
-      CalendarPipe._timer = null;
-      CalendarPipe._midnight = null;
+  private static removeTimer() {
+    if (CalendarPipe.timer) {
+      window.clearTimeout(CalendarPipe.timer);
+      CalendarPipe.timer = null;
+      CalendarPipe.midnight = null;
     }
   }
 
