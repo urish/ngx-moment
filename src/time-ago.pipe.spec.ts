@@ -45,7 +45,7 @@ describe('TimeAgoPipe', () => {
     it('should update the text with a new date instance different from the previous one', () => {
       const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
       const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
-      jasmine.clock().mockDate(new Date('2016-01-01'));
+      jasmine.clock().mockDate(new Date('2016-05-01'));
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
       expect(pipe.transform(new Date(0))).toBe('46 years ago');
       expect(pipe.transform(moment())).toBe('a few seconds ago');
@@ -55,7 +55,7 @@ describe('TimeAgoPipe', () => {
     it('should update the text when the date instance time is updated', () => {
       const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
       const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
-      jasmine.clock().mockDate(new Date('2016-01-01'));
+      jasmine.clock().mockDate(new Date('2016-05-01'));
       let date = new Date();
       expect(pipe.transform(date)).toBe('a few seconds ago');
       date.setFullYear(2000);
