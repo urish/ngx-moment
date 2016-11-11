@@ -61,7 +61,7 @@
     "@angular/core": "^2.0.0-rc.5"
   },
   "dependencies": {
-    "moment": "^2.13.0"
+    "moment": "^2.16.0"
   },
   "devDependencies": {
     "@angular/common": "2.0.2",
