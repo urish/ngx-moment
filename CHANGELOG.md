@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-rc.1 - 2016-11-11
+*** Breaking change: Requires moment 2.16.0 or newer
+
+- Fix “Expression has changed after it was checked” ([#111](https://github.com/urish/angular2-moment/pull/111), contributed by [nithril](https://github.com/nithril))
+- Fix "Module 'moment' has no exported member 'UnitOfTime'" ([#112](https://github.com/urish/angular2-moment/issues/112))
+
 ## 1.0.0-beta.6 - 2016-10-24
 *** Breaking change: typescript sources are no longer published in the npm package
 
