@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0 - 2016-12-01
+Promoted 1.0.0-rc.1 to final release
+
 ## 1.0.0-rc.1 - 2016-11-11
 *** Breaking change: Requires moment 2.16.0 or newer
 
