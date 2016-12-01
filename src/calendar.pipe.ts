@@ -7,9 +7,17 @@ import {Subscription} from 'rxjs';
 // under systemjs, moment is actually exported as the default export, so we account for that
 const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
 
+export class CalendarFormats {
+  sameDay?: string;
+  nextDay?: string;
+  nextWeek?: string;
+  lastDay?: string;
+  lastWeek?: string;
+  sameElse?: string;
+}
+
 @Pipe({ name: 'amCalendar', pure: false })
 export class CalendarPipe implements PipeTransform, OnDestroy {
-
   /**
    * @private Internal reference counter, so we can clean up when no instances are in use
    * @type {number}
@@ -35,8 +43,8 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
       }));
   }
 
-  transform(value: Date | moment.Moment, ...args: any[]): any {
-    return momentConstructor(value).calendar();
+  transform(value: Date | moment.Moment, referenceTime?: any, formats?: CalendarFormats): any {
+    return momentConstructor(value).calendar(referenceTime, formats);
   }
 
   ngOnDestroy(): void {
