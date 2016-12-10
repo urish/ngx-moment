@@ -1,4 +1,4 @@
-import {DifferencePipe} from './DifferencePipe';
+import {DifferencePipe} from './difference.pipe';
 import * as moment from 'moment';
 
 describe('DifferencePipe', () => {

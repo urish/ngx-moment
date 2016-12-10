@@ -6,11 +6,11 @@ import * as moment from 'moment';
 // under systemjs, moment is actually exported as the default export, so we account for that
 const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
 
-@Pipe({ name: 'amDifference', pure: false })
+@Pipe({ name: 'amDifference' })
 export class DifferencePipe implements PipeTransform {
   transform(value: Date | moment.Moment,
             otherValue: Date | moment.Moment,
-            unit?: string,
+            unit?: moment.unitOfTime.Diff,
             precision?: boolean): number {
 
     let date = momentConstructor(value);
