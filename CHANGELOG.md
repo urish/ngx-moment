@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0 - TBD
+- Add `referenceTime` and `format` args to `amCalendar` ([#64](https://github.com/urish/angular2-moment/pull/64), contributed by [irsick](https://github.com/irsick)).
+
 ## 1.0.0 - 2016-12-01
 Promoted 1.0.0-rc.1 to final release
 
