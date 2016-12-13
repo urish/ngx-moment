@@ -107,9 +107,17 @@ Prints `Last updated: Today at 14:00` (default referenceTime is today by default
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amCalendar:null:nextDay }}</time>
+    Last updated: <time>{{myDate | amCalendar:nextDay }}</time>
   `
 })
+export class AppComponent {
+  nextDay: Date;
+
+  constructor() {
+      this.nextDay = new Date();
+      nextDay.setDate(nextDay.getDate() + 1);
+  }
+}
 ```
 
 Prints `Last updated: Yesterday at 14:00` (referenceTime is tomorrow)

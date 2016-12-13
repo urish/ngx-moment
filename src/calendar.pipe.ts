@@ -35,9 +35,20 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
       }));
   }
 
-  transform(value: Date | moment.Moment, formats?: any, referenceTime?: any): any {
-      // normalize referenceTime value
-      referenceTime = (referenceTime !== null) ? momentConstructor(referenceTime) : null;
+  transform(value: Date | moment.Moment, ...args: any[]): any {
+      let formats: any = null;
+      let referenceTime: any = null;
+
+      for (let i = 0, len = args.length; i < len; i++) {
+          if (args[i] !== null) {
+              if (typeof args[i] === 'object' && !moment.isMoment(args[i])) {
+                  formats = args[i];
+              } else {
+                  referenceTime = momentConstructor(args[i]);
+              }
+          }
+      }
+
       return momentConstructor(value).calendar(referenceTime, formats);
   }
 
