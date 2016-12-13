@@ -88,6 +88,9 @@ Prints `Last updated: a few seconds ago`
 Prints `Last updated: a few seconds`
 
 ## amCalendar pipe
+Takes optional `formats` argument (defaults to now)
+and `referenceTime` argument that could be output formats object or callback function.
+See [momentjs docs](http://momentjs.com/docs/#/displaying/calendar-time/) for details.
 
 ``` typescript
 @Component({
@@ -98,7 +101,37 @@ Prints `Last updated: a few seconds`
 })
 ```
 
-Prints `Last updated: Today at 14:00`
+Prints `Last updated: Today at 14:00` (default referenceTime is today by default)
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: <time>{{myDate | amCalendar:nextDay }}</time>
+  `
+})
+export class AppComponent {
+  nextDay: Date;
+
+  constructor() {
+      this.nextDay = new Date();
+      nextDay.setDate(nextDay.getDate() + 1);
+  }
+}
+```
+
+Prints `Last updated: Yesterday at 14:00` (referenceTime is tomorrow)
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: <time>{{myDate | amCalendar:{sameDay:'[Same Day at] h:mm A'} }}</time>
+  `
+})
+```
+
+Prints `Last updated: Same Day at 2:00 PM`
 
 ## amDateFormat pipe
 
