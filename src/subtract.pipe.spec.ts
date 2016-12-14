@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import {SubtractPipe} from './SubtractPipe';
+import { SubtractPipe } from './subtract.pipe';
 
 describe('SubtractPipe', () => {
   var pipe: SubtractPipe;

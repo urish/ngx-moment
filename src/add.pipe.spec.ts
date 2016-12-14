@@ -1,7 +1,7 @@
 import 'es6-shim';
 import 'reflect-metadata';
 import * as moment from 'moment';
-import { AddPipe } from './AddPipe';
+import { AddPipe } from './add.pipe';
 
 describe('AddPipe', () => {
   var pipe: AddPipe;
