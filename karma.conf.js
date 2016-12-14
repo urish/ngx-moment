@@ -23,7 +23,7 @@ module.exports = function (config) {
         loaders: [
           {
             test: /\.ts$/,
-            loader: 'ts',
+            loader: 'awesome-typescript-loader',
             exclude: [/node_modules/]
           }
         ]

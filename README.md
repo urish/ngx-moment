@@ -4,7 +4,7 @@ moment.js pipes for Angular 2.0
 
 [![Build Status](https://travis-ci.org/urish/angular2-moment.png?branch=master)](https://travis-ci.org/urish/angular2-moment)
 
-This module works with the latest release candidate of Angular 2.0.
+This module works with Angular 2.x.
 
 For the stable AngularJS 1.x version of this module, please see [angular-moment](https://github.com/urish/angular-moment).
 
@@ -13,7 +13,7 @@ Installation
 
 `npm install --save angular2-moment`
 
-If you use typescript, and [typings](https://github.com/typings/typings), you may also need to install typings for moment.js:
+If you use typescript 1.8, and [typings](https://github.com/typings/typings), you may also need to install typings for moment.js:
 
 `typings install --save moment`
 
@@ -45,22 +45,6 @@ packages: {
 Usage
 -----
 
-## Angular RC 6 and later
-
-Starting with RC 6, the `<time>` tag is no longer needed to use the moment pipes.
-
-``` typescript
-@Component({
-  selector: 'app',
-  template: `
-    Last updated: {{myDate | amTimeAgo}}
-  `
-})
-```
-
-
-## Angular RC 5 and later
-
 Import `MomentModule` into your app's modules:
 
 ``` typescript
@@ -75,11 +59,6 @@ import {MomentModule} from 'angular2-moment';
 
 This makes all the `angular2-moment` pipes available for use in your app components.
 
-## Angular RC 4 and earlier
-
-Use an older version of the library, such as 0.8.2. You can find the documentation 
-[here](https://github.com/urish/angular2-moment/blob/3d67595ed8857347518258817e187bc0043fe9a4/README.md).
-
 Available pipes
 ---------------
 
@@ -90,7 +69,7 @@ Takes an optional `omitSuffix` argument that defaults to `false`.
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amTimeAgo}}</time>
+    Last updated: {{myDate | amTimeAgo}}
   `
 })
 ```
@@ -101,7 +80,7 @@ Prints `Last updated: a few seconds ago`
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amTimeAgo:true}}</time>
+    Last updated: {{myDate | amTimeAgo:true}}
   `
 })
 ```
@@ -109,17 +88,50 @@ Prints `Last updated: a few seconds ago`
 Prints `Last updated: a few seconds`
 
 ## amCalendar pipe
+Takes optional `formats` argument (defaults to now)
+and `referenceTime` argument that could be output formats object or callback function.
+See [momentjs docs](http://momentjs.com/docs/#/displaying/calendar-time/) for details.
 
 ``` typescript
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amCalendar}}</time>
+    Last updated: {{myDate | amCalendar}}
   `
 })
 ```
 
-Prints `Last updated: Today at 14:00`
+Prints `Last updated: Today at 14:00` (default referenceTime is today by default)
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: <time>{{myDate | amCalendar:nextDay }}</time>
+  `
+})
+export class AppComponent {
+  nextDay: Date;
+
+  constructor() {
+      this.nextDay = new Date();
+      nextDay.setDate(nextDay.getDate() + 1);
+  }
+}
+```
+
+Prints `Last updated: Yesterday at 14:00` (referenceTime is tomorrow)
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: <time>{{myDate | amCalendar:{sameDay:'[Same Day at] h:mm A'} }}</time>
+  `
+})
+```
+
+Prints `Last updated: Same Day at 2:00 PM`
 
 ## amDateFormat pipe
 
@@ -127,7 +139,7 @@ Prints `Last updated: Today at 14:00`
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{myDate | amDateFormat:'LL'}}</time>
+    Last updated: {{myDate | amDateFormat:'LL'}}
   `
 })
 ```
@@ -140,7 +152,7 @@ Prints `Last updated: January 24, 2016`
 @Component({
   selector: 'app',
   template: `
-    Last updated: <time>{{ (1456263980 | amFromUnix) | amDateFormat:'hh:mmA'}}</time>
+    Last updated: {{ (1456263980 | amFromUnix) | amDateFormat:'hh:mmA'}}
   `
 })
 ```
@@ -153,7 +165,7 @@ Prints `Last updated: 01:46PM`
 @Component({
   selector: 'app',
   template: `
-    Uptime: <time>{{ 365 | amDuration:'seconds' }}</time>
+    Uptime: {{ 365 | amDuration:'seconds' }}
   `
 })
 ```
@@ -166,7 +178,7 @@ Prints `Uptime: 6 minutes`
 @Component({
   selector: 'app',
   template: `
-    Expiration: <time>{{nextDay | amDifference: today :'days' : true}}</time> days
+    Expiration: {{nextDay | amDifference: today :'days' : true}} days
   `
 })
 ```
