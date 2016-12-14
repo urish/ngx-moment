@@ -37,6 +37,14 @@
     "from-unix.pipe.js.map",
     "from-unix.pipe.d.ts",
     "from-unix.pipe.metadata.json",
+    "add.pipe.js",
+    "add.pipe.js.map",
+    "add.pipe.d.ts",
+    "add.pipe.metadata.json",
+    "subtract.pipe.js",
+    "subtract.pipe.js.map",
+    "subtract.pipe.d.ts",
+    "subtract.pipe.metadata.json",
     "CHANGELOG.md"
   ],
   "scripts": {
