@@ -25,6 +25,12 @@ index.d.ts
 moment.module.js
 moment.module.js.map
 moment.module.d.ts
+add.pipe.js
+add.pipe.js.map
+add.pipe.d.ts
+subtract.pipe.js
+subtract.pipe.js.map
+subtract.pipe.d.ts
 *.spec.js
 *.spec.js.map
 *.spec.d.ts
