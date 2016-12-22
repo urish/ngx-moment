@@ -5,7 +5,7 @@ import * as moment from 'moment';
 
 @Pipe({ name: 'amSubtract' })
 export class SubtractPipe implements PipeTransform {
-    transform(value: any, ...args: string[]): any {
+    transform(value: any, ...args: any[]): any {
         if (typeof args === 'undefined' || args.length !== 2) {
             throw new Error('SubtractPipe: missing required arguments');
         }
