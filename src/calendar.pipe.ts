@@ -2,7 +2,7 @@
 
 import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy, NgZone} from '@angular/core';
 import * as moment from 'moment';
-import {Subscription} from 'rxjs';
+import {Subscription} from 'rxjs/Subscription';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
 const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
