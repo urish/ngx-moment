@@ -1,8 +1,11 @@
 # Changelog
 
-## 1.1.0 - TBD
-- Add `referenceTime` and `format` args to `amCalendar` ([#64](https://github.com/urish/angular2-moment/pull/64), contributed by [irsick](https://github.com/irsick)).
+## 1.1.0 - 2017-01-09
+Happy new year!
+
+- Add `referenceTime` and `format` args to `amCalendar` ([#64](https://github.com/urish/angular2-moment/pull/64), contributed by [irsick](https://github.com/irsick))
 - Add `amAdd` and `amSubtract` pipes ([#113](https://github.com/urish/angular2-moment/pull/113), contributed by [dustin486](https://github.com/dustin486))
+- Fix: Do not import whole Rx.js library ([#117](https://github.com/urish/angular2-moment/pull/117), contributed by [FabienDehopre](https://github.com/FabienDehopre))
 
 ## 1.0.0 - 2016-12-01
 Promoted 1.0.0-rc.1 to final release
