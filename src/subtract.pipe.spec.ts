@@ -8,7 +8,7 @@ describe('SubtractPipe', () => {
 
   describe('#transform', () => {
     it('should throw when provided no arguments', () => {
-      expect(() => pipe.transform(128)).toThrow(new Error('SubtractPipe: missing required arguments'));
+      expect(() => (pipe.transform as any)(128)).toThrow(new Error('SubtractPipe: missing required arguments'));
     });
 
     it('should subtract two hours', () => {
