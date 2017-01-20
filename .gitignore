@@ -31,6 +31,9 @@ add.pipe.d.ts
 subtract.pipe.js
 subtract.pipe.js.map
 subtract.pipe.d.ts
+utc.pipe.js
+utc.pipe.js.map
+utc.pipe.d.ts
 *.spec.js
 *.spec.js.map
 *.spec.d.ts

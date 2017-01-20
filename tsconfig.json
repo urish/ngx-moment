@@ -27,6 +27,8 @@
     "src/duration.pipe.spec.ts",
     "src/time-ago.pipe.ts",
     "src/time-ago.pipe.spec.ts",
+    "src/utc.pipe.ts",
+    "src/utc.pipe.spec.ts",
     "src/moment.module.ts",
     "src/index.ts"
   ],
