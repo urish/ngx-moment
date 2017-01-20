@@ -5,3 +5,4 @@ export { DurationPipe } from './duration.pipe';
 export { FromUnixPipe } from './from-unix.pipe';
 export { MomentModule } from './moment.module';
 export { TimeAgoPipe } from './time-ago.pipe';
+export { UtcPipe } from './utc.pipe';

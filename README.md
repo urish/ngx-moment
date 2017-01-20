@@ -190,6 +190,21 @@ Use these pipes to perform date arithmetics. See [Momnet.js documentation](http:
 
 *Example for amAdd/amSubtract is needed here, Pull Requests are welcome*
 
+## amUtc pipe
+
+Enables UTC mode for subsequent moment operations (such as displaying the time in UTC).
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{ '2016-12-31T23:00:00.000-01:00' | amUtc | amDateFormat: 'YYYY-MM-DD' }}
+  `
+})
+```
+
+Prints `Last updated: 2017-01-01`
+
 Complete Example
 ----------------
 

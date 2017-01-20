@@ -45,6 +45,10 @@
     "subtract.pipe.js.map",
     "subtract.pipe.d.ts",
     "subtract.pipe.metadata.json",
+    "utc.pipe.js",
+    "utc.pipe.js.map",
+    "utc.pipe.d.ts",
+    "utc.pipe.metadata.json",
     "CHANGELOG.md"
   ],
   "scripts": {

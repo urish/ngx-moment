@@ -6,8 +6,10 @@ import { DifferencePipe } from './difference.pipe';
 import { DurationPipe } from './duration.pipe';
 import { FromUnixPipe } from './from-unix.pipe';
 import { TimeAgoPipe } from './time-ago.pipe';
+import { UtcPipe } from './utc.pipe';
 
-const ANGULAR_MOMENT_PIPES = [CalendarPipe, DateFormatPipe, DifferencePipe, DurationPipe, FromUnixPipe, TimeAgoPipe];
+const ANGULAR_MOMENT_PIPES = [CalendarPipe, DateFormatPipe, DifferencePipe, DurationPipe, FromUnixPipe, TimeAgoPipe,
+   UtcPipe];
 
 @NgModule({
   declarations: ANGULAR_MOMENT_PIPES,
