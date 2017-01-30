@@ -186,7 +186,7 @@ Prints `Expiration: 1 day`
 
 ## amAdd and amSubtract pipes
 
-Use these pipes to perform date arithmetics. See [Momnet.js documentation](http://momentjs.com/docs/#/manipulating/add/) for details.
+Use these pipes to perform date arithmetics. See [momentjs docs](http://momentjs.com/docs/#/manipulating/add/) for details.
 
 *Example for amAdd/amSubtract is needed here, Pull Requests are welcome*
 
