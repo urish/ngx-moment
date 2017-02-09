@@ -146,6 +146,17 @@ Prints `Last updated: Same Day at 2:00 PM`
 
 Prints `Last updated: January 24, 2016`
 
+## amFromNow pipe
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Expiration: {{ '2016-01-24' | amFromNow }}
+  `
+})
+```
+
 ## amFromUnix pipe
 
 ``` typescript

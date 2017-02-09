@@ -10,6 +10,9 @@ calendar.pipe.d.ts
 date-format.pipe.js
 date-format.pipe.js.map
 date-format.pipe.d.ts
+from-now.pipe.js
+from-now.pipe.js.map
+from-now.pipe.d.ts
 from-unix.pipe.js
 from-unix.pipe.js.map
 from-unix.pipe.d.ts

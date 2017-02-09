@@ -21,6 +21,8 @@
     "src/date-format.pipe.spec.ts",
     "src/difference.pipe.ts",
     "src/difference.pipe.spec.ts",
+    "src/from-now.pipe.ts",
+    "src/from-now.pipe.spec.ts",
     "src/from-unix.pipe.ts",
     "src/from-unix.pipe.spec.ts",
     "src/duration.pipe.ts",
