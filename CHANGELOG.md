@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.0 - 2017-02-09
+- Add `amUtc` pipe ([#121](https://github.com/urish/angular2-moment/pull/121), contributed by [bodnarbm](https://github.com/bodnarbm))
+
 ## 1.1.0 - 2017-01-09
 Happy new year!
 
