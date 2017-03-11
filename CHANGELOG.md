@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0 - 2017-03-10
+- Enable Angular 4 as peer dependency
+
 ## 1.2.0 - 2017-02-09
 - Add `amUtc` pipe ([#121](https://github.com/urish/angular2-moment/pull/121), contributed by [bodnarbm](https://github.com/bodnarbm))
 
