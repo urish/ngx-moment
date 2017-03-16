@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.1 - 2017-03-16
+- Add missing `amAdd` and `amSubtract` pipes (fixes [#130](https://github.com/urish/angular2-moment/issues/130))
+
 ## 1.3.0 - 2017-03-10
 - Enable Angular 4 as peer dependency
 
