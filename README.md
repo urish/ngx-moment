@@ -188,7 +188,25 @@ Prints `Expiration: 1 day`
 
 Use these pipes to perform date arithmetics. See [momentjs docs](http://momentjs.com/docs/#/manipulating/add/) for details.
 
-*Example for amAdd/amSubtract is needed here, Pull Requests are welcome*
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Expiration: {{'2017-03-17T16:55:00.000+01:00' | amAdd: 2 : 'hours' | amDateFormat: 'YYYY-MM-DD HH:mm'}}
+  `
+})
+```
+Prints `Expiration: 2017-03-17 18:55`
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{'2017-03-17T16:55:00.000+01:00' | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD HH:mm'}}
+  `
+})
+```
+Prints `Last updated: 2012-03-17 16:55`
 
 ## amUtc pipe
 
