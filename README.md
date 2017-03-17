@@ -88,8 +88,8 @@ Prints `Last updated: a few seconds ago`
 Prints `Last updated: a few seconds`
 
 ## amCalendar pipe
-Takes optional `formats` argument (defaults to now)
-and `referenceTime` argument that could be output formats object or callback function.
+Takes optional `referenceTime` argument (defaults to now)
+and `formats` argument that could be output formats object or callback function.
 See [momentjs docs](http://momentjs.com/docs/#/displaying/calendar-time/) for details.
 
 ``` typescript
