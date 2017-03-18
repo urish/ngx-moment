@@ -1,8 +1,8 @@
 /* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy, NgZone} from '@angular/core';
+import { Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy, NgZone } from '@angular/core';
 import * as moment from 'moment';
-import {Subscription} from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 // under systemjs, moment is actually exported as the default export, so we account for that
 const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
@@ -35,20 +35,20 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   transform(value: Date | moment.Moment, ...args: any[]): any {
-      let formats: any = null;
-      let referenceTime: any = null;
+    let formats: any = null;
+    let referenceTime: any = null;
 
-      for (let i = 0, len = args.length; i < len; i++) {
-          if (args[i] !== null) {
-              if (typeof args[i] === 'object' && !moment.isMoment(args[i])) {
-                  formats = args[i];
-              } else {
-                  referenceTime = momentConstructor(args[i]);
-              }
-          }
+    for (let i = 0, len = args.length; i < len; i++) {
+      if (args[i] !== null) {
+        if (typeof args[i] === 'object' && !moment.isMoment(args[i])) {
+          formats = args[i];
+        } else {
+          referenceTime = momentConstructor(args[i]);
+        }
       }
+    }
 
-      return momentConstructor(value).calendar(referenceTime, formats);
+    return momentConstructor(value).calendar(referenceTime, formats);
   }
 
   ngOnDestroy(): void {
