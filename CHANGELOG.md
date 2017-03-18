@@ -1,7 +1,7 @@
 # Changelog
 
 ## 1.3.2 - 2017-03-17
-- Fix: Add missing `add` and `subtract` pipes to the NgModule ([#134](https://github.com/urish/angular2-moment/pull/134) contributed by [datencia]((https://github.com/datencia))
+- Fix: Add missing `add` and `subtract` pipes to the NgModule ([#134](https://github.com/urish/angular2-moment/pull/134), contributed by [datencia](https://github.com/datencia))
 
 ## 1.3.1 - 2017-03-16
 - Add missing `amAdd` and `amSubtract` pipes (fixes [#130](https://github.com/urish/angular2-moment/issues/130))
