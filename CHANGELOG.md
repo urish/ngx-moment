@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.3 - 2017-03-18
+- Fix: amCalendar causes protractor to timeout on waiting async Angular ([#135](https://github.com/urish/angular2-moment/pull/135), contributed by [romanovma](https://github.com/romanovma))
+
 ## 1.3.2 - 2017-03-17
 - Fix: Add missing `add` and `subtract` pipes to the NgModule ([#134](https://github.com/urish/angular2-moment/pull/134), contributed by [datencia](https://github.com/datencia))
 
