@@ -19,7 +19,6 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   private static timer: number;
   private static midnight: EventEmitter<Date>;
 
-
   private midnightSub: Subscription;
 
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
@@ -27,7 +26,6 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     CalendarPipe.initTimer(ngZone, cdRef);
 
     CalendarPipe.refs++;
-
 
     // values such as Today will need to be replaced with Yesterday after midnight,
     // so make sure we subscribe to an EventEmitter that we set up to emit at midnight
