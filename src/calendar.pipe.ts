@@ -23,16 +23,15 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
 
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
     // using a single static timer for all instances of this pipe for performance reasons
-    CalendarPipe.initTimer(ngZone, cdRef);
+    CalendarPipe.initTimer(ngZone);
 
     CalendarPipe.refs++;
 
     // values such as Today will need to be replaced with Yesterday after midnight,
     // so make sure we subscribe to an EventEmitter that we set up to emit at midnight
-    this.ngZone.runOutsideAngular(() =>
-      this.midnightSub = CalendarPipe.midnight.subscribe(() => {
-        this.ngZone.run(() => this.cdRef.markForCheck());
-      }));
+    this.midnightSub = CalendarPipe.midnight.subscribe(() => {
+      this.ngZone.run(() => this.cdRef.markForCheck());
+    });
   }
 
   transform(value: Date | moment.Moment, ...args: any[]): any {
@@ -64,7 +63,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     this.midnightSub.unsubscribe();
   }
 
-  private static initTimer(ngZone: NgZone, cdRef: ChangeDetectorRef) {
+  private static initTimer(ngZone: NgZone) {
     // initialize the timer
     if (!CalendarPipe.midnight) {
       CalendarPipe.midnight = new EventEmitter<Date>();
@@ -77,8 +76,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
 
             // refresh the timer
             CalendarPipe.removeTimer();
-            CalendarPipe.initTimer(ngZone, cdRef);
-            ngZone.run(() => cdRef.markForCheck());
+            CalendarPipe.initTimer(ngZone);
           }, timeToUpdate);
         });
       }
