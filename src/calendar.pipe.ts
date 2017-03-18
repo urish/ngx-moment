@@ -70,7 +70,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
       if (typeof window !== 'undefined') {
         let timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
         CalendarPipe.timer = ngZone.runOutsideAngular(() => {
-          window.setTimeout(() => {
+          return window.setTimeout(() => {
             // emit the current date
             CalendarPipe.midnight.emit(new Date());
 
