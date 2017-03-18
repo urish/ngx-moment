@@ -9,18 +9,30 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 
 @Pipe({ name: 'amCalendar', pure: false })
 export class CalendarPipe implements PipeTransform, OnDestroy {
-  private timer: number;
-  private midnight: EventEmitter<Date>;
+
+  /**
+   * @private Internal reference counter, so we can clean up when no instances are in use
+   * @type {number}
+   */
+  private static refs: number = 0;
+
+  private static timer: number;
+  private static midnight: EventEmitter<Date>;
+
 
   private midnightSub: Subscription;
 
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
-    this.initTimer();
+    // using a single static timer for all instances of this pipe for performance reasons
+    CalendarPipe.initTimer(ngZone, cdRef);
+
+    CalendarPipe.refs++;
+
 
     // values such as Today will need to be replaced with Yesterday after midnight,
     // so make sure we subscribe to an EventEmitter that we set up to emit at midnight
     this.ngZone.runOutsideAngular(() =>
-      this.midnightSub = this.midnight.subscribe(() => {
+      this.midnightSub = CalendarPipe.midnight.subscribe(() => {
         this.ngZone.run(() => this.cdRef.markForCheck());
       }));
   }
@@ -43,40 +55,47 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.removeTimer();
+    if (CalendarPipe.refs > 0) {
+      CalendarPipe.refs--;
+    }
+
+    if (CalendarPipe.refs === 0) {
+      CalendarPipe.removeTimer();
+    }
+
     this.midnightSub.unsubscribe();
   }
 
-  private initTimer() {
+  private static initTimer(ngZone: NgZone, cdRef: ChangeDetectorRef) {
     // initialize the timer
-    if (!this.midnight) {
-      this.midnight = new EventEmitter<Date>();
+    if (!CalendarPipe.midnight) {
+      CalendarPipe.midnight = new EventEmitter<Date>();
       if (typeof window !== 'undefined') {
-        let timeToUpdate = this._getMillisecondsUntilUpdate();
-        this.timer = this.ngZone.runOutsideAngular(() => {
+        let timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
+        CalendarPipe.timer = ngZone.runOutsideAngular(() => {
           window.setTimeout(() => {
             // emit the current date
-            this.midnight.emit(new Date());
+            CalendarPipe.midnight.emit(new Date());
 
             // refresh the timer
-            this.removeTimer();
-            this.initTimer();
-            this.ngZone.run(() => this.cdRef.markForCheck());
+            CalendarPipe.removeTimer();
+            CalendarPipe.initTimer(ngZone, cdRef);
+            ngZone.run(() => cdRef.markForCheck());
           }, timeToUpdate);
         });
       }
     }
   }
 
-  private removeTimer() {
-    if (this.timer) {
-      window.clearTimeout(this.timer);
-      this.timer = null;
-      this.midnight = null;
+  private static removeTimer() {
+    if (CalendarPipe.timer) {
+      window.clearTimeout(CalendarPipe.timer);
+      CalendarPipe.timer = null;
+      CalendarPipe.midnight = null;
     }
   }
 
-  private _getMillisecondsUntilUpdate() {
+  private static _getMillisecondsUntilUpdate() {
     var now = momentConstructor();
     var tomorrow = momentConstructor().startOf('day').add(1, 'days');
     var timeToMidnight = tomorrow.valueOf() - now.valueOf();
