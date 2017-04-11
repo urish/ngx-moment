@@ -82,7 +82,8 @@ describe('TimeAgoPipe', () => {
       const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
       jasmine.clock().mockDate(new Date('2016-05-03'));
       let date = new Date('2016-05-01');
-      expect(pipe.transform(date, false, 2)).toBe('2016-05-01T03:00:00+03:00');
+      let expectedResult = momentConstructor(new Date('2016-05-01')).format();
+      expect(pipe.transform(date, false, 2)).toBe(expectedResult);
     });
 
     it('should output date ago format when threshold specified and not matched', () => {
