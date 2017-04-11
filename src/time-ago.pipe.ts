@@ -14,18 +14,31 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private lastValue: Date | moment.Moment;
   private lastOmitSuffix: boolean;
   private lastText: string;
+  private fullDateThreshold: number;
+  private useFullDateThreshold: boolean;
+  private fullDateThresholdFormat: string;
 
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
   }
 
-  transform(value: Date | moment.Moment, omitSuffix?: boolean): string {
+  transform(value: Date | moment.Moment,
+            omitSuffix?: boolean,
+            fullDateThreshold?: number,
+            fullDateThresholdFormat?: string
+           ): string {
+
     if (this.hasChanged(value, omitSuffix)) {
       this.lastTime = this.getTime(value);
       this.lastValue = value;
       this.lastOmitSuffix = omitSuffix;
+      this.fullDateThreshold = fullDateThreshold;
+      this.useFullDateThreshold = isNaN(fullDateThreshold) ? false : true;
+      this.fullDateThresholdFormat = fullDateThresholdFormat ? fullDateThresholdFormat : moment.defaultFormat;
       this.removeTimer();
       this.createTimer();
-      this.lastText = momentConstructor(value).from(momentConstructor(), omitSuffix);
+      this.lastText = this.calcDisplayedText(
+        this.lastValue, this.lastOmitSuffix, this.useFullDateThreshold,
+        this.fullDateThreshold, this.fullDateThresholdFormat);
 
     } else {
       this.createTimer();
@@ -49,7 +62,9 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     this.currentTimer = this.ngZone.runOutsideAngular(() => {
       if (typeof window !== 'undefined') {
         return window.setTimeout(() => {
-          this.lastText = momentConstructor(this.lastValue).from(momentConstructor(), this.lastOmitSuffix);
+          this.lastText = this.calcDisplayedText(
+            this.lastValue, this.lastOmitSuffix, this.useFullDateThreshold,
+            this.fullDateThreshold, this.fullDateThresholdFormat);
 
           this.currentTimer = null;
           this.ngZone.run(() => this.cdRef.markForCheck());
@@ -91,5 +106,33 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     } else {
       return momentConstructor(value).valueOf();
     }
+  }
+
+  private calcDisplayedText(
+    value: Date | moment.Moment,
+    omitSuffix: boolean,
+    useFullDateThreshold: boolean,
+    fullDateThreshold: any,
+    fullDateThresholdFormat: string) {
+
+    var displayStrategy: Function;
+    var valueMoment = momentConstructor(value);
+    var daysDurationPassed = moment.duration(momentConstructor().diff(valueMoment)).days();
+
+    if (useFullDateThreshold && daysDurationPassed >= fullDateThreshold) {
+      displayStrategy = this.fullDateDisplayStrategy.bind(null, fullDateThresholdFormat);
+    } else {
+      displayStrategy = this.timeAgoDisplayStrategy.bind(null, omitSuffix);
+    }
+
+    return displayStrategy(value);
+  }
+
+  private timeAgoDisplayStrategy(omitSuffix: boolean, value : Date | moment.Moment) {
+    return momentConstructor(value).from(momentConstructor(), omitSuffix);
+  }
+
+  private fullDateDisplayStrategy(format: string, value: Date | moment.Moment) {
+    return momentConstructor(value).format(format);
   }
 }

@@ -76,5 +76,29 @@ describe('TimeAgoPipe', () => {
       jasmine.clock().tick(60000);
       expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
     });
+
+    it('should output full date format when threshold specified and matched', () => {
+      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
+      const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
+      jasmine.clock().mockDate(new Date('2016-05-03'));
+      let date = new Date('2016-05-01');
+      expect(pipe.transform(date, false, 2)).toBe('2016-05-01T03:00:00+03:00');
+    });
+
+    it('should output date ago format when threshold specified and not matched', () => {
+      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
+      const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
+      jasmine.clock().mockDate(new Date('2016-05-03'));
+      let date = new Date('2016-05-01');
+      expect(pipe.transform(date, false, 3)).toBe('2 days ago');
+    });
+
+    it('should output full date in the specified format when threshold and format where specified', () => {
+      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
+      const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
+      jasmine.clock().mockDate(new Date('2016-05-03'));
+      let date = new Date('2016-05-01');
+      expect(pipe.transform(date, false, 2, 'YYYY-MM-DD')).toBe('2016-05-01');
+    });
   });
 });
