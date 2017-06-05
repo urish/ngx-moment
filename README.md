@@ -23,7 +23,7 @@ First you need to install moment:
 
 `npm install moment --save`
 
-Don´t forget to update your systemjs.config.js:
+Don't forget to update your systemjs.config.js:
 
 ```
 packages: {
@@ -48,7 +48,7 @@ Usage
 Import `MomentModule` into your app's modules:
 
 ``` typescript
-import {MomentModule} from 'angular2-moment';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   imports: [
@@ -227,10 +227,10 @@ Complete Example
 ----------------
 
 ``` typescript
-import {NgModule, Component} from 'angular2/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {MomentModule} from 'angular2-moment';
+import { NgModule, Component } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { MomentModule } from 'angular2-moment';
 
 @Component({
   selector: 'app',
