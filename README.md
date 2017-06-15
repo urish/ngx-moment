@@ -146,6 +146,22 @@ Prints `Last updated: Same Day at 2:00 PM`
 
 Prints `Last updated: January 24, 2016`
 
+## amParse pipe
+
+Parses a custom-formatted date into a moment object that can be used with the other pipes.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{'24/01/2014' | amParse:'DD/MM/YYYY' | amDateFormat:'LL'}}
+  `
+})
+```
+
+Prints `Last updated: January 24, 2016`
+
+
 ## amFromUnix pipe
 
 ``` typescript

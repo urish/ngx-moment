@@ -49,6 +49,10 @@
     "utc.pipe.js.map",
     "utc.pipe.d.ts",
     "utc.pipe.metadata.json",
+    "parse.pipe.js",
+    "parse.pipe.js.map",
+    "parse.pipe.d.ts",
+    "parse.pipe.metadata.json",
     "CHANGELOG.md"
   ],
   "scripts": {

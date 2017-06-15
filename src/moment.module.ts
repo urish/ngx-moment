@@ -6,6 +6,7 @@ import { DateFormatPipe } from './date-format.pipe';
 import { DifferencePipe } from './difference.pipe';
 import { DurationPipe } from './duration.pipe';
 import { FromUnixPipe } from './from-unix.pipe';
+import { ParsePipe } from './parse.pipe';
 import { SubtractPipe } from './subtract.pipe';
 import { TimeAgoPipe } from './time-ago.pipe';
 import { UtcPipe } from './utc.pipe';
@@ -17,6 +18,7 @@ const ANGULAR_MOMENT_PIPES = [
   DifferencePipe,
   DurationPipe,
   FromUnixPipe,
+  ParsePipe,
   SubtractPipe,
   TimeAgoPipe,
   UtcPipe
