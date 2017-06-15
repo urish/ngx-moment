@@ -28,6 +28,8 @@
     "src/from-unix.pipe.ts",
     "src/from-unix.pipe.spec.ts",
     "src/index.ts",
+    "src/parse.pipe.ts",
+    "src/parse.pipe.spec.ts",
     "src/moment.module.ts",
     "src/subtract.pipe.ts",
     "src/subtract.pipe.spec.ts",
