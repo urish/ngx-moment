@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.0 - 2017-06-18
+- Add `ParsePipe` to enable parsing of custom-formatted date string ([#148](https://github.com/urish/angular2-moment/pull/148), contributed by [vin-car](https://github.com/vin-car))
+
 ## 1.3.3 - 2017-03-18
 - Fix: amCalendar causes protractor to timeout on waiting async Angular ([#135](https://github.com/urish/angular2-moment/pull/135), contributed by [romanovma](https://github.com/romanovma))
 
