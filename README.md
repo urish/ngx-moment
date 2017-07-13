@@ -161,6 +161,20 @@ Parses a custom-formatted date into a moment object that can be used with the ot
 
 Prints `Last updated: January 24, 2016`
 
+## amLocal pipe
+
+Converts UTC time to local time.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{mydate | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}
+  `
+})
+```
+
+Prints `Last updated 2016-01-24 12:34`
 
 ## amFromUnix pipe
 
