@@ -20,8 +20,8 @@ describe('LocalePipe', () => {
       const langKeyString2 = 'de';
       const parsedMoment1 = localePipe.transform(datetimeString, langKeyString1);
       const parsedMoment2 = localePipe.transform(datetimeString, langKeyString2);
-      expect(parsedMoment1).toEqual(jasmine.any(moment));
-      expect(parsedMoment2).toEqual(jasmine.any(moment));
+      expect(parsedMoment1).toEqual(expect.any(moment));
+      expect(parsedMoment2).toEqual(expect.any(moment));
       expect(parsedMoment1.isValid()).toBe(true);
       expect(parsedMoment2.isValid()).toBe(true);
     });

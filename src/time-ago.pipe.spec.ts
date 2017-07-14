@@ -1,14 +1,16 @@
 import 'es6-shim';
 import 'reflect-metadata';
-import {NgZone} from '@angular/core';
-import {TimeAgoPipe} from './time-ago.pipe';
+import { NgZone } from '@angular/core';
+import { TimeAgoPipe } from './time-ago.pipe';
 import * as moment from 'moment';
+
+declare var global: any;
 
 // under systemjs, moment is actually exported as the default export, so we account for that
 const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
 
 class NgZoneMock {
-  runOutsideAngular (fn: Function) {
+  runOutsideAngular(fn: Function) {
     return fn();
   }
   run(fn: Function) {
@@ -16,10 +18,22 @@ class NgZoneMock {
   }
 };
 
+const _Date = Date;
+
+function fakeDate(defaultDate: string | number) {
+  global.Date = (arg: any) => new _Date(typeof arg !== 'undefined' ? arg : defaultDate);
+  global.Date.UTC = _Date.UTC;
+}
+
 describe('TimeAgoPipe', () => {
   describe('#transform', () => {
-    afterEach(function() {
-      jasmine.clock().uninstall();
+
+    beforeEach(() => jest.useFakeTimers());
+
+    afterEach(() => {
+      global.Date = _Date;
+      jest.clearAllTimers();
+      jest.useRealTimers();
     });
 
     it('should transform the current date to "a few seconds ago"', () => {
@@ -33,19 +47,18 @@ describe('TimeAgoPipe', () => {
     });
 
     it('should automatically update the text as time passes', () => {
-      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
-      const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
-      jasmine.clock().install();
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
       expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
-      jasmine.clock().tick(60000);
+      jest.runTimersToTime(60000);
       expect(changeDetectorMock.markForCheck).toHaveBeenCalled();
     });
 
     it('should update the text with a new date instance different from the previous one', () => {
-      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
-      const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
-      jasmine.clock().mockDate(new Date('2016-05-01'));
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
+      fakeDate('2016-05-01');
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
       expect(pipe.transform(new Date(0))).toBe('46 years ago');
       expect(pipe.transform(moment())).toBe('a few seconds ago');
@@ -53,9 +66,9 @@ describe('TimeAgoPipe', () => {
     });
 
     it('should update the text when the date instance time is updated', () => {
-      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
-      const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
-      jasmine.clock().mockDate(new Date('2016-05-01'));
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
+      fakeDate('2016-05-01');
       let date = new Date();
       expect(pipe.transform(date)).toBe('a few seconds ago');
       date.setFullYear(2000);
@@ -67,13 +80,12 @@ describe('TimeAgoPipe', () => {
       expect(pipe.transform(dateAsMoment)).toBe('16 years ago');
     });
 
-    it('should remove all timer when destroyed', () => {
-      const changeDetectorMock = jasmine.createSpyObj('ChangeDetectorRef', ['markForCheck']);
-      const pipe = new TimeAgoPipe(changeDetectorMock, new NgZoneMock() as NgZone);
-      jasmine.clock().install();
+    it('should remove all timers when destroyed', () => {
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
       pipe.ngOnDestroy();
-      jasmine.clock().tick(60000);
+      jest.runTimersToTime(60000);
       expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
     });
   });

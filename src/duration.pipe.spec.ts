@@ -7,7 +7,7 @@ describe('DurationPipe', () => {
 
   describe('#transform', () => {
     it('should throw when provided no arguments', () => {
-      expect(() => pipe.transform(128)).toThrow(new Error('DurationPipe: missing required time unit argument'));
+      expect(() => pipe.transform(128)).toThrow('DurationPipe: missing required time unit argument');
     });
 
     it('should convert a duration to a human-readable string', () => {

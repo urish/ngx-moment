@@ -18,7 +18,7 @@ describe('ParsePipe', () => {
       const dateString = '2015#09#13';
       const formatInputString = 'YYYY#MM#DD';
       const parsedMoment = parsePipe.transform(dateString, formatInputString);
-      expect(parsedMoment).toEqual(jasmine.any(moment));
+      expect(parsedMoment).toEqual(expect.any(moment));
       expect(parsedMoment.isValid()).toBe(true);
 
       expect(parsedMoment.year()).toBe(2015);
