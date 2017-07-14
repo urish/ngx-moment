@@ -37,9 +37,9 @@ utc.pipe.d.ts
 parse.pipe.js
 parse.pipe.js.map
 parse.pipe.d.ts
-lang.pipe.js
-lang.pipe.js.map
-lang.pipe.d.ts
+locale.pipe.js
+locale.pipe.js.map
+locale.pipe.d.ts
 *.spec.js
 *.spec.js.map
 *.spec.d.ts

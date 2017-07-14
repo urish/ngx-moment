@@ -161,7 +161,7 @@ Parses a custom-formatted date into a moment object that can be used with the ot
 
 Prints `Last updated: January 24, 2016`
 
-## amLang pipe
+## amLocale pipe
 
 To be used with amDateFormat pipe in order to change locale.
 
@@ -169,7 +169,7 @@ To be used with amDateFormat pipe in order to change locale.
 @Component({
   selector: 'app',
   template: `
-    Last updated: {{'2016-01-24 14:23:45' | amLang:'en' | amDateFormat:'MMMM Do YYYY, h:mm:ss a'}}
+    Last updated: {{'2016-01-24 14:23:45' | amLocale:'en' | amDateFormat:'MMMM Do YYYY, h:mm:ss a'}}
   `
 })
 ```
