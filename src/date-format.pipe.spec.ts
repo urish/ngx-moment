@@ -7,8 +7,12 @@ describe('DateFormatPipe', () => {
   describe('#transform', () => {
     it('should properly format a date', () => {
       const pipe = new DateFormatPipe();
-      const result = pipe.transform(moment('2016-01-24 01:23:45'), 'MMMM Do YYYY, h:mm:ss a');
-      expect(result).toBe('January 24th 2016, 1:23:45 am');
+
+      const result1 = pipe.transform(moment('2016-01-24 01:23:45'), 'MMMM Do YYYY, h:mm:ss a');
+      expect(result1).toBe('January 24th 2016, 1:23:45 am');
+
+      const result2 = pipe.transform(moment('2016-01-24 14:23:45'), 'MMMM Do YYYY, HH:mm:ss', 'de');
+      expect(result2).toBe('Januar 24. 2016, 14:23:45');
     });
 
     it('should not format empty dates', () => {

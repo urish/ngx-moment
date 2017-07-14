@@ -10,6 +10,7 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 export class DateFormatPipe implements PipeTransform {
   transform(value: Date | moment.Moment | string | number, ...args: any[]): string {
     if (!value) return '';
+    if (args[1]) return momentConstructor(value).lang(args[1]).format(args[0]);
     return momentConstructor(value).format(args[0]);
   }
 }
