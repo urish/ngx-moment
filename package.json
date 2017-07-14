@@ -63,7 +63,8 @@
     "test": "tslint src/*.ts --exclude=src/*.d.ts && ngc && jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:debug": "node --inspect-brk --inspect ./node_modules/jest/bin/jest.js --runInBand"
+    "test:debug": "node --inspect-brk --inspect ./node_modules/jest/bin/jest.js --runInBand",
+    "prepublish": "ngc && copyfiles -f src/*.js src/*.js.map src/*.d.ts src/*.metadata.json ."
   },
   "repository": {
     "type": "git",
