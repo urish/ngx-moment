@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.0 - 2017-07-14
+- Am `amLocale` pipe ([#155](https://github.com/urish/angular2-moment/pull/155), contributed by [FallenRiteMonk](https://github.com/FallenRiteMonk))
+
 ## 1.4.0 - 2017-06-18
 - Add `amParse` pipe to enable parsing of custom-formatted date string ([#148](https://github.com/urish/angular2-moment/pull/148), contributed by [vin-car](https://github.com/vin-car))
 
