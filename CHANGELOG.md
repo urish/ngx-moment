@@ -1,13 +1,13 @@
 # Changelog
 
 ## 1.4.0 - 2017-06-18
-- Add `ParsePipe` to enable parsing of custom-formatted date string ([#148](https://github.com/urish/angular2-moment/pull/148), contributed by [vin-car](https://github.com/vin-car))
+- Add `amParse` pipe to enable parsing of custom-formatted date string ([#148](https://github.com/urish/angular2-moment/pull/148), contributed by [vin-car](https://github.com/vin-car))
 
 ## 1.3.3 - 2017-03-18
-- Fix: amCalendar causes protractor to timeout on waiting async Angular ([#135](https://github.com/urish/angular2-moment/pull/135), contributed by [romanovma](https://github.com/romanovma))
+- Fix: `amCalendar` causes protractor to timeout on waiting async Angular ([#135](https://github.com/urish/angular2-moment/pull/135), contributed by [romanovma](https://github.com/romanovma))
 
 ## 1.3.2 - 2017-03-17
-- Fix: Add missing `add` and `subtract` pipes to the NgModule ([#134](https://github.com/urish/angular2-moment/pull/134), contributed by [datencia](https://github.com/datencia))
+- Fix: Add missing `amAdd` and `amSubtract` pipes to the NgModule ([#134](https://github.com/urish/angular2-moment/pull/134), contributed by [datencia](https://github.com/datencia))
 
 ## 1.3.1 - 2017-03-16
 - Add missing `amAdd` and `amSubtract` pipes (fixes [#130](https://github.com/urish/angular2-moment/issues/130))
@@ -76,7 +76,7 @@ All changes:
 - Add `amDifference` pipe ([#54](https://github.com/urish/angular2-moment/pull/54), contributed by [josx](https://github.com/josx))
 
 ## 0.8.1 - 2016-07-03
-- Add `omitSuffix` parameter to `TimeAgoPipe` ([#47](https://github.com/urish/angular2-moment/pull/47), contributed by [bzums](https://github.com/bzums))
+- Add `omitSuffix` parameter to `amTimeAgo` pipe ([#47](https://github.com/urish/angular2-moment/pull/47), contributed by [bzums](https://github.com/bzums))
 
 ## 0.8.0 - 2016-05-22
 - Publish typescript sources under `src` folder, should fix Ionic 2 issues such as [#28](https://github.com/urish/angular2-moment/issues/28) and [#33](https://github.com/urish/angular2-moment/issues/33).
