@@ -36,7 +36,9 @@
     "src/time-ago.pipe.ts",
     "src/time-ago.pipe.spec.ts",
     "src/utc.pipe.ts",
-    "src/utc.pipe.spec.ts"
+    "src/utc.pipe.spec.ts",
+    "src/locale.pipe.ts",
+    "src/locale.pipe.spec.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "compiled"

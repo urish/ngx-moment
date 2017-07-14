@@ -53,6 +53,10 @@
     "parse.pipe.js.map",
     "parse.pipe.d.ts",
     "parse.pipe.metadata.json",
+    "locale.pipe.js",
+    "locale.pipe.js.map",
+    "locale.pipe.d.ts",
+    "locale.pipe.metadata.json",
     "CHANGELOG.md"
   ],
   "scripts": {
