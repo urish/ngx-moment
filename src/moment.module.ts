@@ -10,6 +10,7 @@ import { ParsePipe } from './parse.pipe';
 import { SubtractPipe } from './subtract.pipe';
 import { TimeAgoPipe } from './time-ago.pipe';
 import { UtcPipe } from './utc.pipe';
+import { LocalTimePipe } from './local.pipe';
 import { LocalePipe } from './locale.pipe';
 
 const ANGULAR_MOMENT_PIPES = [
@@ -23,6 +24,7 @@ const ANGULAR_MOMENT_PIPES = [
   SubtractPipe,
   TimeAgoPipe,
   UtcPipe,
+  LocalTimePipe,
   LocalePipe
 ];
 

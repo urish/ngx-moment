@@ -9,4 +9,5 @@ export { MomentModule } from './moment.module';
 export { SubtractPipe } from './subtract.pipe';
 export { TimeAgoPipe } from './time-ago.pipe';
 export { UtcPipe } from './utc.pipe';
+export { LocalTimePipe } from './local.pipe';
 export { LocalePipe } from './locale.pipe';
