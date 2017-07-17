@@ -10,3 +10,4 @@ export { SubtractPipe } from './subtract.pipe';
 export { TimeAgoPipe } from './time-ago.pipe';
 export { UtcPipe } from './utc.pipe';
 export { LocalPipe } from './local.pipe';
+export { LocalePipe } from './locale.pipe';

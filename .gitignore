@@ -40,6 +40,9 @@ parse.pipe.d.ts
 local.pipe.js
 local.pipe.js.map
 local.pipe.d.ts
+locale.pipe.js
+locale.pipe.js.map
+locale.pipe.d.ts
 *.spec.js
 *.spec.js.map
 *.spec.d.ts

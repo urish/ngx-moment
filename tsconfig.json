@@ -38,7 +38,9 @@
     "src/utc.pipe.ts",
     "src/utc.pipe.spec.ts",
     "src/local.pipe.ts",
-    "src/local.pipe.spec.ts"
+    "src/local.pipe.spec.ts",
+    "src/locale.pipe.ts",
+    "src/locale.pipe.spec.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "compiled"

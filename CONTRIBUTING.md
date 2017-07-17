@@ -35,8 +35,7 @@ the development process. The following npm scripts are provided:
 #### npm test
 
 `npm test` compiles the typescript code into javascript, and then runs the unit
-tests, which are located in `src/*.spec.ts`. The task uses the **karma** test 
-runner to executes the tests with the **jasmine testing framework**. 
+tests, which are located in `src/*.spec.ts`. The task uses the [jest test runner](https://facebook.github.io/jest/).
 
 #### npm run prepublish
 

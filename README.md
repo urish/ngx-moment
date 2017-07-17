@@ -176,6 +176,21 @@ Converts UTC time to local time.
 
 Prints `Last updated 2016-01-24 12:34`
 
+## amLocale pipe
+
+To be used with amDateFormat pipe in order to change locale.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{'2016-01-24 14:23:45' | amLocale:'en' | amDateFormat:'MMMM Do YYYY, h:mm:ss a'}}
+  `
+})
+```
+
+Prints `Last updated: January 24th 2016, 2:23:45 pm`
+
 ## amFromUnix pipe
 
 ``` typescript

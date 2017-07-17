@@ -11,6 +11,7 @@ import { SubtractPipe } from './subtract.pipe';
 import { TimeAgoPipe } from './time-ago.pipe';
 import { UtcPipe } from './utc.pipe';
 import { LocalPipe } from './local.pipe';
+import { LocalePipe } from './locale.pipe';
 
 const ANGULAR_MOMENT_PIPES = [
   AddPipe,
@@ -23,7 +24,8 @@ const ANGULAR_MOMENT_PIPES = [
   SubtractPipe,
   TimeAgoPipe,
   UtcPipe,
-  LocalPipe
+  LocalPipe,
+  LocalePipe
 ];
 
 @NgModule({
