@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.0 - 2017-07-18
+- Am `amLocal` pipe ([#153](https://github.com/urish/angular2-moment/pull/153), contributed by [benwilkins](https://github.com/benwilkins))
+
 ## 1.5.0 - 2017-07-14
 - Add `amLocale` pipe ([#155](https://github.com/urish/angular2-moment/pull/155), contributed by [FallenRiteMonk](https://github.com/FallenRiteMonk))
 - Migrate testing framework to jest
