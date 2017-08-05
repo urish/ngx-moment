@@ -7,6 +7,6 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 @Pipe({ name: 'amLocal' })
 export class LocalTimePipe implements PipeTransform {
     transform(value: Date | moment.Moment | string | number): moment.Moment {
-        return moment(value).local();
+        return moment.utc(value).local();
     }
 }
