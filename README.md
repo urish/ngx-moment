@@ -253,6 +253,21 @@ Prints `Expiration: 2017-03-17 18:55`
 ```
 Prints `Last updated: 2012-03-17 16:55`
 
+## amFromUtc pipe
+
+Parses the date as UTC and enables mode for subsequent moment operations (such as displaying the time in UTC). This can be combined with `amLocal` to display a UTC date in local time.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{ '2016-12-31T23:00:00.000-01:00' | amFromUtc | amDateFormat: 'YYYY-MM-DD' }}
+  `
+})
+```
+
+Prints `Last updated: 2017-01-01`
+
 ## amUtc pipe
 
 Enables UTC mode for subsequent moment operations (such as displaying the time in UTC).

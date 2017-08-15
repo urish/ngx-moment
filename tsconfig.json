@@ -37,6 +37,8 @@
     "src/time-ago.pipe.spec.ts",
     "src/utc.pipe.ts",
     "src/utc.pipe.spec.ts",
+    "src/from-utc.pipe.ts",
+    "src/from-utc.pipe.spec.ts",
     "src/local.pipe.ts",
     "src/local.pipe.spec.ts",
     "src/locale.pipe.ts",
