@@ -34,6 +34,9 @@ subtract.pipe.d.ts
 utc.pipe.js
 utc.pipe.js.map
 utc.pipe.d.ts
+from-utc.pipe.js
+from-utc.pipe.js.map
+from-utc.pipe.d.ts
 parse.pipe.js
 parse.pipe.js.map
 parse.pipe.d.ts
