@@ -9,6 +9,6 @@ export class FromUnixPipe implements PipeTransform {
     if (typeof value === 'string') {
       value = +value;
     }
-    return moment.unix(value);
+    return (args[0] === 'x') ? moment(value) : moment.unix(value);
   }
 }
