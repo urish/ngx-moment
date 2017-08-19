@@ -1,7 +1,10 @@
 # Changelog
 
+## 1.7.0 - 2017-08-19
+- Add `amFromUtc` pipe ([#163](https://github.com/urish/angular2-moment/pull/163), contributed by [connormlewis](https://github.com/connormlewis))
+
 ## 1.6.0 - 2017-07-18
-- Am `amLocal` pipe ([#153](https://github.com/urish/angular2-moment/pull/153), contributed by [benwilkins](https://github.com/benwilkins))
+- Add `amLocal` pipe ([#153](https://github.com/urish/angular2-moment/pull/153), contributed by [benwilkins](https://github.com/benwilkins))
 
 ## 1.5.0 - 2017-07-14
 - Add `amLocale` pipe ([#155](https://github.com/urish/angular2-moment/pull/155), contributed by [FallenRiteMonk](https://github.com/FallenRiteMonk))
