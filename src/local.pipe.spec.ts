@@ -51,9 +51,9 @@ describe('LocalPipe', () => {
     it('should be pipeable to amDateFormat', () => {
       const amDateFormat = new DateFormatPipe();
       const datetimeString = '2015-12-31T23:00:00.000-15:00';
-      const momentFormatString = 'YYYY-MM-DD';
+      const momentFormatString = 'YYYY-MM';
       const localOutput = localPipe.transform(datetimeString);
-      expect(amDateFormat.transform(localOutput, momentFormatString)).toEqual('2016-01-01');
+      expect(amDateFormat.transform(localOutput, momentFormatString)).toEqual('2016-01');
     });
 
   });
