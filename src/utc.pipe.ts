@@ -7,6 +7,6 @@ const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default 
 @Pipe({ name: 'amUtc' })
 export class UtcPipe implements PipeTransform {
   transform(value: Date | moment.Moment | string | number): moment.Moment {
-    return moment(value).utc();
+    return moment.utc(value);
   }
 }
