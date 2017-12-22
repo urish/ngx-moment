@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.1 - 2017-12-22
+- Fix bug where FromUtcPipe was being imported instead of exported ([#180](https://github.com/urish/angular2-moment/pull/180), contributed by [fshin123](https://github.com/fshin123))
+- test: fix amLocal tests to pass regardless of timezone
+
 ## 1.7.0 - 2017-08-19
 - Add `amFromUtc` pipe ([#163](https://github.com/urish/angular2-moment/pull/163), contributed by [connormlewis](https://github.com/connormlewis))
 
