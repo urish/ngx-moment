@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.0 - 2018-01-23
+- Fix: Remove `node_modules` from compiled version ([#187](https://github.com/urish/angular2-moment/pull/187), contributed by [wachri](https://github.com/wachri))
+
 ## 1.7.1 - 2017-12-22
 - Fix bug where FromUtcPipe was being imported instead of exported ([#180](https://github.com/urish/angular2-moment/pull/180), contributed by [fshin123](https://github.com/fshin123))
 - test: fix amLocal tests to pass regardless of timezone
