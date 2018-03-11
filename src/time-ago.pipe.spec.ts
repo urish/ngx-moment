@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import { NgZone } from '@angular/core';
 import { TimeAgoPipe } from './time-ago.pipe';
 import * as moment from 'moment';
+import 'moment/min/locales';
 
 declare var global: any;
 
@@ -63,6 +64,22 @@ describe('TimeAgoPipe', () => {
       expect(pipe.transform(new Date(0))).toBe('46 years ago');
       expect(pipe.transform(moment())).toBe('a few seconds ago');
       expect(pipe.transform(moment(0))).toBe('46 years ago');
+    });
+
+    it('should update the text when moment locale changes', () => {
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
+      fakeDate('2016-05-01');
+      expect(pipe.transform(moment(0))).toBe('46 years ago');
+      expect(pipe.transform(moment(0).locale('pl'))).toBe('46 lat temu');
+    });
+
+    it('should reset language when localized moment changes to Date', () => {
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
+      fakeDate('2016-05-01');
+      expect(pipe.transform(moment(0).locale('pl'))).toBe('46 lat temu');
+      expect(pipe.transform(new Date(0))).toBe('46 years ago');
     });
 
     it('should update the text when the date instance time is updated', () => {
