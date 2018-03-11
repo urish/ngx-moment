@@ -13,6 +13,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private lastTime: Number;
   private lastValue: Date | moment.Moment;
   private lastOmitSuffix: boolean;
+  private lastLocale?: string;
   private lastText: string;
 
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
@@ -23,6 +24,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
       this.lastTime = this.getTime(value);
       this.lastValue = value;
       this.lastOmitSuffix = omitSuffix;
+      this.lastLocale = this.getLocale(value);
       this.removeTimer();
       this.createTimer();
       this.lastText = momentConstructor(value).from(momentConstructor(), omitSuffix);
@@ -80,7 +82,9 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   }
 
   private hasChanged(value: Date | moment.Moment, omitSuffix?: boolean) {
-    return this.getTime(value) !== this.lastTime || omitSuffix !== this.lastOmitSuffix;
+    return this.getTime(value) !== this.lastTime
+      || this.getLocale(value) !== this.lastLocale
+      || omitSuffix !== this.lastOmitSuffix;
   }
 
   private getTime(value: Date | moment.Moment) {
@@ -91,5 +95,9 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     } else {
       return momentConstructor(value).valueOf();
     }
+  }
+
+  private getLocale(value: Date | moment.Moment): string {
+    return moment.isMoment(value) ? value.locale() : null;
   }
 }
