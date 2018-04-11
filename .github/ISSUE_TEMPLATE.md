@@ -9,7 +9,7 @@ Please describe the issue and steps to reproduce, preferably with a code sample 
 
 
 
-*Ensure your issue is isolated to angular2-moment. Issues involving third party tools will be closed unless submitted by the tool's author/maintainer.*
+*Ensure your issue is isolated to ngx-moment. Issues involving third party tools will be closed unless submitted by the tool's author/maintainer.*
 
 **Environment:**
 

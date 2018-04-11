@@ -1,9 +1,9 @@
 # Contributing Guide
 
-Contributing to `angular2-moment` is fairly easy. This document shows you how to
+Contributing to `ngx-moment` is fairly easy. This document shows you how to
 get the project, run all provided tests and generate a production ready build.
 
-It also covers provided npm scripts, that help you developing on `angular2-moment`.
+It also covers provided npm scripts, that help you developing on `ngx-moment`.
 
 ## Dependencies
 
@@ -16,20 +16,20 @@ on you machine:
 
 ## Installation
 
-To get the source of `angular2-moment` clone the git repository via:
+To get the source of `ngx-moment` clone the git repository via:
 
-`git clone https://github.com/urish/angular2-moment`
+`git clone https://github.com/urish/ngx-moment`
 
 This will clone the complete source to your local machine. Navigate to the project folder
 and install all needed dependencies via **npm**:
 
 `npm install`
 
-Well done! angular2-moment is now installed and ready to be built.
+Well done! ngx-moment is now installed and ready to be built.
 
 ## Building
 
-`angular2-moment` comes with a few **npm scripts** which help you to automate
+`ngx-moment` comes with a few **npm scripts** which help you to automate
 the development process. The following npm scripts are provided:
 
 #### npm test

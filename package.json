@@ -1,7 +1,7 @@
 {
-  "name": "angular2-moment",
-  "version": "1.8.0",
-  "description": "Moment.JS pipes for Angular2 (timeago and more)",
+  "name": "ngx-moment",
+  "version": "2.0.0-alpha.0",
+  "description": "Moment.JS pipes for Angular (timeago and more)",
   "main": "index.js",
   "typings": "./index.d.ts",
   "files": [
@@ -76,18 +76,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/urish/angular2-moment.git"
+    "url": "git+https://github.com/urish/ngx-moment.git"
   },
   "keywords": [
-    "angular2",
+    "angular",
+    "timeago",
     "momentjs"
   ],
   "author": "Uri Shaked",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/urish/angular2-moment/issues"
+    "url": "https://github.com/urish/ngx-moment/issues"
   },
-  "homepage": "https://github.com/urish/angular2-moment#readme",
+  "homepage": "https://github.com/urish/ngx-moment#readme",
   "peerDependencies": {
     "@angular/core": ">=2.0.0 <6.0.0"
   },
