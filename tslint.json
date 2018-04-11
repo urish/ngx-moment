@@ -1,30 +1,77 @@
 {
   "rules": {
+    "arrow-return-shorthand": true,
+    "callable-types": true,
     "class-name": true,
-    "curly": false,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "curly": true,
+    "deprecation": {
+      "severity": "warn"
+    },
     "eofline": true,
-    "indent": ["tabs"],
+    "forin": true,
+    "import-blacklist": [
+      true,
+      "rxjs/Rx"
+    ],
+    "import-spacing": true,
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "interface-over-type-literal": true,
+    "label-position": true,
     "max-line-length": [
       true,
-      120
+      140
     ],
+    "member-access": false,
     "member-ordering": [
       true,
-      "public-before-private",
-      "variables-before-functions"
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
     ],
     "no-arg": true,
+    "no-bitwise": true,
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
     "no-construct": true,
-    "no-duplicate-key": true,
-    "no-duplicate-variable": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
     "no-empty": false,
+    "no-empty-interface": true,
     "no-eval": true,
-    "trailing-comma": "never",
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
+    "no-misused-new": true,
+    "no-non-null-assertion": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-unused-variable": false,
-    "no-unreachable": true,
     "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "object-literal-sort-keys": false,
     "one-line": [
       true,
       "check-open-brace",
@@ -32,15 +79,31 @@
       "check-else",
       "check-whitespace"
     ],
+    "prefer-const": true,
     "quotemark": [
       true,
       "single"
     ],
-    "semicolon": true,
+    "radix": true,
+    "semicolon": [
+      true,
+      "always"
+    ],
     "triple-equals": [
       true,
       "allow-null-check"
     ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
       true,
