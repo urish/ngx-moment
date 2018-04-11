@@ -13,8 +13,8 @@ export class DifferencePipe implements PipeTransform {
             unit?: moment.unitOfTime.Diff,
             precision?: boolean): number {
 
-    let date = momentConstructor(value);
-    let date2 = (otherValue !== null) ? momentConstructor(otherValue) : momentConstructor();
+    const date = momentConstructor(value);
+    const date2 = (otherValue !== null) ? momentConstructor(otherValue) : momentConstructor();
 
     return date.diff(date2, unit, precision);
   }

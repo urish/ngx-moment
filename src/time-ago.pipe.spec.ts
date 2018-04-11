@@ -17,7 +17,7 @@ class NgZoneMock {
   run(fn: Function) {
     return fn();
   }
-};
+}
 
 const _Date = Date;
 
@@ -86,12 +86,12 @@ describe('TimeAgoPipe', () => {
       const changeDetectorMock = { markForCheck: jest.fn() };
       const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
       fakeDate('2016-05-01');
-      let date = new Date();
+      const date = new Date();
       expect(pipe.transform(date)).toBe('a few seconds ago');
       date.setFullYear(2000);
       expect(pipe.transform(date)).toBe('16 years ago');
 
-      let dateAsMoment = moment();
+      const dateAsMoment = moment();
       expect(pipe.transform(dateAsMoment)).toBe('a few seconds ago');
       dateAsMoment.year(2000);
       expect(pipe.transform(dateAsMoment)).toBe('16 years ago');

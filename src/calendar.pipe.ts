@@ -14,7 +14,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
    * @private Internal reference counter, so we can clean up when no instances are in use
    * @type {number}
    */
-  private static refs: number = 0;
+  private static refs = 0;
 
   private static timer: number;
   private static midnight: EventEmitter<Date>;
@@ -68,7 +68,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     if (!CalendarPipe.midnight) {
       CalendarPipe.midnight = new EventEmitter<Date>();
       if (typeof window !== 'undefined') {
-        let timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
+        const timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
         CalendarPipe.timer = ngZone.runOutsideAngular(() => {
           return window.setTimeout(() => {
             // emit the current date
@@ -92,9 +92,9 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   private static _getMillisecondsUntilUpdate() {
-    var now = momentConstructor();
-    var tomorrow = momentConstructor().startOf('day').add(1, 'days');
-    var timeToMidnight = tomorrow.valueOf() - now.valueOf();
+    const now = momentConstructor();
+    const tomorrow = momentConstructor().startOf('day').add(1, 'days');
+    const timeToMidnight = tomorrow.valueOf() - now.valueOf();
     return timeToMidnight + 1000; // 1 second after midnight
   }
 }

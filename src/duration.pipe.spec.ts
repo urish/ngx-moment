@@ -1,7 +1,7 @@
 import {DurationPipe} from './duration.pipe';
 
 describe('DurationPipe', () => {
-  var pipe: DurationPipe;
+  let pipe: DurationPipe;
 
   beforeEach(() => pipe = new DurationPipe());
 
