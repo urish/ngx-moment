@@ -92,7 +92,7 @@
     "@angular/core": ">=2.0.0 <6.0.0"
   },
   "dependencies": {
-    "moment": "^2.16.0"
+    "moment": "^2.19.3"
   },
   "devDependencies": {
     "@angular/common": "2.4.10",
