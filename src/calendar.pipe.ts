@@ -1,23 +1,21 @@
-/* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
+/* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
 import { Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy, NgZone } from '@angular/core';
 import * as moment from 'moment';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
-// under systemjs, moment is actually exported as the default export, so we account for that
-const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
+const momentConstructor = moment;
 
 @Pipe({ name: 'amCalendar', pure: false })
 export class CalendarPipe implements PipeTransform, OnDestroy {
 
   /**
-   * @private Internal reference counter, so we can clean up when no instances are in use
-   * @type {number}
+   * Internal reference counter, so we can clean up when no instances are in use
    */
-  private static refs: number = 0;
+  private static refs = 0;
 
-  private static timer: number;
-  private static midnight: EventEmitter<Date>;
+  private static timer: number | null = null;
+  private static midnight: EventEmitter<Date> | null = null;
 
   private midnightSub: Subscription;
 
@@ -68,7 +66,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     if (!CalendarPipe.midnight) {
       CalendarPipe.midnight = new EventEmitter<Date>();
       if (typeof window !== 'undefined') {
-        let timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
+        const timeToUpdate = CalendarPipe._getMillisecondsUntilUpdate();
         CalendarPipe.timer = ngZone.runOutsideAngular(() => {
           return window.setTimeout(() => {
             // emit the current date
@@ -92,9 +90,9 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   private static _getMillisecondsUntilUpdate() {
-    var now = momentConstructor();
-    var tomorrow = momentConstructor().startOf('day').add(1, 'days');
-    var timeToMidnight = tomorrow.valueOf() - now.valueOf();
+    const now = momentConstructor();
+    const tomorrow = momentConstructor().startOf('day').add(1, 'days');
+    const timeToMidnight = tomorrow.valueOf() - now.valueOf();
     return timeToMidnight + 1000; // 1 second after midnight
   }
 }

@@ -1,8 +1,8 @@
-# angular2-moment
+# ngx-moment
 
 moment.js pipes for Angular
 
-[![Build Status](https://travis-ci.org/urish/angular2-moment.png?branch=master)](https://travis-ci.org/urish/angular2-moment)
+[![Build Status](https://travis-ci.org/urish/ngx-moment.png?branch=master)](https://travis-ci.org/urish/ngx-moment)
 
 This module works with Angular 2.0 and above.
 
@@ -11,7 +11,7 @@ For the AngularJS version of this module, please see [angular-moment](https://gi
 Installation
 ------------
 
-`npm install --save angular2-moment`
+`npm install --save ngx-moment`
 
 If you use typescript 1.8, and [typings](https://github.com/typings/typings), you may also need to install typings for moment.js:
 
@@ -35,7 +35,7 @@ packages: {
                 main: './moment.js',
                 defaultExtension: 'js'
             },
-            'angular2-moment': {
+            'ngx-moment': {
                 main: './index.js',
                 defaultExtension: 'js'
             }
@@ -48,7 +48,7 @@ Usage
 Import `MomentModule` into your app's modules:
 
 ``` typescript
-import { MomentModule } from 'angular2-moment';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   imports: [
@@ -57,7 +57,7 @@ import { MomentModule } from 'angular2-moment';
 })
 ```
 
-This makes all the `angular2-moment` pipes available for use in your app components.
+This makes all the `ngx-moment` pipes available for use in your app components.
 
 Available pipes
 ---------------
@@ -290,7 +290,7 @@ Complete Example
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { MomentModule } from 'angular2-moment';
+import { MomentModule } from 'ngx-moment';
 
 @Component({
   selector: 'app',

@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import { SubtractPipe } from './subtract.pipe';
 
 describe('SubtractPipe', () => {
-  var pipe: SubtractPipe;
+  let pipe: SubtractPipe;
 
   beforeEach(() => pipe = new SubtractPipe());
 

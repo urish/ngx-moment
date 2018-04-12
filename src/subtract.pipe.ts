@@ -1,7 +1,9 @@
-/* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
+/* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform} from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import * as moment from 'moment';
+
+const momentConstructor = moment;
 
 @Pipe({ name: 'amSubtract' })
 export class SubtractPipe implements PipeTransform {
@@ -9,6 +11,6 @@ export class SubtractPipe implements PipeTransform {
         if (typeof amount === 'undefined' || (typeof amount === 'number' && typeof unit === 'undefined')) {
             throw new Error('SubtractPipe: missing required arguments');
         }
-        return moment(value).subtract(amount, unit);
+        return momentConstructor(value).subtract(amount, unit);
     }
 }

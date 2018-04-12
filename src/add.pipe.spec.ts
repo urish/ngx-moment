@@ -4,7 +4,7 @@ import * as moment from 'moment';
 import { AddPipe } from './add.pipe';
 
 describe('AddPipe', () => {
-  var pipe: AddPipe;
+  let pipe: AddPipe;
 
   beforeEach(() => pipe = new AddPipe());
 

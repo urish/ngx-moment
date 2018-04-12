@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0-beta.0 - 2018-04-12
+- Rename package to ngx-moment
+- Migrate project to the Angular CLI
+- Switch to [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit), (using [ngPackagr](http://spektrakel.de/ng-packagr/))
+
 ## 1.8.0 - 2018-01-23
 - Fix: Remove `node_modules` from compiled version ([#187](https://github.com/urish/angular2-moment/pull/187), contributed by [wachri](https://github.com/wachri))
 

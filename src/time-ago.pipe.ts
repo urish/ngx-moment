@@ -1,10 +1,9 @@
-/* angular2-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
+/* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
 import {Pipe, ChangeDetectorRef, PipeTransform, OnDestroy, NgZone} from '@angular/core';
 import * as moment from 'moment';
 
-// under systemjs, moment is actually exported as the default export, so we account for that
-const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
+const momentConstructor = moment;
 
 @Pipe({name: 'amTimeAgo', pure: false})
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
