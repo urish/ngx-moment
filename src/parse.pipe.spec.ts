@@ -1,5 +1,3 @@
-import 'es6-shim';
-import 'reflect-metadata';
 import * as moment from 'moment';
 import { DateFormatPipe } from './date-format.pipe';
 import { ParsePipe } from './parse.pipe';

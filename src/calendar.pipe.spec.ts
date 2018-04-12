@@ -1,4 +1,3 @@
-import 'es6-shim';
 import 'reflect-metadata';
 import * as moment from 'moment';
 import {NgZone} from '@angular/core';
