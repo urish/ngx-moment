@@ -3,6 +3,7 @@
   "version": "2.0.0-beta.0",
   "description": "Moment.JS pipes for Angular (timeago and more)",
   "scripts": {
+    "build": "ng build",
     "test": "ng lint && jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -41,14 +42,12 @@
     "@angular/core": "^6.0.0-rc.3",
     "@angular/language-service": "^6.0.0-rc.1",
     "@angular/platform-browser": "^6.0.0-rc.3",
-    "@types/jest": "^20.0.2",
-    "copyfiles": "1.0.0",
+    "@types/jest": "^22.2.3",
     "core-js": "^2.5.4",
-    "es6-shim": "0.35.1",
-    "jest": "^20.0.4",
+    "jest": "^22.4.3",
     "ng-packagr": "^2.4.1",
-    "rimraf": "^2.6.2",
     "rxjs": "^6.0.0-rc.0",
+    "ts-jest": "^22.4.2",
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "~5.9.1",
@@ -60,7 +59,7 @@
       "src"
     ],
     "transform": {
-      "^.+\\.ts$": "<rootDir>/jest-typescript.js"
+      "^.+\\.ts$": "ts-jest"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js",
     "moduleFileExtensions": [

@@ -1,5 +1,3 @@
-import 'es6-shim';
-import 'reflect-metadata';
 import { NgZone } from '@angular/core';
 import { TimeAgoPipe } from './time-ago.pipe';
 import * as moment from 'moment';
