@@ -1,7 +1,6 @@
 {
   "version": "2.0.3",
   "compilerOptions": {
-    "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
     "lib": [
@@ -10,41 +9,15 @@
     ],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
     "sourceMap": true,
     "inlineSources": true,
     "declaration": true
   },
-  "files": [
-    "src/add.pipe.ts",
-    "src/add.pipe.spec.ts",
-    "src/calendar.pipe.ts",
-    "src/calendar.pipe.spec.ts",
-    "src/date-format.pipe.ts",
-    "src/date-format.pipe.spec.ts",
-    "src/difference.pipe.ts",
-    "src/difference.pipe.spec.ts",
-    "src/duration.pipe.ts",
-    "src/duration.pipe.spec.ts",
-    "src/from-unix.pipe.ts",
-    "src/from-unix.pipe.spec.ts",
-    "src/index.ts",
-    "src/parse.pipe.ts",
-    "src/parse.pipe.spec.ts",
-    "src/moment.module.ts",
-    "src/subtract.pipe.ts",
-    "src/subtract.pipe.spec.ts",
-    "src/time-ago.pipe.ts",
-    "src/time-ago.pipe.spec.ts",
-    "src/utc.pipe.ts",
-    "src/utc.pipe.spec.ts",
-    "src/from-utc.pipe.ts",
-    "src/from-utc.pipe.spec.ts",
-    "src/local.pipe.ts",
-    "src/local.pipe.spec.ts",
-    "src/locale.pipe.ts",
-    "src/locale.pipe.spec.ts"
-  ],
-  "angularCompilerOptions": {
-    "genDir": "compiled"
-  }
+  "include": [
+    "src/*.ts"
+  ]
 }

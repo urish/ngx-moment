@@ -1,6 +1,6 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform} from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import * as moment from 'moment';
 
 @Pipe({ name: 'amFromUnix' })

@@ -7,9 +7,6 @@ import 'moment/min/locales';
 
 declare var global: any;
 
-// under systemjs, moment is actually exported as the default export, so we account for that
-const momentConstructor: (value?: any) => moment.Moment = (<any>moment).default || moment;
-
 class NgZoneMock {
   runOutsideAngular(fn: Function) {
     return fn();

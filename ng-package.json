@@ -4,6 +4,9 @@
   "deleteDestPath": false,
   "whitelistedNonPeerDependencies": ["moment"],
   "lib": {
-    "entryFile": "src/index.ts"
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "moment": "moment"
+    }
   }
 }

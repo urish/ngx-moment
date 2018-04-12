@@ -1,5 +1,4 @@
 import {DifferencePipe} from './difference.pipe';
-import * as moment from 'moment';
 
 describe('DifferencePipe', () => {
   let pipe: DifferencePipe;
