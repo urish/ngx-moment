@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.0-rc.0 - 2018-04-15
+- Promote beta.0 to Release Candidate
+
 ## 2.0.0-beta.0 - 2018-04-12
 - Rename package to ngx-moment
 - Migrate project to the Angular CLI
