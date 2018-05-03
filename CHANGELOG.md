@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.0 - 2018-05-03
+- Fix: update momentjs version ([#190](https://github.com/urish/ngx-moment/issues/190))
+- Fix: amTimeAgo pipe updates it's output when locale changes ([#188](https://github.com/urish/ngx-moment/pull/188), contributed by [lukasz-kusnierz](https://github.com/lukasz-kusnierz))
+
 ## 1.8.0 - 2018-01-23
 - Fix: Remove `node_modules` from compiled version ([#187](https://github.com/urish/angular2-moment/pull/187), contributed by [wachri](https://github.com/wachri))
 
