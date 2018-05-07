@@ -191,6 +191,12 @@ To be used with amDateFormat pipe in order to change locale.
 
 Prints `Last updated: January 24th 2016, 2:23:45 pm`
 
+Note: The locale might have to be imported (e.g. in the app module).
+
+``` typescript
+import 'moment/locale/de';
+```
+
 ## amFromUnix pipe
 
 ``` typescript
