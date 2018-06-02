@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.0 - 2018-06-02
+- Make `moment` a peerDependency instead of dependency (see [#149](https://github.com/urish/ngx-moment/issues/149) for discussion)
+
+When upgrading to this version, make sure to `npm install --save moment`.
+
 ## 2.0.0 - 2018-04-25
 - Rename package to ngx-moment
 - Migrate project to the Angular CLI
