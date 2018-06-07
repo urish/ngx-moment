@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.0.1 - 2018-06-07
+- Update installation instruction in readme (see [#194](https://github.com/urish/ngx-moment/issues/194))
+
 ## 3.0.0 - 2018-06-02
 - Make `moment` a peerDependency instead of dependency (see [#149](https://github.com/urish/ngx-moment/issues/149) for discussion)
 
