@@ -11,17 +11,17 @@ For an Angular 2 / 4 version, please install [angular2-moment](https://npmjs.org
 Installation
 ------------
 
-`npm install --save ngx-moment`
+```bash
+npm install --save moment ngx-moment
+```
 
-If you use typescript 1.8, and [typings](https://github.com/typings/typings), you may also need to install typings for moment.js:
+or if you use yarn:
 
-`typings install --save moment`
+```bash
+yarn add moment ngx-moment
+```
 
 ### For System.js users:
-
-First you need to install moment:
-
-`npm install moment --save`
 
 Don't forget to update your systemjs.config.js:
 
