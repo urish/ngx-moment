@@ -289,6 +289,21 @@ Enables UTC mode for subsequent moment operations (such as displaying the time i
 
 Prints `Last updated: 2017-01-01`
 
+## amParseZone pipe
+
+Parses a string but keeps the resulting Moment object in a fixed-offset timezone with the provided offset in the string.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{ '2016-12-31T23:00:00.000-03:00' | amParseZone | amDateFormat: 'LLLL (Z)' }}
+  `
+})
+```
+
+Prints `Last updated: Saturday, December 31, 2016 11:00 PM (-03:00)`
+
 Complete Example
 ----------------
 
