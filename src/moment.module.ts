@@ -13,6 +13,7 @@ import { UtcPipe } from './utc.pipe';
 import { FromUtcPipe } from './from-utc.pipe';
 import { LocalTimePipe } from './local.pipe';
 import { LocalePipe } from './locale.pipe';
+import { ParseZonePipe } from './parse-zone.pipe';
 
 const ANGULAR_MOMENT_PIPES = [
   AddPipe,
@@ -27,7 +28,8 @@ const ANGULAR_MOMENT_PIPES = [
   UtcPipe,
   FromUtcPipe,
   LocalTimePipe,
-  LocalePipe
+  LocalePipe,
+  ParseZonePipe
 ];
 
 @NgModule({
