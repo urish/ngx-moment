@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.1.0 - 2018-07-01
+- Add 'amParseZone' pipe ([#198](https://github.com/urish/ngx-moment/pull/198), contributed by [davidballester](https://github.com/davidballester))
+
 ## 3.0.1 - 2018-06-07
 - Update installation instruction in readme (see [#194](https://github.com/urish/ngx-moment/issues/194))
 
