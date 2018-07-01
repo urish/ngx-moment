@@ -3,6 +3,7 @@
 moment.js pipes for Angular
 
 [![Build Status](https://travis-ci.org/urish/ngx-moment.png?branch=master)](https://travis-ci.org/urish/ngx-moment)
+[![npm version](https://img.shields.io/npm/v/ngx-moment.svg)](https://www.npmjs.com/package/ngx-moment)
 
 This module works with Angular 5.0 and newer.
 
