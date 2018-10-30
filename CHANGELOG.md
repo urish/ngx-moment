@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.2.0 - 2018-10-30
+- Angular 7 support ([#203](https://github.com/urish/ngx-moment/issues/203))
+
 ## 3.1.0 - 2018-07-01
 - Add 'amParseZone' pipe ([#198](https://github.com/urish/ngx-moment/pull/198), contributed by [davidballester](https://github.com/davidballester))
 
