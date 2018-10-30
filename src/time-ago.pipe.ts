@@ -7,7 +7,7 @@ const momentConstructor = moment;
 
 @Pipe({name: 'amTimeAgo', pure: false})
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
-  private currentTimer: number;
+  private currentTimer: number | null;
 
   private lastTime: Number;
   private lastValue: Date | moment.Moment;
@@ -55,6 +55,8 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
           this.currentTimer = null;
           this.ngZone.run(() => this.cdRef.markForCheck());
         }, timeToUpdate);
+      } else {
+        return null;
       }
     });
   }
