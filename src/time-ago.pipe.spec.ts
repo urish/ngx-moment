@@ -37,6 +37,12 @@ describe('TimeAgoPipe', () => {
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
     });
 
+    it('should support string dates', () => {
+      const pipe = new TimeAgoPipe(null, new NgZoneMock() as NgZone);
+      const dateStr = new Date().toISOString();
+      expect(pipe.transform(dateStr)).toBe('a few seconds ago');
+    });
+
     it('should omit the suffix if second parameter is truthy', () => {
       const pipe = new TimeAgoPipe(null, new NgZoneMock() as NgZone);
       expect(pipe.transform(new Date(new Date().getTime() + 60000), true)).toBe('a minute');

@@ -10,7 +10,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private currentTimer: number | null;
 
   private lastTime: Number;
-  private lastValue: Date | moment.Moment;
+  private lastValue: moment.MomentInput;
   private lastOmitSuffix: boolean;
   private lastLocale?: string;
   private lastText: string;
@@ -18,7 +18,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
   }
 
-  transform(value: Date | moment.Moment, omitSuffix?: boolean): string {
+  transform(value: moment.MomentInput, omitSuffix?: boolean): string {
     if (this.hasChanged(value, omitSuffix)) {
       this.lastTime = this.getTime(value);
       this.lastValue = value;
@@ -39,14 +39,14 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     this.removeTimer();
   }
 
-
   private createTimer() {
     if (this.currentTimer) {
       return;
     }
-    const momentInstance = momentConstructor(this.lastValue);
 
+    const momentInstance = momentConstructor(this.lastValue);
     const timeToUpdate = this.getSecondsUntilUpdate(momentInstance) * 1000;
+
     this.currentTimer = this.ngZone.runOutsideAngular(() => {
       if (typeof window !== 'undefined') {
         return window.setTimeout(() => {
@@ -60,7 +60,6 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
       }
     });
   }
-
 
   private removeTimer() {
     if (this.currentTimer) {
@@ -82,13 +81,13 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     }
   }
 
-  private hasChanged(value: Date | moment.Moment, omitSuffix?: boolean) {
+  private hasChanged(value: moment.MomentInput, omitSuffix?: boolean): boolean {
     return this.getTime(value) !== this.lastTime
       || this.getLocale(value) !== this.lastLocale
       || omitSuffix !== this.lastOmitSuffix;
   }
 
-  private getTime(value: Date | moment.Moment) {
+  private getTime(value: moment.MomentInput): number {
     if (moment.isDate(value)) {
       return value.getTime();
     } else if (moment.isMoment(value)) {
@@ -98,7 +97,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     }
   }
 
-  private getLocale(value: Date | moment.Moment): string {
+  private getLocale(value: moment.MomentInput): string | null {
     return moment.isMoment(value) ? value.locale() : null;
   }
 }
