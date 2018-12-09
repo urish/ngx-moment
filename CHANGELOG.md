@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.3.0 - 2018-12-09
+- fix: Allow using all supported Moment inputs with TimeAgoPipe ([#206](https://github.com/urish/ngx-moment/pull/206), contributed by [theodorejb](https://github.com/theodorejb))
+
 ## 3.2.0 - 2018-10-30
 - Angular 7 support ([#203](https://github.com/urish/ngx-moment/issues/203))
 
