@@ -4,7 +4,7 @@
   "description": "Moment.JS pipes for Angular (timeago and more)",
   "scripts": {
     "build": "ng build",
-    "test": "ng lint && jest",
+    "test": "ng lint && tsc -p tsconfig.spec.json && jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:debug": "node --inspect-brk --inspect ./node_modules/jest/bin/jest.js --runInBand",
