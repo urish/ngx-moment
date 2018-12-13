@@ -37,8 +37,10 @@ const ANGULAR_MOMENT_PIPES = [
 
 @NgModule({
   declarations: [
-    ANGULAR_MOMENT_PIPES,
-    exports
+    ANGULAR_MOMENT_PIPES
+  ],
+  exports: [
+    ANGULAR_MOMENT_PIPES
   ]
 })
 export class MomentModule { }
