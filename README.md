@@ -305,6 +305,33 @@ Parses a string but keeps the resulting Moment object in a fixed-offset timezone
 
 Prints `Last updated: Saturday, December 31, 2016 11:00 PM (-03:00)`
 
+## amIsBefore and amIsAfter pipe
+
+Check if a moment is before another moment. Supports limiting granularity to a unit other than milliseconds, pass the units as second parameter
+
+```typescript
+@Component({
+  selector: 'app',
+  template: `
+    Today is before tomorrow: {{ today | amIsBefore:tomorrow:'day' }}
+  `
+})
+```
+
+Prints `Today is before tomorrow: true`
+
+```typescript
+@Component({
+  selector: 'app',
+  template: `
+    Tomorrow is after today: {{ tomorrow | amIsAfter:today:'day' }}
+  `
+})
+```
+
+Prints `Tomorrow is after today: true`
+
+
 Complete Example
 ----------------
 
