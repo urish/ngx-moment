@@ -20,7 +20,7 @@ export class DurationPipe implements PipeTransform {
   }
 
   private _applyOptions(momentOptions: NgxMomentOptions): void {
-    if (!!!momentOptions) {
+    if (!momentOptions) {
       return;
     }
 
