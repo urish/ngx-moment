@@ -16,4 +16,4 @@ export { ParseZonePipe } from './parse-zone.pipe';
 export { IsBeforePipe } from './is-before.pipe';
 export { IsAfterPipe } from './is-after.pipe';
 
-export { NgxMomentOptions } from './moment-options';
+export { NgxMomentOptions, NGX_MOMENT_OPTIONS } from './moment-options';

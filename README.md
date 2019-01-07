@@ -58,6 +58,22 @@ import { MomentModule } from 'ngx-moment';
 })
 ```
 
+If you would like to supply any `NgxMomentOptions` that will be made available to the pipes you can also use:
+
+```typescript
+import { MomentModule } from 'ngx-moment';
+
+@NgModule({
+  imports: [
+    MomentModule.forRoot({
+      relativeTimeThresholdOptions: {
+        'm': 59
+      }
+    })
+  ]
+})
+```
+
 This makes all the `ngx-moment` pipes available for use in your app components.
 
 Available pipes
@@ -331,6 +347,13 @@ Prints `Today is before tomorrow: true`
 
 Prints `Tomorrow is after today: true`
 
+NgxMomentOptions
+----------------
+An `NgxMomentOptions` object can be provided to the module using the `forRoot` convention and will provide options for the pipes to use with the `moment` instance, these options are detailed in the table below:
+
+| prop | type | description |
+| --- |:---:| --- |
+| relativeTimeThresholdOptions | Dictionary<br>key: string<br>value: number | Provides the `relativeTimeThreshold` units allowing a pipe to set the `moment.relativeTimeThreshold` values. <br><br>The `key` is a unit defined as one of `ss`, `s`, `m`, `h`, `d`, `M`.<br><br>See [Relative Time Thresholds](https://momentjs.com/docs/#/customization/relative-time-threshold/) documentation for more details. |
 
 Complete Example
 ----------------
