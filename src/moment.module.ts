@@ -1,3 +1,6 @@
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NGX_MOMENT_OPTIONS, NgxMomentOptions } from './moment-options';
+
 import { AddPipe } from './add.pipe';
 import { CalendarPipe } from './calendar.pipe';
 import { DateFormatPipe } from './date-format.pipe';
@@ -9,7 +12,6 @@ import { IsAfterPipe } from './is-after.pipe';
 import { IsBeforePipe } from './is-before.pipe';
 import { LocalTimePipe } from './local.pipe';
 import { LocalePipe } from './locale.pipe';
-import { NgModule } from '@angular/core';
 import { ParsePipe } from './parse.pipe';
 import { ParseZonePipe } from './parse-zone.pipe';
 import { SubtractPipe } from './subtract.pipe';
@@ -39,4 +41,17 @@ const ANGULAR_MOMENT_PIPES = [
   declarations: ANGULAR_MOMENT_PIPES,
   exports: ANGULAR_MOMENT_PIPES
 })
-export class MomentModule { }
+export class MomentModule {
+  static forRoot(options?: NgxMomentOptions): ModuleWithProviders {
+    return {
+      ngModule: MomentModule,
+      providers: [
+        {
+          provide: NGX_MOMENT_OPTIONS, useValue: {
+            ...options
+          }
+        }
+      ]
+    };
+  }
+}
