@@ -26,7 +26,7 @@ describe('TimeAgoPipe', () => {
 
     beforeEach(() => {
       moment.locale('en-gb');
-      jest.useFakeTimers()
+      jest.useFakeTimers();
     });
 
     afterEach(() => {
