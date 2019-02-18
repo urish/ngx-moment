@@ -24,7 +24,10 @@ function fakeDate(defaultDate: string | number) {
 describe('TimeAgoPipe', () => {
   describe('#transform', () => {
 
-    beforeEach(() => jest.useFakeTimers());
+    beforeEach(() => {
+      moment.locale('en-gb');
+      jest.useFakeTimers()
+    });
 
     afterEach(() => {
       global.Date = _Date;
@@ -81,6 +84,15 @@ describe('TimeAgoPipe', () => {
       fakeDate('2016-05-01');
       expect(pipe.transform(moment(0).locale('pl'))).toBe('46 lat temu');
       expect(pipe.transform(new Date(0))).toBe('46 years ago');
+    });
+
+    it('should update the text when using Date Objects and locale changes', () => {
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
+      fakeDate('2016-05-01');
+      expect(pipe.transform(new Date(0))).toBe('46 years ago');
+      moment.locale('de');
+      expect(pipe.transform(new Date(0))).toBe('vor 46 Jahren');
     });
 
     it('should update the text when the date instance time is updated', () => {
