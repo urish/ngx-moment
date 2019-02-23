@@ -98,6 +98,6 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   }
 
   private getLocale(value: moment.MomentInput): string | null {
-    return moment.isMoment(value) ? value.locale() : null;
+    return moment.isMoment(value) ? value.locale() : moment.locale();
   }
 }
