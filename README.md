@@ -58,6 +58,22 @@ import { MomentModule } from 'ngx-moment';
 })
 ```
 
+If you would like to supply any `NgxMomentOptions` that will be made available to the pipes you can also use:
+
+```typescript
+import { MomentModule } from 'ngx-moment';
+
+@NgModule({
+  imports: [
+    MomentModule.forRoot({
+      relativeTimeThresholdOptions: {
+        'm': 59
+      }
+    })
+  ]
+})
+```
+
 This makes all the `ngx-moment` pipes available for use in your app components.
 
 Available pipes
@@ -304,6 +320,40 @@ Parses a string but keeps the resulting Moment object in a fixed-offset timezone
 ```
 
 Prints `Last updated: Saturday, December 31, 2016 11:00 PM (-03:00)`
+
+## amIsBefore and amIsAfter pipe
+
+Check if a moment is before another moment. Supports limiting granularity to a unit other than milliseconds, pass the units as second parameter
+
+```typescript
+@Component({
+  selector: 'app',
+  template: `
+    Today is before tomorrow: {{ today | amIsBefore:tomorrow:'day' }}
+  `
+})
+```
+
+Prints `Today is before tomorrow: true`
+
+```typescript
+@Component({
+  selector: 'app',
+  template: `
+    Tomorrow is after today: {{ tomorrow | amIsAfter:today:'day' }}
+  `
+})
+```
+
+Prints `Tomorrow is after today: true`
+
+NgxMomentOptions
+----------------
+An `NgxMomentOptions` object can be provided to the module using the `forRoot` convention and will provide options for the pipes to use with the `moment` instance, these options are detailed in the table below:
+
+| prop | type | description |
+| --- |:---:| --- |
+| relativeTimeThresholdOptions | Dictionary<br>key: string<br>value: number | Provides the `relativeTimeThreshold` units allowing a pipe to set the `moment.relativeTimeThreshold` values. <br><br>The `key` is a unit defined as one of `ss`, `s`, `m`, `h`, `d`, `M`.<br><br>See [Relative Time Thresholds](https://momentjs.com/docs/#/customization/relative-time-threshold/) documentation for more details. |
 
 Complete Example
 ----------------

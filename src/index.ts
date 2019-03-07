@@ -13,3 +13,7 @@ export { FromUtcPipe } from './from-utc.pipe';
 export { LocalTimePipe } from './local.pipe';
 export { LocalePipe } from './locale.pipe';
 export { ParseZonePipe } from './parse-zone.pipe';
+export { IsBeforePipe } from './is-before.pipe';
+export { IsAfterPipe } from './is-after.pipe';
+
+export { NgxMomentOptions, NGX_MOMENT_OPTIONS } from './moment-options';
