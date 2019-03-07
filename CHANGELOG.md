@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.4.0 - 2019-03-07
+- feat: add amIsBefore, amIsAfter pipes ([#208](https://github.com/urish/ngx-moment/pull/208), contributed by [StickNitro](https://github.com/StickNitro))
+- Ability to provide options to the MomentModule ([#209](https://github.com/urish/ngx-moment/pull/209), contributed by [StickNitro](https://github.com/StickNitro))
+- fix: Improved Text Update on locale change when not using MomentInput ([#210](https://github.com/urish/ngx-moment/pull/210), contributed by [jensweigele](https://github.com/jensweigele))
+
 ## 3.3.0 - 2018-12-09
 - fix: Allow using all supported Moment inputs with TimeAgoPipe ([#206](https://github.com/urish/ngx-moment/pull/206), contributed by [theodorejb](https://github.com/theodorejb))
 
