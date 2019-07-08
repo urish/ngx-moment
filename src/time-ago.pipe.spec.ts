@@ -118,5 +118,18 @@ describe('TimeAgoPipe', () => {
       jest.runTimersToTime(60000);
       expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
     });
+
+    it('should transform a date to a different format when a format function is provided', () => {
+      const changeDetectorMock = { markForCheck: jest.fn() };
+      const formatFnMock = (m: moment.Moment) => {
+        const seconds = m.diff(moment()) / 1000;
+        return seconds >= 3600 ? '' : `${Math.floor(seconds / 60)} min ago`;
+      };
+      const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
+      fakeDate('2016-05-01');
+      expect(pipe.transform(moment().add(20, 'm'), false, formatFnMock)).toBe('20 min ago');
+      expect(pipe.transform(moment().add(1, 'h'), false, formatFnMock)).toBe('');
+      expect(pipe.transform(moment().add(3, 'h'), false, formatFnMock)).toBe('');
+    });
   });
 });

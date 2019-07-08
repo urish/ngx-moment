@@ -14,19 +14,25 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private lastOmitSuffix: boolean;
   private lastLocale?: string;
   private lastText: string;
+  private formatFn: (m: moment.Moment) => string;
 
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
   }
 
-  transform(value: moment.MomentInput, omitSuffix?: boolean): string {
+  format(m: moment.Moment) {
+    return m.from(momentConstructor(), this.lastOmitSuffix);
+  }
+
+  transform(value: moment.MomentInput, omitSuffix?: boolean, formatFn?: (m: moment.Moment) => string): string {
     if (this.hasChanged(value, omitSuffix)) {
       this.lastTime = this.getTime(value);
       this.lastValue = value;
       this.lastOmitSuffix = omitSuffix;
       this.lastLocale = this.getLocale(value);
+      this.formatFn = formatFn || this.format.bind(this);
       this.removeTimer();
       this.createTimer();
-      this.lastText = momentConstructor(value).from(momentConstructor(), omitSuffix);
+      this.lastText = this.formatFn(momentConstructor(value));
 
     } else {
       this.createTimer();
@@ -50,7 +56,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     this.currentTimer = this.ngZone.runOutsideAngular(() => {
       if (typeof window !== 'undefined') {
         return window.setTimeout(() => {
-          this.lastText = momentConstructor(this.lastValue).from(momentConstructor(), this.lastOmitSuffix);
+          this.lastText = this.formatFn(momentConstructor(this.lastValue));
 
           this.currentTimer = null;
           this.ngZone.run(() => this.cdRef.markForCheck());
