@@ -80,7 +80,7 @@ Available pipes
 ---------------
 
 ## amTimeAgo pipe
-Takes an optional `omitSuffix` argument that defaults to `false`.
+Takes an optional `omitSuffix` argument that defaults to `false` and another optional `formatFn` function which can be used to customise the format of the time ago text.
 
 ``` typescript
 @Component({
