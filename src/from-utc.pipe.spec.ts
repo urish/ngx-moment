@@ -62,6 +62,37 @@ describe('UtcPipe', () => {
       expect(amDateFormat.transform(utcOutput, momentFormatString)).toEqual('2016-12-31');
     });
 
+    it('should parse as UTC with a provided format', () => {
+      const datetimeString = '31/12/2016, 23:02:00';
+      const momentFormatString = 'DD/MM/YYYY, HH:mm:ss';
+      const utcOutput = utcDatePipe.transform(datetimeString, momentFormatString);
+      expect(utcOutput).toEqual(expect.any(moment));
+      expect(utcOutput.isValid()).toBe(true);
+
+      expect(utcOutput.year()).toBe(2016);
+      expect(utcOutput.month()).toBe(11);
+      expect(utcOutput.date()).toBe(31);
+    });
+
+    it('should parse as UTC with an array of provided formats', () => {
+      const datetimeString = '31st 12/2016';
+      const momentFormatStrings = ['DD/MM/YYYY, HH:mm:ss', 'Do MM/YYYY'];
+      const utcOutput = utcDatePipe.transform(datetimeString, momentFormatStrings);
+      expect(utcOutput).toEqual(expect.any(moment));
+      expect(utcOutput.isValid()).toBe(true);
+
+      expect(utcOutput.year()).toBe(2016);
+      expect(utcOutput.month()).toBe(11);
+      expect(utcOutput.date()).toBe(31);
+    });
+
+    it('should output an invalid moment object for a different formatted input', () => {
+      const datetimeString = '31/12/2016, 23:02:00';
+      const utcDate = utcDatePipe.transform(datetimeString);
+      expect(utcDate).toEqual(expect.any(moment));
+      expect(utcDate.isValid()).toBe(false);
+    });
+
   });
 
 });

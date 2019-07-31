@@ -33,6 +33,18 @@ describe('ParsePipe', () => {
       expect(amDateFormat.transform(parseOutput, momentFormatString)).toEqual('2016-02-01');
     });
 
+    it('should output a moment object for a string date with array of formats', () => {
+      const dateString = '15--09//13';
+      const formatInputStrings = ['YYYY#MM#DD', 'YY--MM//DD'];
+      const parsedMoment = parsePipe.transform(dateString, formatInputStrings);
+      expect(parsedMoment).toEqual(expect.any(moment));
+      expect(parsedMoment.isValid()).toBe(true);
+
+      expect(parsedMoment.year()).toBe(2015);
+      expect(parsedMoment.month()).toBe(8);
+      expect(parsedMoment.date()).toBe(13);
+    });
+
   });
 
 });
