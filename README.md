@@ -178,6 +178,26 @@ Parses a custom-formatted date into a moment object that can be used with the ot
 
 Prints `Last updated: January 24, 2016`
 
+The pipe can also accept an array of formats as parameter.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{'24/01/2014 22:00' | amParse: formats | amDateFormat:'LL'}}
+  `
+})
+export class App {
+
+  formats: string[] = ['DD/MM/YYYY HH:mm:ss', 'DD/MM/YYYY HH:mm'];
+
+  constructor() { }
+
+}
+```
+
+Prints `Last updated: January 24, 2016`
+
 ## amLocal pipe
 
 Converts UTC time to local time.
@@ -290,6 +310,37 @@ Parses the date as UTC and enables mode for subsequent moment operations (such a
 ```
 
 Prints `Last updated: 2017-01-01`
+
+It's also possible to specify a different format than the standard ISO8601.
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{ '31/12/2016 23:00-01:00' | amFromUtc: 'DD/MM/YYYY HH:mmZZ' | amDateFormat: 'YYYY-MM-DD' }}
+  `
+})
+```
+
+Or even an array of formats:
+
+``` typescript
+@Component({
+  selector: 'app',
+  template: `
+    Last updated: {{ '31/12/2016 23:00-01:00' | amFromUtc: formats | amDateFormat: 'YYYY-MM-DD' }}
+  `
+})
+export class App {
+  
+  formats: string[] = ['DD/MM/YYYY HH:mm:ss', 'DD/MM/YYYY HH:mmZZ'];
+
+  constructor() { }
+
+}
+```
+
+Both examples above will print `Last updated: 2017-01-01`
 
 ## amUtc pipe
 
