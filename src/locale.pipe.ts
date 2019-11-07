@@ -6,7 +6,7 @@ const momentConstructor = moment;
 
 @Pipe({ name: 'amLocale' })
 export class LocalePipe implements PipeTransform {
-  transform(value: string, locale: string): moment.Moment {
+  transform(value: string | Date, locale: string): moment.Moment {
     return momentConstructor(value).locale(locale);
   }
 }
