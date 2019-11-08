@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.5.0 - 2019-11-08
+- feat: add `formatFn` argument to `amTimeAgo` ([#213](https://github.com/urish/ngx-moment/pull/213), contributed by [chaoyangnz](https://github.com/chaoyangnz))
+- feat: add `format|formats` to from-utc pipe and parse-pipe ([#215](https://github.com/urish/ngx-moment/pull/215), contributed by [gigadie](https://github.com/gigadie))
+- fix: improve `amLocale` compability with Angular Ivy ([#226](https://github.com/urish/ngx-moment/pull/226), contributed by [sobanieca](https://github.com/sobanieca))
+
 ## 3.4.0 - 2019-03-07
 - feat: add amIsBefore, amIsAfter pipes ([#208](https://github.com/urish/ngx-moment/pull/208), contributed by [StickNitro](https://github.com/StickNitro))
 - Ability to provide options to the MomentModule ([#209](https://github.com/urish/ngx-moment/pull/209), contributed by [StickNitro](https://github.com/StickNitro))
