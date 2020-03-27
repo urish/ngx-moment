@@ -22,27 +22,6 @@ or if you use yarn:
 yarn add moment ngx-moment
 ```
 
-### For System.js users:
-
-Don't forget to update your systemjs.config.js:
-
-```
-packages: {
-            app: {
-                main: './main.js',
-                defaultExtension: 'js'
-            },
-            'moment': {
-                main: './moment.js',
-                defaultExtension: 'js'
-            },
-            'ngx-moment': {
-                main: './index.js',
-                defaultExtension: 'js'
-            }
-        }
-```
-
 Usage
 -----
 
