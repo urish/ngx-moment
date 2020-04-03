@@ -249,7 +249,7 @@ Prints `Uptime: 6 minutes`
   `
 })
 ```
-Prints `Expiration: 1 day`
+Prints `Expiration: 1 days`
 
 ## amAdd and amSubtract pipes
 
