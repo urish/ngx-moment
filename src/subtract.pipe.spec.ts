@@ -4,11 +4,13 @@ import { SubtractPipe } from './subtract.pipe';
 describe('SubtractPipe', () => {
   let pipe: SubtractPipe;
 
-  beforeEach(() => pipe = new SubtractPipe());
+  beforeEach(() => (pipe = new SubtractPipe()));
 
   describe('#transform', () => {
     it('should throw when provided no arguments', () => {
-      expect(() => (pipe.transform as any)(128)).toThrow('SubtractPipe: missing required arguments');
+      expect(() => (pipe.transform as any)(128)).toThrow(
+        'SubtractPipe: missing required arguments',
+      );
     });
 
     it('should subtract two hours', () => {

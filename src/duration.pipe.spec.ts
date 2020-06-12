@@ -4,11 +4,13 @@ import { NgxMomentOptions } from './moment-options';
 describe('DurationPipe', () => {
   let pipe: DurationPipe;
 
-  beforeEach(() => pipe = new DurationPipe());
+  beforeEach(() => (pipe = new DurationPipe()));
 
   describe('#transform', () => {
     it('should throw when provided no arguments', () => {
-      expect(() => pipe.transform(128)).toThrow('DurationPipe: missing required time unit argument');
+      expect(() => pipe.transform(128)).toThrow(
+        'DurationPipe: missing required time unit argument',
+      );
     });
 
     it('should convert a duration to a human-readable string', () => {
@@ -27,11 +29,11 @@ describe('DurationPipe', () => {
   describe('ctor with NgxMomentOptions', () => {
     const momentOptions: NgxMomentOptions = {
       relativeTimeThresholdOptions: {
-        'm': 59
-      }
+        m: 59,
+      },
     };
 
-    beforeEach(() => pipe = new DurationPipe(momentOptions));
+    beforeEach(() => (pipe = new DurationPipe(momentOptions)));
 
     it(`should convert '50 minutes' to '50 minutes' when relativeTimeThreshold for 'm' unit is set to 59`, () => {
       expect(pipe.transform(50, 'minutes')).toEqual('50 minutes');

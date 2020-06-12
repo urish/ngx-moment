@@ -1,11 +1,11 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import {Pipe, ChangeDetectorRef, PipeTransform, OnDestroy, NgZone} from '@angular/core';
+import { Pipe, ChangeDetectorRef, PipeTransform, OnDestroy, NgZone } from '@angular/core';
 import * as moment from 'moment';
 
 const momentConstructor = moment;
 
-@Pipe({name: 'amTimeAgo', pure: false})
+@Pipe({ name: 'amTimeAgo', pure: false })
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private currentTimer: number | null;
 
@@ -16,14 +16,17 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private lastText: string;
   private formatFn: (m: moment.Moment) => string;
 
-  constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
-  }
+  constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {}
 
   format(m: moment.Moment) {
     return m.from(momentConstructor(), this.lastOmitSuffix);
   }
 
-  transform(value: moment.MomentInput, omitSuffix?: boolean, formatFn?: (m: moment.Moment) => string): string {
+  transform(
+    value: moment.MomentInput,
+    omitSuffix?: boolean,
+    formatFn?: (m: moment.Moment) => string,
+  ): string {
     if (this.hasChanged(value, omitSuffix)) {
       this.lastTime = this.getTime(value);
       this.lastValue = value;
@@ -33,7 +36,6 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
       this.removeTimer();
       this.createTimer();
       this.lastText = this.formatFn(momentConstructor(value));
-
     } else {
       this.createTimer();
     }
@@ -88,9 +90,11 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   }
 
   private hasChanged(value: moment.MomentInput, omitSuffix?: boolean): boolean {
-    return this.getTime(value) !== this.lastTime
-      || this.getLocale(value) !== this.lastLocale
-      || omitSuffix !== this.lastOmitSuffix;
+    return (
+      this.getTime(value) !== this.lastTime ||
+      this.getLocale(value) !== this.lastLocale ||
+      omitSuffix !== this.lastOmitSuffix
+    );
   }
 
   private getTime(value: moment.MomentInput): number {

@@ -3,9 +3,7 @@ import { DateFormatPipe } from './date-format.pipe';
 import { LocalTimePipe } from './local.pipe';
 
 describe('LocalPipe', () => {
-
   describe('#transform', () => {
-
     let localPipe: LocalTimePipe;
 
     beforeEach(() => {
@@ -53,7 +51,5 @@ describe('LocalPipe', () => {
       const localOutput = localPipe.transform(datetimeString);
       expect(amDateFormat.transform(localOutput, momentFormatString)).toEqual('2016-01');
     });
-
   });
-
 });

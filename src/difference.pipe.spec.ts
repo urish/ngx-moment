@@ -1,12 +1,11 @@
-import {DifferencePipe} from './difference.pipe';
+import { DifferencePipe } from './difference.pipe';
 
 describe('DifferencePipe', () => {
   let pipe: DifferencePipe;
 
-  beforeEach(() => pipe = new DifferencePipe());
+  beforeEach(() => (pipe = new DifferencePipe()));
 
   describe('#transform', () => {
-
     it('should take the difference of two dates in milliseconds', () => {
       const today = new Date(2012, 0, 22, 0, 0, 0);
       const testDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 33, 33);
@@ -35,6 +34,5 @@ describe('DifferencePipe', () => {
       const testDate = new Date(2013, 0, 22, 4, 46, 54);
       expect(String(pipe.transform(today, testDate))).toContain('-');
     });
-
   });
 });

@@ -23,7 +23,6 @@ function fakeDate(defaultDate: string | number) {
 
 describe('TimeAgoPipe', () => {
   describe('#transform', () => {
-
     beforeEach(() => {
       moment.locale('en-gb');
       jest.useFakeTimers();

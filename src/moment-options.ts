@@ -1,6 +1,8 @@
 import { InjectionToken } from '@angular/core';
 
-export const NGX_MOMENT_OPTIONS: InjectionToken<NgxMomentOptions> = new InjectionToken<NgxMomentOptions>('NGX_MOMENT_OPTIONS');
+export const NGX_MOMENT_OPTIONS: InjectionToken<NgxMomentOptions> = new InjectionToken<
+  NgxMomentOptions
+>('NGX_MOMENT_OPTIONS');
 
 export interface NgxMomentOptions {
   /**

@@ -3,9 +3,7 @@ import { DateFormatPipe } from './date-format.pipe';
 import { ParsePipe } from './parse.pipe';
 
 describe('ParsePipe', () => {
-
   describe('#transform', () => {
-
     let parsePipe: ParsePipe;
 
     beforeEach(() => {
@@ -44,7 +42,5 @@ describe('ParsePipe', () => {
       expect(parsedMoment.month()).toBe(8);
       expect(parsedMoment.date()).toBe(13);
     });
-
   });
-
 });

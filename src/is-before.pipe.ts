@@ -5,14 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 const momentConstructor = moment;
 
 @Pipe({
-  name: 'amIsBefore'
+  name: 'amIsBefore',
 })
 export class IsBeforePipe implements PipeTransform {
-
-  transform(value: moment.MomentInput,
+  transform(
+    value: moment.MomentInput,
     otherValue: moment.MomentInput,
-    unit?: moment.unitOfTime.StartOf): boolean {
+    unit?: moment.unitOfTime.StartOf,
+  ): boolean {
     return momentConstructor(value).isBefore(momentConstructor(otherValue), unit);
   }
-
 }

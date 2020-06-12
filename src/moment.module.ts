@@ -34,12 +34,12 @@ const ANGULAR_MOMENT_PIPES = [
   LocalePipe,
   ParseZonePipe,
   IsBeforePipe,
-  IsAfterPipe
+  IsAfterPipe,
 ];
 
 @NgModule({
   declarations: ANGULAR_MOMENT_PIPES,
-  exports: ANGULAR_MOMENT_PIPES
+  exports: ANGULAR_MOMENT_PIPES,
 })
 export class MomentModule {
   static forRoot(options?: NgxMomentOptions): ModuleWithProviders {
@@ -47,11 +47,12 @@ export class MomentModule {
       ngModule: MomentModule,
       providers: [
         {
-          provide: NGX_MOMENT_OPTIONS, useValue: {
-            ...options
-          }
-        }
-      ]
+          provide: NGX_MOMENT_OPTIONS,
+          useValue: {
+            ...options,
+          },
+        },
+      ],
     };
   }
 }

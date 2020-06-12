@@ -2,9 +2,7 @@ import * as moment from 'moment';
 import { ParseZonePipe } from './parse-zone.pipe';
 
 describe('ParseZonePipe', () => {
-
   describe('#transform', () => {
-
     let parseZonePipe: ParseZonePipe;
 
     beforeEach(() => {
@@ -37,7 +35,5 @@ describe('ParseZonePipe', () => {
       const parsedDate = parseZonePipe.transform(date);
       expect(parsedDate.utcOffset()).toEqual(offset);
     });
-
   });
-
 });

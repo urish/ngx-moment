@@ -3,9 +3,7 @@ import { DateFormatPipe } from './date-format.pipe';
 import { LocalePipe } from './locale.pipe';
 
 describe('LocalePipe', () => {
-
   describe('#transform', () => {
-
     let localePipe: LocalePipe;
 
     beforeEach(() => {
@@ -33,10 +31,12 @@ describe('LocalePipe', () => {
       const momentFormatString2 = 'MMMM Do YYYY, HH:mm:ss';
       const parseOutput1 = localePipe.transform(datetimeString, langKeyString1);
       const parseOutput2 = localePipe.transform(datetimeString, langKeyString2);
-      expect(amDateFormat.transform(parseOutput1, momentFormatString1)).toEqual('January 24th 2016, 2:23:45 pm');
-      expect(amDateFormat.transform(parseOutput2, momentFormatString2)).toEqual('Januar 24. 2016, 14:23:45');
+      expect(amDateFormat.transform(parseOutput1, momentFormatString1)).toEqual(
+        'January 24th 2016, 2:23:45 pm',
+      );
+      expect(amDateFormat.transform(parseOutput2, momentFormatString2)).toEqual(
+        'Januar 24. 2016, 14:23:45',
+      );
     });
-
   });
-
 });

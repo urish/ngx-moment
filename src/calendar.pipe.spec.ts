@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import * as moment from 'moment';
-import {NgZone} from '@angular/core';
-import {CalendarPipe} from './calendar.pipe';
+import { NgZone } from '@angular/core';
+import { CalendarPipe } from './calendar.pipe';
 
 class NgZoneMock {
-  runOutsideAngular (fn: Function) {
+  runOutsideAngular(fn: Function) {
     return fn();
   }
   run(fn: Function) {
@@ -35,7 +35,9 @@ describe('CalendarPipe', () => {
       const testDate = moment();
       const referenceTime = moment().clone().add(1, 'day');
       const formats = { lastDay: '[Last day at] h:mm A' };
-      expect(pipe.transform(testDate, formats, referenceTime)).toBe(pipe.transform(testDate, referenceTime, formats));
+      expect(pipe.transform(testDate, formats, referenceTime)).toBe(
+        pipe.transform(testDate, referenceTime, formats),
+      );
     });
   });
 });

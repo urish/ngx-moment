@@ -3,9 +3,7 @@ import { DateFormatPipe } from './date-format.pipe';
 import { FromUtcPipe } from './from-utc.pipe';
 
 describe('UtcPipe', () => {
-
   describe('#transform', () => {
-
     let utcDatePipe: FromUtcPipe;
 
     beforeEach(() => {
@@ -92,7 +90,5 @@ describe('UtcPipe', () => {
       expect(utcDate).toEqual(expect.any(moment));
       expect(utcDate.isValid()).toBe(false);
     });
-
   });
-
 });

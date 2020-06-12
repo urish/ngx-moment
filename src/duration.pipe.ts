@@ -5,7 +5,6 @@ import { NGX_MOMENT_OPTIONS, NgxMomentOptions } from './moment-options';
 
 @Pipe({ name: 'amDuration' })
 export class DurationPipe implements PipeTransform {
-
   allowedUnits: Array<string> = ['ss', 's', 'm', 'h', 'd', 'M'];
 
   constructor(@Optional() @Inject(NGX_MOMENT_OPTIONS) momentOptions?: NgxMomentOptions) {
@@ -26,11 +25,12 @@ export class DurationPipe implements PipeTransform {
 
     if (!!momentOptions.relativeTimeThresholdOptions) {
       const units: Array<string> = Object.keys(momentOptions.relativeTimeThresholdOptions);
-      const filteredUnits: Array<string> = units.filter(unit => this.allowedUnits.indexOf(unit) !== -1);
-      filteredUnits.forEach(unit => {
+      const filteredUnits: Array<string> = units.filter(
+        (unit) => this.allowedUnits.indexOf(unit) !== -1,
+      );
+      filteredUnits.forEach((unit) => {
         moment.relativeTimeThreshold(unit, momentOptions.relativeTimeThresholdOptions[unit]);
       });
     }
   }
-
 }

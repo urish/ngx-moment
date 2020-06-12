@@ -3,10 +3,9 @@ import { IsBeforePipe } from './is-before.pipe';
 describe('IsBeforePipe', () => {
   let pipe: IsBeforePipe;
 
-  beforeEach(() => pipe = new IsBeforePipe());
+  beforeEach(() => (pipe = new IsBeforePipe()));
 
   describe('#transform', () => {
-
     it('should return true if value is before otherValue', () => {
       const test = new Date(2018, 11, 13, 0, 0, 0);
       const testDate1 = new Date(2018, 11, 15, 0, 0, 0);

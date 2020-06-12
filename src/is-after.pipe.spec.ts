@@ -4,10 +4,9 @@ import { IsAfterPipe } from './is-after.pipe';
 describe('IsAfterPipe', () => {
   let pipe: IsAfterPipe;
 
-  beforeEach(() => pipe = new IsAfterPipe());
+  beforeEach(() => (pipe = new IsAfterPipe()));
 
   describe('#transform', () => {
-
     it('should return true if value is after otherValue', () => {
       const test = new Date(2018, 11, 15, 0, 0, 0);
       const testDate1 = new Date(2018, 11, 13, 0, 0, 0);

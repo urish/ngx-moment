@@ -1,6 +1,13 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import { Pipe, ChangeDetectorRef, PipeTransform, EventEmitter, OnDestroy, NgZone } from '@angular/core';
+import {
+  Pipe,
+  ChangeDetectorRef,
+  PipeTransform,
+  EventEmitter,
+  OnDestroy,
+  NgZone,
+} from '@angular/core';
 import * as moment from 'moment';
 import { Subscription } from 'rxjs';
 
@@ -8,7 +15,6 @@ const momentConstructor = moment;
 
 @Pipe({ name: 'amCalendar', pure: false })
 export class CalendarPipe implements PipeTransform, OnDestroy {
-
   /**
    * Internal reference counter, so we can clean up when no instances are in use
    */

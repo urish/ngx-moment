@@ -5,7 +5,7 @@ import { AddPipe } from './add.pipe';
 describe('AddPipe', () => {
   let pipe: AddPipe;
 
-  beforeEach(() => pipe = new AddPipe());
+  beforeEach(() => (pipe = new AddPipe()));
 
   describe('#transform', () => {
     it('should throw when provided no arguments', () => {

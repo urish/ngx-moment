@@ -3,9 +3,7 @@ import { DateFormatPipe } from './date-format.pipe';
 import { UtcPipe } from './utc.pipe';
 
 describe('UtcPipe', () => {
-
   describe('#transform', () => {
-
     let utcDatePipe: UtcPipe;
 
     beforeEach(() => {
@@ -53,7 +51,5 @@ describe('UtcPipe', () => {
       const utcOutput = utcDatePipe.transform(datetimeString);
       expect(amDateFormat.transform(utcOutput, momentFormatString)).toEqual('2016-01-01');
     });
-
   });
-
 });

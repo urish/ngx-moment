@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import {FromUnixPipe} from './from-unix.pipe';
+import { FromUnixPipe } from './from-unix.pipe';
 
 describe('FromUnixPipe', () => {
   describe('#transform', () => {
