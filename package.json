@@ -43,9 +43,12 @@
     "@types/jest": "^26.0.0",
     "@types/node": "^12.0.0",
     "core-js": "^2.5.4",
+    "husky": "^4.2.5",
     "jest": "^26.0.1",
+    "lint-staged": "^10.2.10",
     "moment": "^2.21.0",
     "ng-packagr": "^9.1.5",
+    "prettier": "^2.0.5",
     "rxjs": "^6.5.3",
     "ts-jest": "^26.1.0",
     "tslib": "^1.10.0",
@@ -65,5 +68,17 @@
       "js"
     ],
     "testRegex": "\\.spec\\.ts$"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "tslint --project tsconfig.lint.json -c tslint.json --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

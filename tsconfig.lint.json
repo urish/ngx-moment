@@ -4,8 +4,5 @@
     "outDir": "./out-tsc/spec",
     "module": "es2015",
     "types": []
-  },
-  "exclude": [
-    "src/*.spec.ts"
-  ]
+  }
 }
