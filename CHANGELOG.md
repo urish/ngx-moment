@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.0.1 - 2020-06-12
+- republish to npm without ngcc backup files
+
 ## 4.0.0 - 2020-06-12
 - fix: correct input types for pipes 906e40c
 - chore(deps): angular 9, typescript 3.8 9966a9a
