@@ -32,7 +32,7 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
     });
   }
 
-  transform(value: Date | moment.Moment, ...args: any[]): any {
+  transform(value: moment.MomentInput, ...args: any[]): any {
     let formats: any = null;
     let referenceTime: any = null;
 

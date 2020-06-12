@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
 
-// under systemjs, moment is actually exported as the default export, so we account for that
+// See https://github.com/ng-packagr/ng-packagr/issues/217 for why this is needed:
 const momentConstructor = moment;
 
 @Pipe({ name: 'amLocale' })
 export class LocalePipe implements PipeTransform {
-  transform(value: string | Date, locale: string): moment.Moment {
+  transform(value: moment.MomentInput, locale: string): moment.Moment {
     return momentConstructor(value).locale(locale);
   }
 }

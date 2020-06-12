@@ -9,8 +9,8 @@ const momentConstructor = moment;
 })
 export class IsBeforePipe implements PipeTransform {
 
-  transform(value: Date | moment.Moment,
-    otherValue: Date | moment.Moment,
+  transform(value: moment.MomentInput,
+    otherValue: moment.MomentInput,
     unit?: moment.unitOfTime.StartOf): boolean {
     return momentConstructor(value).isBefore(momentConstructor(otherValue), unit);
   }

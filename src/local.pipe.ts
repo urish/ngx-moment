@@ -5,7 +5,7 @@ const momentConstructor = moment;
 
 @Pipe({ name: 'amLocal' })
 export class LocalTimePipe implements PipeTransform {
-    transform(value: Date | moment.Moment | string | number): moment.Moment {
+    transform(value: moment.MomentInput): moment.Moment {
         return momentConstructor(value).local();
     }
 }

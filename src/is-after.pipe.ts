@@ -9,8 +9,8 @@ const momentConstructor = moment;
 })
 export class IsAfterPipe implements PipeTransform {
 
-  transform(value: Date | moment.Moment,
-    otherValue: Date | moment.Moment,
+  transform(value: moment.MomentInput,
+    otherValue: moment.MomentInput,
     unit?: moment.unitOfTime.StartOf): boolean {
     return momentConstructor(value).isAfter(momentConstructor(otherValue), unit);
   }

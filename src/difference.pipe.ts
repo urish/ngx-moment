@@ -7,8 +7,8 @@ const momentConstructor = moment;
 
 @Pipe({ name: 'amDifference' })
 export class DifferencePipe implements PipeTransform {
-  transform(value: Date | moment.Moment,
-            otherValue: Date | moment.Moment,
+  transform(value: moment.MomentInput,
+            otherValue: moment.MomentInput,
             unit?: moment.unitOfTime.Diff,
             precision?: boolean): number {
 

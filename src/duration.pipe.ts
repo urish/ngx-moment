@@ -12,7 +12,7 @@ export class DurationPipe implements PipeTransform {
     this._applyOptions(momentOptions);
   }
 
-  transform(value: any, ...args: string[]): string {
+  transform(value: moment.DurationInputArg1, ...args: string[]): string {
     if (typeof args === 'undefined' || args.length !== 1) {
       throw new Error('DurationPipe: missing required time unit argument');
     }

@@ -5,7 +5,7 @@ import * as moment from 'moment';
 
 @Pipe({ name: 'amFromUtc' })
 export class FromUtcPipe implements PipeTransform {
-  transform(value: any, formats?: string|string[], ...args: string[]): any {
+  transform(value: moment.MomentInput, formats?: string|string[], ...args: string[]): any {
     return formats ? moment.utc(value, formats) : moment.utc(value);
   }
 }

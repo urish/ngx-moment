@@ -7,7 +7,7 @@ const momentConstructor = moment;
 
 @Pipe({ name: 'amAdd' })
 export class AddPipe implements PipeTransform {
-    transform(value: any, amount: moment.DurationInputArg1, unit?: moment.DurationInputArg2): any {
+    transform(value: moment.MomentInput, amount: moment.DurationInputArg1, unit?: moment.DurationInputArg2): any {
         if (typeof amount === 'undefined' || (typeof amount === 'number' && typeof unit === 'undefined')) {
             throw new Error('AddPipe: missing required arguments');
         }
