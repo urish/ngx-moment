@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0 - 2020-06-12
+- fix: correct input types for pipes 906e40c
+- chore(deps): angular 9, typescript 3.8 9966a9a
+- chore: reformat all code with prettier 10fe5c51
+- docs: remove system.js instructions from README
+
 ## 3.5.0 - 2019-11-08
 - feat: add `formatFn` argument to `amTimeAgo` ([#213](https://github.com/urish/ngx-moment/pull/213), contributed by [chaoyangnz](https://github.com/chaoyangnz))
 - feat: add `format|formats` to from-utc pipe and parse-pipe ([#215](https://github.com/urish/ngx-moment/pull/215), contributed by [gigadie](https://github.com/gigadie))
