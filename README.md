@@ -5,9 +5,9 @@ moment.js pipes for Angular
 [![Build Status](https://travis-ci.org/urish/ngx-moment.png?branch=master)](https://travis-ci.org/urish/ngx-moment)
 [![npm version](https://img.shields.io/npm/v/ngx-moment.svg)](https://www.npmjs.com/package/ngx-moment)
 
-This module works with Angular 5.0 and newer.
+This module works with Angular 7.0.0 and newer.
 
-For an Angular 2 / 4 version, please install [angular2-moment](https://npmjs.org/package/angular2-moment). For the AngularJS, please check out [angular-moment](https://github.com/urish/angular-moment).
+For older Angular versions, please install [angular2-moment](https://npmjs.org/package/angular2-moment). For the AngularJS, please check out [angular-moment](https://github.com/urish/angular-moment).
 
 Installation
 ------------
@@ -424,4 +424,4 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 Demo
 ----
 
-[See online demo on Plunker](http://plnkr.co/edit/ziBJ0mftSjnz0SrYPwbo?p=preview)
+[See online demo on StackBlitz](https://stackblitz.com/edit/ngx-moment-demo?file=src%2Fapp%2Fapp.component.html)
