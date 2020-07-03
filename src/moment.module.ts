@@ -42,7 +42,7 @@ const ANGULAR_MOMENT_PIPES = [
   exports: ANGULAR_MOMENT_PIPES,
 })
 export class MomentModule {
-  static forRoot(options?: NgxMomentOptions): ModuleWithProviders {
+  static forRoot(options?: NgxMomentOptions): ModuleWithProviders<MomentModule> {
     return {
       ngModule: MomentModule,
       providers: [
