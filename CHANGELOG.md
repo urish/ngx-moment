@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.0 - 2020-07-03
+- fix: support for Angular 10 (see [#240](https://github.com/urish/ngx-moment/issues/240))
+- breaking: drop support for Angular < 7
+
 ## 4.0.1 - 2020-06-12
 - republish to npm without ngcc backup files
 
