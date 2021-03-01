@@ -1,7 +1,16 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
-import { Pipe, ChangeDetectorRef, PipeTransform, OnDestroy, NgZone } from '@angular/core';
+import {
+  Pipe,
+  ChangeDetectorRef,
+  PipeTransform,
+  OnDestroy,
+  NgZone,
+  Optional,
+  Inject,
+} from '@angular/core';
 import * as moment from 'moment';
+import { applyOptions, NgxMomentOptions, NGX_MOMENT_OPTIONS } from './moment-options';
 
 const momentConstructor = moment;
 
@@ -16,7 +25,13 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   private lastText: string;
   private formatFn: (m: moment.Moment) => string;
 
-  constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {}
+  constructor(
+    private cdRef: ChangeDetectorRef,
+    private ngZone: NgZone,
+    @Optional() @Inject(NGX_MOMENT_OPTIONS) momentOptions?: NgxMomentOptions,
+  ) {
+    this._applyOptions(momentOptions);
+  }
 
   format(m: moment.Moment) {
     return m.from(momentConstructor(), this.lastOmitSuffix);
@@ -109,5 +124,9 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
 
   private getLocale(value: moment.MomentInput): string | null {
     return moment.isMoment(value) ? value.locale() : moment.locale();
+  }
+
+  private _applyOptions(momentOptions: NgxMomentOptions): void {
+    applyOptions(momentOptions);
   }
 }

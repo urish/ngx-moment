@@ -1,8 +1,9 @@
 import { InjectionToken } from '@angular/core';
+import * as moment from 'moment';
 
-export const NGX_MOMENT_OPTIONS: InjectionToken<NgxMomentOptions> = new InjectionToken<
-  NgxMomentOptions
->('NGX_MOMENT_OPTIONS');
+export const NGX_MOMENT_OPTIONS: InjectionToken<NgxMomentOptions> = new InjectionToken<NgxMomentOptions>(
+  'NGX_MOMENT_OPTIONS',
+);
 
 export interface NgxMomentOptions {
   /**
@@ -15,4 +16,20 @@ export interface NgxMomentOptions {
    * to be an hour (default is `45 minutes`)
    */
   relativeTimeThresholdOptions: { [key: string]: number };
+}
+
+export function applyOptions(momentOptions: NgxMomentOptions): void {
+  const allowedUnits: Array<string> = ['ss', 's', 'm', 'h', 'd', 'M'];
+
+  if (!momentOptions) {
+    return;
+  }
+
+  if (!!momentOptions.relativeTimeThresholdOptions) {
+    const units: Array<string> = Object.keys(momentOptions.relativeTimeThresholdOptions);
+    const filteredUnits: Array<string> = units.filter((unit) => allowedUnits.indexOf(unit) !== -1);
+    filteredUnits.forEach((unit) => {
+      moment.relativeTimeThreshold(unit, momentOptions.relativeTimeThresholdOptions[unit]);
+    });
+  }
 }
