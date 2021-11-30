@@ -1,6 +1,6 @@
 {
   "name": "ngx-moment",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "description": "Moment.JS pipes for Angular (timeago and more)",
   "scripts": {
     "build": "ng build",

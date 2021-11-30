@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.0 - 2021-11-30
+- Support for Angular 13 + Ivy
+
 ## 5.0.0 - 2020-07-03
 - fix: support for Angular 10 (see [#240](https://github.com/urish/ngx-moment/issues/240))
 - breaking: drop support for Angular < 7
