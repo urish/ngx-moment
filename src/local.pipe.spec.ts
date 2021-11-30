@@ -12,35 +12,35 @@ describe('LocalPipe', () => {
 
     it('should output an invalid momemt object for a null input', () => {
       const localDate = localPipe.transform(null);
-      expect(localDate).toEqual(jasmine.any(moment));
+      expect(localDate).toEqual(expect.any(moment));
       expect(localDate.isValid()).toBe(false);
     });
 
     it('should output a moment object for a moment input', () => {
       const momentDate = moment();
       const localDate = localPipe.transform(momentDate);
-      expect(localDate).toEqual(jasmine.any(moment));
+      expect(localDate).toEqual(expect.any(moment));
       expect(localDate.isValid()).toBe(true);
     });
 
     it('should output a moment object for a date input', () => {
       const date = new Date();
       const localDate = localPipe.transform(date);
-      expect(localDate).toEqual(jasmine.any(moment));
+      expect(localDate).toEqual(expect.any(moment));
       expect(localDate.isValid()).toBe(true);
     });
 
     it('should output a moment object for a string date', () => {
       const dateString = '2016-01-01';
       const localDate = localPipe.transform(dateString);
-      expect(localDate).toEqual(jasmine.any(moment));
+      expect(localDate).toEqual(expect.any(moment));
       expect(localDate.isValid()).toBe(true);
     });
 
     it('should output a moment object for a timestamp', () => {
       const timestamp: number = Date.now();
       const localDate = localPipe.transform(timestamp);
-      expect(localDate).toEqual(jasmine.any(moment));
+      expect(localDate).toEqual(expect.any(moment));
       expect(localDate.isValid()).toBe(true);
     });
 

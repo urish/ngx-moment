@@ -4,7 +4,7 @@
   "description": "Moment.JS pipes for Angular (timeago and more)",
   "scripts": {
     "build": "ng build",
-    "test": "ng lint && tsc -p tsconfig.spec.json && jest",
+    "test": "tslint --project tsconfig.lint.json && tsc -p tsconfig.spec.json && jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:debug": "node --inspect-brk --inspect ./node_modules/jest/bin/jest.js --runInBand",
@@ -26,48 +26,33 @@
   },
   "homepage": "https://github.com/urish/ngx-moment#readme",
   "peerDependencies": {
-    "@angular/common": ">=7.0.0",
-    "@angular/core": ">=7.0.0",
     "moment": "^2.19.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1000.1",
-    "@angular-devkit/build-ng-packagr": "~0.1000.1",
-    "@angular/cli": "~10.0.1",
-    "@angular/common": "~10.0.2",
-    "@angular/compiler": "~10.0.2",
-    "@angular/compiler-cli": "~10.0.2",
-    "@angular/core": "~10.0.2",
-    "@angular/language-service": "~10.0.2",
-    "@angular/platform-browser": "~10.0.2",
-    "@types/jest": "^26.0.0",
+    "@angular-devkit/build-angular": "~13.0.3",
+    "@angular/cli": "~13.0.3",
+    "@angular/common": "~13.0.2",
+    "@angular/compiler": "~13.0.2",
+    "@angular/compiler-cli": "~13.0.2",
+    "@angular/core": "~13.0.2",
+    "@angular/language-service": "~13.0.2",
+    "@angular/platform-browser": "~13.0.2",
+    "@angular/platform-browser-dynamic": "^13.0.2",
+    "@types/jest": "^27.0.3",
     "@types/node": "^12.0.0",
     "core-js": "^2.5.4",
     "husky": "^4.2.5",
-    "jest": "^26.0.1",
+    "jest": "^27.4.0",
+    "jest-preset-angular": "^11.0.1",
     "lint-staged": "^10.2.10",
     "moment": "^2.21.0",
-    "ng-packagr": "^10.0.0",
+    "ng-packagr": "^13.0.8",
     "prettier": "^2.0.5",
     "rxjs": "^6.6.0",
-    "ts-jest": "^26.1.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.3.1",
     "tslint": "~6.1.2",
-    "typescript": "~3.9.6",
-    "zone.js": "~0.10.3"
-  },
-  "jest": {
-    "roots": [
-      "src"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "testRegex": "\\.spec\\.ts$"
+    "typescript": "~4.4.4",
+    "zone.js": "~0.11.4"
   },
   "husky": {
     "hooks": {

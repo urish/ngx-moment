@@ -1,6 +1,7 @@
 {
   "version": "2.0.3",
   "compilerOptions": {
+    "baseUrl": "./",
     "module": "commonjs",
     "target": "es5",
     "lib": [
@@ -16,6 +17,12 @@
     "sourceMap": true,
     "inlineSources": true,
     "declaration": true
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   },
   "include": [
     "src/*.ts"

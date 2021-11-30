@@ -1,7 +1,7 @@
 .history
 .idea
 node_modules
-.ng_pkg_build
+.angular
 *.log
 dist
 /package-lock.json

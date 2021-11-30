@@ -5,6 +5,8 @@ import 'moment/min/locales';
 
 declare var global: any;
 
+jest.useFakeTimers();
+
 class NgZoneMock {
   runOutsideAngular(fn: Function) {
     return fn();
@@ -25,13 +27,11 @@ describe('TimeAgoPipe', () => {
   describe('#transform', () => {
     beforeEach(() => {
       moment.locale('en-gb');
-      jest.useFakeTimers();
     });
 
     afterEach(() => {
       global.Date = _Date;
       jest.clearAllTimers();
-      jest.useRealTimers();
     });
 
     it('should transform the current date to "a few seconds ago"', () => {
@@ -55,7 +55,7 @@ describe('TimeAgoPipe', () => {
       const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
       expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
-      jest.runTimersToTime(60000);
+      jest.advanceTimersByTime(60000);
       expect(changeDetectorMock.markForCheck).toHaveBeenCalled();
     });
 
@@ -114,7 +114,7 @@ describe('TimeAgoPipe', () => {
       const pipe = new TimeAgoPipe(changeDetectorMock as any, new NgZoneMock() as NgZone);
       expect(pipe.transform(new Date())).toBe('a few seconds ago');
       pipe.ngOnDestroy();
-      jest.runTimersToTime(60000);
+      jest.advanceTimersByTime(60000);
       expect(changeDetectorMock.markForCheck).not.toHaveBeenCalled();
     });
 
