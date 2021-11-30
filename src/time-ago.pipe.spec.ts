@@ -19,7 +19,9 @@ class NgZoneMock {
 const _Date = Date;
 
 function fakeDate(defaultDate: string | number) {
-  global.Date = (arg: any) => new _Date(typeof arg !== 'undefined' ? arg : defaultDate);
+  global.Date = function (arg: any) {
+    return new _Date(typeof arg !== 'undefined' ? arg : defaultDate);
+  };
   global.Date.UTC = _Date.UTC;
 }
 

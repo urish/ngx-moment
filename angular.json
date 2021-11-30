@@ -5,8 +5,9 @@
   "projects": {
     "ngx-moment": {
       "projectType": "library",
-      "root": ".",
+      "root": "",
       "sourceRoot": "src",
+      "prefix": "am",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

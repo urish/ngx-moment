@@ -1,22 +1,30 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "version": "2.0.3",
+  "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "module": "commonjs",
-    "target": "es5",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": true,
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "declaration": true,
+    "declarationMap": false,
     "inlineSources": true,
-    "declaration": true
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ]
   },
   "angularCompilerOptions": {
     "compilationMode": "partial",
@@ -24,8 +32,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-  "include": [
-    "src/*.ts"
-  ]
+  }
 }
