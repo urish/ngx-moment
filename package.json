@@ -8,7 +8,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:debug": "node --inspect-brk --inspect ./node_modules/jest/bin/jest.js --runInBand",
-    "prepublish": "ng build"
+    "prepublish": "ng build",
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
   "repository": {
     "type": "git",
@@ -42,7 +44,7 @@
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.13",
     "core-js": "^3.19.3",
-    "husky": "^7.0.4",
+    "husky": "^7.0.0",
     "jest": "^27.4.5",
     "jest-preset-angular": "^11.0.1",
     "lint-staged": "^12.1.2",
