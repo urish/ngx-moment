@@ -4,4 +4,3 @@ node_modules
 .angular
 *.log
 dist
-/package-lock.json
