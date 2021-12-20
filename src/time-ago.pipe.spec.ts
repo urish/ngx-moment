@@ -2,6 +2,7 @@ import { NgZone } from '@angular/core';
 import { TimeAgoPipe } from './time-ago.pipe';
 import * as moment from 'moment';
 import 'moment/min/locales';
+import { NgxMomentOptions } from './moment-options';
 
 declare var global: any;
 
@@ -131,6 +132,24 @@ describe('TimeAgoPipe', () => {
       expect(pipe.transform(moment().add(20, 'm'), false, formatFnMock)).toBe('20 min ago');
       expect(pipe.transform(moment().add(1, 'h'), false, formatFnMock)).toBe('');
       expect(pipe.transform(moment().add(3, 'h'), false, formatFnMock)).toBe('');
+    });
+
+    it(`should transform '50 minutes before' to 'an hour ago' with default 'relativeTimeThreshold'`, () => {
+      const pipe = new TimeAgoPipe(null, new NgZoneMock() as NgZone);
+      expect(pipe.transform(moment().subtract(50, 'minutes'))).toEqual('an hour ago');
+    });
+  });
+
+  describe('ctor with NgxMomentOptions', () => {
+    const momentOptions: NgxMomentOptions = {
+      relativeTimeThresholdOptions: {
+        m: 59,
+      },
+    };
+
+    it(`should transform '50 minutes before' to '50 minutes ago' when relativeTimeThreshold for 'm' unit is set to 59`, () => {
+      const pipe = new TimeAgoPipe(null, new NgZoneMock() as NgZone, momentOptions);
+      expect(pipe.transform(moment().subtract(50, 'minutes'))).toEqual('50 minutes ago');
     });
   });
 });
