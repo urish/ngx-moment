@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import { DateFormatPipe } from './date-format.pipe';
 import { FromUtcPipe } from './from-utc.pipe';
 

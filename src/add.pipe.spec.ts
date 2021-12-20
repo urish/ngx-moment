@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import * as moment from 'moment';
+import moment from 'moment';
 import { AddPipe } from './add.pipe';
 
 describe('AddPipe', () => {

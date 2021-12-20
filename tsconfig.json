@@ -17,6 +17,8 @@
     "inlineSources": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",

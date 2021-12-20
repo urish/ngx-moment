@@ -1,9 +1,7 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
-
-const momentConstructor = moment;
+import moment from 'moment';
 
 @Pipe({ name: 'amDifference' })
 export class DifferencePipe implements PipeTransform {
@@ -13,8 +11,8 @@ export class DifferencePipe implements PipeTransform {
     unit?: moment.unitOfTime.Diff,
     precision?: boolean,
   ): number {
-    const date = momentConstructor(value);
-    const date2 = otherValue !== null ? momentConstructor(otherValue) : momentConstructor();
+    const date = moment(value);
+    const date2 = otherValue !== null ? moment(otherValue) : moment();
 
     return date.diff(date2, unit, precision);
   }

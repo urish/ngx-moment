@@ -1,8 +1,6 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 import { Pipe, PipeTransform } from '@angular/core';
-
-const momentConstructor = moment;
 
 @Pipe({
   name: 'amIsBefore',
@@ -13,6 +11,6 @@ export class IsBeforePipe implements PipeTransform {
     otherValue: moment.MomentInput,
     unit?: moment.unitOfTime.StartOf,
   ): boolean {
-    return momentConstructor(value).isBefore(momentConstructor(otherValue), unit);
+    return moment(value).isBefore(moment(otherValue), unit);
   }
 }

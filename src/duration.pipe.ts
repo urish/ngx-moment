@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 import { Inject, Optional, Pipe, PipeTransform } from '@angular/core';
 import { NGX_MOMENT_OPTIONS, NgxMomentOptions } from './moment-options';

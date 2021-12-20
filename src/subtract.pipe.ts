@@ -1,9 +1,7 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
-
-const momentConstructor = moment;
+import moment from 'moment';
 
 @Pipe({ name: 'amSubtract' })
 export class SubtractPipe implements PipeTransform {
@@ -18,6 +16,6 @@ export class SubtractPipe implements PipeTransform {
     ) {
       throw new Error('SubtractPipe: missing required arguments');
     }
-    return momentConstructor(value).subtract(amount, unit);
+    return moment(value).subtract(amount, unit);
   }
 }

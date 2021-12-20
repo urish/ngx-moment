@@ -1,9 +1,7 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
-
-const momentConstructor = moment;
+import moment from 'moment';
 
 @Pipe({ name: 'amDateFormat' })
 export class DateFormatPipe implements PipeTransform {
@@ -11,6 +9,6 @@ export class DateFormatPipe implements PipeTransform {
     if (!value) {
       return '';
     }
-    return momentConstructor(value).format(args[0]);
+    return moment(value).format(args[0]);
   }
 }

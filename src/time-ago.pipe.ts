@@ -1,9 +1,7 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
 import { Pipe, ChangeDetectorRef, PipeTransform, OnDestroy, NgZone } from '@angular/core';
-import * as moment from 'moment';
-
-const momentConstructor = moment;
+import moment from 'moment';
 
 @Pipe({ name: 'amTimeAgo', pure: false })
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
@@ -19,7 +17,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {}
 
   format(m: moment.Moment) {
-    return m.from(momentConstructor(), this.lastOmitSuffix);
+    return m.from(moment(), this.lastOmitSuffix);
   }
 
   transform(
@@ -35,7 +33,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
       this.formatFn = formatFn || this.format.bind(this);
       this.removeTimer();
       this.createTimer();
-      this.lastText = this.formatFn(momentConstructor(value));
+      this.lastText = this.formatFn(moment(value));
     } else {
       this.createTimer();
     }
@@ -52,13 +50,13 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
       return;
     }
 
-    const momentInstance = momentConstructor(this.lastValue);
+    const momentInstance = moment(this.lastValue);
     const timeToUpdate = this.getSecondsUntilUpdate(momentInstance) * 1000;
 
     this.currentTimer = this.ngZone.runOutsideAngular(() => {
       if (typeof window !== 'undefined') {
         return window.setTimeout(() => {
-          this.lastText = this.formatFn(momentConstructor(this.lastValue));
+          this.lastText = this.formatFn(moment(this.lastValue));
 
           this.currentTimer = null;
           this.ngZone.run(() => this.cdRef.markForCheck());
@@ -77,7 +75,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   }
 
   private getSecondsUntilUpdate(momentInstance: moment.Moment) {
-    const howOld = Math.abs(momentConstructor().diff(momentInstance, 'minute'));
+    const howOld = Math.abs(moment().diff(momentInstance, 'minute'));
     if (howOld < 1) {
       return 1;
     } else if (howOld < 60) {
@@ -103,7 +101,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     } else if (moment.isMoment(value)) {
       return value.valueOf();
     } else {
-      return momentConstructor(value).valueOf();
+      return moment(value).valueOf();
     }
   }
 
