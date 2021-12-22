@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import { ParseZonePipe } from './parse-zone.pipe';
 
 describe('ParseZonePipe', () => {

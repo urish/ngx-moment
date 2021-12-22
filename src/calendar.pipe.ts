@@ -8,10 +8,8 @@ import {
   OnDestroy,
   NgZone,
 } from '@angular/core';
-import * as moment from 'moment';
+import moment from 'moment';
 import { Subscription } from 'rxjs';
-
-const momentConstructor = moment;
 
 @Pipe({ name: 'amCalendar', pure: false })
 export class CalendarPipe implements PipeTransform, OnDestroy {
@@ -47,12 +45,12 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
         if (typeof args[i] === 'object' && !moment.isMoment(args[i])) {
           formats = args[i];
         } else {
-          referenceTime = momentConstructor(args[i]);
+          referenceTime = moment(args[i]);
         }
       }
     }
 
-    return momentConstructor(value).calendar(referenceTime, formats);
+    return moment(value).calendar(referenceTime, formats);
   }
 
   ngOnDestroy(): void {
@@ -96,8 +94,8 @@ export class CalendarPipe implements PipeTransform, OnDestroy {
   }
 
   private static _getMillisecondsUntilUpdate() {
-    const now = momentConstructor();
-    const tomorrow = momentConstructor().startOf('day').add(1, 'days');
+    const now = moment();
+    const tomorrow = moment().startOf('day').add(1, 'days');
     const timeToMidnight = tomorrow.valueOf() - now.valueOf();
     return timeToMidnight + 1000; // 1 second after midnight
   }

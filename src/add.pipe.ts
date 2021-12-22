@@ -1,9 +1,7 @@
 /* ngx-moment (c) 2015, 2016 Uri Shaked / MIT Licence */
 
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment';
-
-const momentConstructor = moment;
+import moment from 'moment';
 
 @Pipe({ name: 'amAdd' })
 export class AddPipe implements PipeTransform {
@@ -18,6 +16,6 @@ export class AddPipe implements PipeTransform {
     ) {
       throw new Error('AddPipe: missing required arguments');
     }
-    return momentConstructor(value).add(amount, unit);
+    return moment(value).add(amount, unit);
   }
 }

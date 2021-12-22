@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import * as moment from 'moment';
+import moment from 'moment';
 import { NgZone } from '@angular/core';
 import { CalendarPipe } from './calendar.pipe';
 
