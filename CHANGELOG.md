@@ -1,7 +1,10 @@
 # Changelog
 
+## 6.0.2 - 2021-12-22
+- Fix moment import via jsnext entry point (use default import interop) (see [#245](https://github.com/urish/ngx-moment/issues/245))
+
 ## 6.0.1 - 2021-12-20
-- Fix build issue (see [#273](https://github.com/urish/ngx-moment/issues/273))
+- Fix build issue (see [#273](https://github.com/urish/ngx-moment/issues/273))_
 
 ## 6.0.0 - 2021-11-30
 - Support for Angular 13 + Ivy
